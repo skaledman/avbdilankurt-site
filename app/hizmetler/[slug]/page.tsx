@@ -1,18 +1,63 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ChevronRight, PhoneCall } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
-import { getServiceBySlug, SERVICES, SITE_INFO } from "@/lib/site-data";
+import {
+  getBlogPostsForService,
+  getServiceBySlug,
+  SERVICES,
+  SITE_INFO,
+} from "@/lib/site-data";
+import { absoluteUrl } from "@/lib/site-url";
 
 export function generateStaticParams() {
   return SERVICES.map((service) => ({ slug: service.slug }));
 }
 
-export default async function ServiceDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const service = getServiceBySlug(slug);
+  if (!service) return { title: "Hizmet Bulunamadı" };
+  const title = `${service.title} | Av. Betül Dilan Kurt | Adana Avukat`;
+  const description =
+    service.heroDescription.length > 155
+      ? service.heroDescription.slice(0, 152) + "…"
+      : service.heroDescription;
+  return {
+    title,
+    description,
+    alternates: { canonical: absoluteUrl(`/hizmetler/${slug}`) },
+    openGraph: {
+      title,
+      description,
+      type: "website",
+      locale: "tr_TR",
+      url: absoluteUrl(`/hizmetler/${slug}`),
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+    },
+  };
+}
+
+export default async function ServiceDetailPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   const { slug } = await params;
   const service = getServiceBySlug(slug);
 
   if (!service) notFound();
+
+  const relatedPosts = getBlogPostsForService(service.title, 3);
 
   return (
     <div>
@@ -25,15 +70,20 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
       <section className="section-inner grid gap-10 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-start">
         <article className="rounded-3xl border border-white/[0.06] bg-[var(--bg-card)] p-6 sm:p-8">
           <div className="mb-8 flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.2em] text-[rgba(240,236,228,0.45)]">
-            <Link href="/" className="transition-colors hover:text-[var(--gold)]">Ana Sayfa</Link>
-            <ChevronRight size={14} />
-            <Link href="/hizmetler" className="transition-colors hover:text-[var(--gold)]">Hizmetler</Link>
-            <ChevronRight size={14} />
+            <Link href="/" className="transition-colors hover:text-[var(--gold)]">
+              Ana Sayfa
+            </Link>
+            <ChevronRight size={14} aria-hidden />
+            <Link href="/hizmetler" className="transition-colors hover:text-[var(--gold)]">
+              Hizmetler
+            </Link>
+            <ChevronRight size={14} aria-hidden />
             <span className="text-[var(--gold)]">{service.title}</span>
           </div>
 
-          <h2 className="font-heading text-4xl font-semibold text-[var(--foreground)]">{service.title}</h2>
-          <p className="mt-4 text-lg leading-8 text-[var(--text-muted)]">{service.shortDescription}</p>
+          <p className="text-lg leading-8 text-[var(--text-muted)]">
+            {service.shortDescription}
+          </p>
 
           <div className="mt-8 space-y-6">
             {service.detailParagraphs.map((paragraph) => (
@@ -44,7 +94,9 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
           </div>
 
           <div className="mt-10 rounded-2xl border border-[var(--gold-dim)] bg-[rgba(201,168,76,0.06)] p-6">
-            <h3 className="font-heading text-2xl font-semibold text-[var(--foreground)]">Bu alanda öne çıkan başlıklar</h3>
+            <h2 className="font-heading text-2xl font-semibold text-[var(--foreground)]">
+              Bu alanda öne çıkan başlıklar
+            </h2>
             <ul className="mt-4 grid gap-3 sm:grid-cols-2">
               {service.bullets.map((bullet) => (
                 <li key={bullet} className="rounded-xl border border-white/[0.06] bg-black/10 px-4 py-3 text-base text-[var(--text-muted)]">
@@ -55,9 +107,39 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
           </div>
         </article>
 
-        <aside className="space-y-6 lg:sticky lg:top-28">
+        <aside className="space-y-6 lg:sticky lg:top-28" aria-label="İlgili içerik">
+          {relatedPosts.length > 0 && (
+            <div className="rounded-3xl border border-white/[0.06] bg-[var(--bg-card)] p-6">
+              <h3 className="font-heading text-xl font-semibold text-[var(--foreground)]">
+                İlgili Yazılar
+              </h3>
+              <p className="mt-2 text-sm text-[var(--text-muted)]">
+                {service.title} ile ilgili bilgilendirme yazıları.
+              </p>
+              <div className="mt-4 flex flex-col gap-3">
+                {relatedPosts.map((item) => (
+                  <Link
+                    key={item.slug}
+                    href={`/blog/${item.slug}`}
+                    className="rounded-xl border border-white/[0.06] bg-black/10 p-3 text-sm font-medium text-[var(--foreground)] transition-colors hover:border-[var(--gold-dim)] hover:text-[var(--gold)]"
+                  >
+                    {item.title}
+                  </Link>
+                ))}
+              </div>
+              <Link
+                href="/blog"
+                className="mt-3 inline-block text-sm font-semibold text-[var(--gold)] transition-colors hover:text-[var(--gold-light)]"
+              >
+                Tüm yazılar →
+              </Link>
+            </div>
+          )}
+
           <div className="rounded-3xl border border-white/[0.06] bg-[var(--bg-card)] p-6">
-            <h3 className="font-heading text-2xl font-semibold text-[var(--foreground)]">Tüm Hizmetler</h3>
+            <h3 className="font-heading text-2xl font-semibold text-[var(--foreground)]">
+              Tüm Hizmetler
+            </h3>
             <div className="mt-5 flex flex-col divide-y divide-white/[0.06]">
               {SERVICES.map((item) => (
                 <Link

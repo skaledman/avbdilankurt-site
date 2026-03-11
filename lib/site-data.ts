@@ -1,13 +1,20 @@
 import type { LucideIcon } from "lucide-react";
 import {
+  Bell,
   BookOpen,
   Briefcase,
+  FileCheck,
   Gavel,
   Heart,
   Home,
+  LayoutDashboard,
   Scale,
   Shield,
+  ShieldCheck,
+  Target,
   TrendingUp,
+  UserCheck,
+  Users,
 } from "lucide-react";
 
 export type ServiceItem = {
@@ -44,6 +51,26 @@ export type CourtDecision = {
   summary: string;
   excerpt: string;
   content: string[];
+};
+
+export type WhyChooseUsItem = {
+  key: string;
+  title: string;
+  description: string;
+  icon: LucideIcon;
+};
+
+export type Testimonial = {
+  id: string;
+  quote: string;
+  serviceArea: string;
+};
+
+export type TrustIndicator = {
+  key: string;
+  title: string;
+  description: string;
+  icon: LucideIcon;
 };
 
 export const SITE_INFO = {
@@ -236,6 +263,90 @@ export const BLOG_POSTS: BlogPost[] = [
     ],
     tags: ["miras hukuku", "saklı pay", "tenkis davası", "vasiyetname", "muris muvazaası"],
   },
+  {
+    slug: "bosanma-davasi-ne-kadar-surer",
+    title: "Boşanma Davası Ne Kadar Sürer?",
+    date: "5 Mart 2026",
+    category: "Aile Hukuku",
+    summary:
+      "Anlaşmalı ve çekişmeli boşanma davalarında süreler farklılık gösterir. Ortalama yargılama süreleri ve süreyi etkileyen faktörler hakkında bilgi.",
+    content: [
+      "Boşanma davasının süresi, anlaşmalı veya çekişmeli olmasına, taleplerin kapsamına ve mahkemenin iş yoğunluğuna göre değişir. Anlaşmalı boşanmada taraflar boşanma ve fer'i sonuçlar üzerinde anlaşmışsa, tek veya birkaç duruşmada sonuç alınabilir.",
+      "Çekişmeli boşanma davalarında delil toplama, bilirkişi incelemeleri, sosyal inceleme raporu ve çocuk varsa velayet değerlendirmesi gibi aşamalar süreyi uzatabilir. Bu nedenle çekişmeli davalarda birkaç ay ile birkaç yıl arasında değişen süreler söz konusu olabilir.",
+      "Süreci etkileyen diğer unsurlar arasında tarafların işbirliği, delillerin hazırlanma hızı ve mahkeme takvimi yer alır. Hukuki süreç hakkında ön bilgi almak için avukatlık hizmeti ve danışmanlık desteği almanız faydalı olur.",
+    ],
+    tags: ["boşanma davası", "anlaşmalı boşanma", "çekişmeli boşanma", "dava süresi", "aile hukuku"],
+  },
+  {
+    slug: "nafaka-nasil-belirlenir",
+    title: "Nafaka Nasıl Belirlenir?",
+    date: "28 Şubat 2026",
+    category: "Aile Hukuku",
+    summary:
+      "İştirak nafakası ve yoksulluk nafakasının belirlenmesinde mahkemelerin dikkate aldığı kriterler ve hesaplama yaklaşımları.",
+    content: [
+      "İştirak nafakası, velayet kendisine verilmeyen ebeveynin çocuğun giderlerine katkı amacıyla ödediği aylık ödemedir. Mahkemeler çocuğun ihtiyaçları, tarafların gelir ve malvarlığı ile yaşam standartlarını dikkate alarak miktarı belirler.",
+      "Yoksulluk nafakası ise boşanma sonrasında ekonomik yönden güçsüz kalan eş lehine talep edilebilir. Süre ve miktar somut olaya göre değerlendirilir; kusur oranı da bazı durumlarda etkili olabilir.",
+      "Nafaka miktarına itiraz, artış veya indirim talepleri belirli koşullarda gündeme gelebilir. Bu süreçlerde hukuki danışmanlık alarak haklarınızı ve yükümlülüklerinizi netleştirmeniz önem taşır.",
+    ],
+    tags: ["nafaka", "iştirak nafakası", "yoksulluk nafakası", "aile hukuku", "velayet"],
+  },
+  {
+    slug: "isten-cikarilan-iscinin-haklari",
+    title: "İşten Çıkarılan İşçinin Hakları Nelerdir?",
+    date: "20 Şubat 2026",
+    category: "İş Hukuku",
+    summary:
+      "İş sözleşmesi feshedilen işçinin kıdem, ihbar tazminatı, alacaklar ve işe iade gibi hakları hakkında özet bilgi.",
+    content: [
+      "İşveren tarafından fesih halinde işçinin hakları, fesih nedenine ve süresine göre değişir. Haklı nedenle fesih yoksa kıdem tazminatı, ihbar tazminatı, kullanılmayan yıllık izin ücreti ve varsa diğer alacaklar talep edilebilir.",
+      "Belirli sayıdaki işçi çalıştıran işyerlerinde feshe itiraz için önce arabulucuya başvuru yapılması gerekebilir. Süreler kaçırılmadan hareket edilmesi, işe iade ve alacak davaları açısından kritiktir.",
+      "Fazla mesai, ulusal bayram ve genel tatil ücretleri gibi alacaklar da ayrıca değerlendirilir. İş hukuku alanında avukatlık hizmeti ve danışmanlık ile haklarınızı netleştirebilirsiniz.",
+    ],
+    tags: ["iş hukuku", "işten çıkarılma", "kıdem tazminatı", "ihbar tazminatı", "işe iade"],
+  },
+  {
+    slug: "miras-paylasimi-nasil-yapilir",
+    title: "Miras Paylaşımı Nasıl Yapılır?",
+    date: "14 Şubat 2026",
+    category: "Miras Hukuku",
+    summary:
+      "Mirasçılık belgesi, tereke tespiti ve miras paylaşımı süreçlerinin temel adımları hakkında bilgi.",
+    content: [
+      "Miras bırakanın vefatından sonra yasal mirasçılar mirasçılık belgesi alarak yasal haklarını belgeler. Bu belge noter veya sulh hukuk mahkemesinden temin edilebilir.",
+      "Terekenin tespiti, borçların düşülmesi ve mirasçıların pay oranları Medeni Kanun hükümlerine göre belirlenir. Anlaşmalı paylaşım mümkün olduğu gibi, anlaşmazlık halinde ortaklığın giderilmesi davası açılabilir.",
+      "Saklı paylı mirasçılar tenkis davası açabilir; muris muvazaası iddiaları da miras paylaşımı sürecinde gündeme gelebilir. Miras hukuku konusunda hukuki danışmanlık almak sürecin sağlıklı yürütülmesine katkı sağlar.",
+    ],
+    tags: ["miras paylaşımı", "mirasçılık belgesi", "tereke", "tenkis", "miras hukuku"],
+  },
+  {
+    slug: "ceza-sorusturmasinda-ilk-asamada-ne-yapilmali",
+    title: "Ceza Soruşturmasında İlk Aşamada Ne Yapılmalı?",
+    date: "8 Şubat 2026",
+    category: "Ceza Hukuku",
+    summary:
+      "Soruşturma evresinde şüpheli veya mağdur sıfatıyla yapılacak başvurular ve avukat desteğinin önemi.",
+    content: [
+      "Ceza soruşturmasında gözaltı, ifade alma veya adli kontrol gibi tedbirler söz konusu olabilir. Bu aşamada susma hakkı, avukat bulundurma hakkı ve ifade vermeden önce hukuki destek almak son derece önemlidir.",
+      "Şüpheli veya sanık sıfatıyla savunma stratejisi, delillerin değerlendirilmesi ve usule ilişkin hakların kullanılması titizlikle planlanmalıdır. Mağdur tarafında ise şikâyet, suç duyurusu ve müdahil olma süreçleri hukuki danışmanlık ile yürütülebilir.",
+      "Soruşturma aşamasında yapılan hatalar kovuşturma ve sonuç üzerinde etkili olabileceğinden, ilk andan itibaren ceza hukuku alanında avukatlık hizmeti almak haklarınızın korunması açısından faydalıdır.",
+    ],
+    tags: ["ceza hukuku", "soruşturma", "gözaltı", "savunma", "avukat"],
+  },
+  {
+    slug: "kira-uyusmazliklarinda-hukuki-yol",
+    title: "Kira Uyuşmazlıklarında Hukuki Yol Nedir?",
+    date: "1 Şubat 2026",
+    category: "Gayrimenkul Hukuku",
+    summary:
+      "Kira sözleşmesi, tahliye, kira tespit davası ve kira alacakları konusunda başvurulabilecek hukuki yollar.",
+    content: [
+      "Kira uyuşmazlıklarında tarafların konumu (kiracı veya kiraya veren), sözleşme türü ve uyuşmazlığın niteliği hangi yollara başvurulacağını belirler. Tahliye davası, kira tespit davası veya kira alacağı takibi gündeme gelebilir.",
+      "6098 sayılı Türk Borçlar Kanunu ve ilgili mevzuat kira ilişkisinin kurulması, süresi ve sona ermesi bakımından özel hükümler içerir. Sürelere ve bildirim şartlarına uyulması önem taşır.",
+      "Gayrimenkul hukuku kapsamında kira uyuşmazlıklarında hukuki danışmanlık ve dava takibi için avukatlık hizmeti alarak sürecin doğru yönetilmesini sağlayabilirsiniz.",
+    ],
+    tags: ["kira", "tahliye", "gayrimenkul hukuku", "kira tespit", "tahliye davası"],
+  },
 ];
 
 export const FAQ_ITEMS: FaqItem[] = [
@@ -379,6 +490,114 @@ export const COURT_DECISIONS: CourtDecision[] = [
   },
 ];
 
+/** Neden Biz / Neden Av. Betül Dilan Kurt? – güven unsurları */
+export const WHY_CHOOSE_US: WhyChooseUsItem[] = [
+  {
+    key: "transparent",
+    title: "Şeffaf Süreç Yönetimi",
+    description:
+      "Hukuki süreçlerin her aşamasında ne yapıldığı, hangi adımların atılacağı ve olası sonuçlar açık biçimde paylaşılır. Avukatlık hizmeti alırken belirsizlik yerine net bilgilendirme hedeflenir.",
+    icon: LayoutDashboard,
+  },
+  {
+    key: "updates",
+    title: "Düzenli Bilgilendirme",
+    description:
+      "Dosya takibi ve duruşma süreçleri hakkında düzenli geri bildirim verilir. Müvekkilin süreci takip etmesi ve kendini güvende hissetmesi önemsenir.",
+    icon: Bell,
+  },
+  {
+    key: "personal",
+    title: "Kişiye Özel Hukuki Yaklaşım",
+    description:
+      "Her dosya kendi koşulları içinde değerlendirilir; benzer davalardan farklılaşan yönler dikkate alınır. Kişiye özel strateji ile hukuki danışmanlık sunulur.",
+    icon: UserCheck,
+  },
+  {
+    key: "diligence",
+    title: "Titiz Dosya Takibi",
+    description:
+      "Sürelere uyum, gerekli başvuruların zamanında yapılması ve belgelerin eksiksiz hazırlanması titizlikle takip edilir. Dava takibi ve ön değerlendirme süreçleri düzenli yürütülür.",
+    icon: FileCheck,
+  },
+  {
+    key: "confidentiality",
+    title: "Güven ve Gizlilik",
+    description:
+      "Paylaşılan bilgi ve belgeler meslek sırrı ve gizlilik ilkeleri çerçevesinde korunur. Müvekkil ile kurulan ilişkide güven esas alınır.",
+    icon: ShieldCheck,
+  },
+  {
+    key: "solution",
+    title: "Çözüm Odaklı Danışmanlık",
+    description:
+      "Uyuşmazlığın çözümü için uygun hukuki yollar değerlendirilir; dava öncesi uzlaşma veya alternatif çözüm seçenekleri de sunulur.",
+    icon: Target,
+  },
+];
+
+/** Müvekkil görüşleri – kimlik ifşa etmeyen, profesyonel yorumlar */
+export const TESTIMONIALS: Testimonial[] = [
+  {
+    id: "t1",
+    quote:
+      "Süreç boyunca düzenli bilgilendirme yapıldı. Her aşamada ne yapılacağı net şekilde anlatıldı.",
+    serviceArea: "Aile Hukuku",
+  },
+  {
+    id: "t2",
+    quote:
+      "İş hukuku konusunda hızlı ve profesyonel destek aldık. Süreçlerin takibi titizlikle yürütüldü.",
+    serviceArea: "İş Hukuku",
+  },
+  {
+    id: "t3",
+    quote:
+      "Boşanma sürecinde titiz ve güven veren bir yaklaşım gördük. Hukuki süreçler anlaşılır biçimde aktarıldı.",
+    serviceArea: "Aile Hukuku",
+  },
+  {
+    id: "t4",
+    quote:
+      "Miras paylaşımı konusunda yol gösterici danışmanlık aldım. Belgelerin hazırlanması ve takibi düzenli yapıldı.",
+    serviceArea: "Miras Hukuku",
+  },
+  {
+    id: "t5",
+    quote:
+      "Ceza hukuku sürecinde her aşamada bilgilendirildim. Savunma stratejisi net ve anlaşılır şekilde anlatıldı.",
+    serviceArea: "Ceza Hukuku",
+  },
+];
+
+/** Güven göstergeleri – sayısal iddia yok, prestij kartları */
+export const TRUST_INDICATORS: TrustIndicator[] = [
+  {
+    key: "individual",
+    title: "Bireysel Müvekkil Desteği",
+    description: "Bireysel hukuki sorunlarda özenli değerlendirme ve süreç yönetimi.",
+    icon: Users,
+  },
+  {
+    key: "corporate",
+    title: "Kurumsal Danışmanlık",
+    description: "İşletmeler için sözleşme, uyuşmazlık ve uyum süreçlerinde hukuki destek.",
+    icon: Briefcase,
+  },
+  {
+    key: "transparent",
+    title: "Şeffaf Süreç Yönetimi",
+    description: "Düzenli bilgilendirme ve müvekkilin süreci takip edebilmesi önceliklidir.",
+    icon: LayoutDashboard,
+  },
+  {
+    key: "diligence",
+    title: "Titiz Dosya Takibi",
+    description: "Sürelere uyum ve belgelerin eksiksiz hazırlanması titizlikle takip edilir.",
+    icon: FileCheck,
+  },
+];
+
 export function getServiceBySlug(slug: string) {
   return SERVICES.find((service) => service.slug === slug);
 }
@@ -389,4 +608,41 @@ export function getBlogPostBySlug(slug: string) {
 
 export function getCourtDecisionBySlug(slug: string) {
   return COURT_DECISIONS.find((decision) => decision.slug === slug);
+}
+
+/** İlgili blog yazıları (aynı kategori, mevcut yazı hariç, en fazla 3) */
+export function getRelatedBlogPosts(category: string, excludeSlug: string, limit = 3): BlogPost[] {
+  return BLOG_POSTS.filter((p) => p.category === category && p.slug !== excludeSlug).slice(0, limit);
+}
+
+/** Kategori adına göre ilgili hizmet slug'ı (örn. "Aile Hukuku" -> aile-hukuku) */
+export function getServiceSlugByCategory(category: string): string | null {
+  const service = SERVICES.find(
+    (s) => s.title.toLowerCase() === category.toLowerCase()
+  );
+  return service ? service.slug : null;
+}
+
+/** Hizmet sayfası için ilgili blog yazıları (hizmet başlığı = kategori) */
+export function getBlogPostsForService(serviceTitle: string, limit = 3): BlogPost[] {
+  return BLOG_POSTS.filter((p) => p.category === serviceTitle).slice(0, limit);
+}
+
+/** Blog kategori sayfaları (SEO: /blog/aile-hukuku vb.) */
+export const BLOG_CATEGORIES = [
+  { slug: "aile-hukuku", title: "Aile Hukuku" },
+  { slug: "is-hukuku", title: "İş Hukuku" },
+  { slug: "miras-hukuku", title: "Miras Hukuku" },
+  { slug: "ceza-hukuku", title: "Ceza Hukuku" },
+  { slug: "gayrimenkul-hukuku", title: "Gayrimenkul Hukuku" },
+] as const;
+
+export function getCategoryBySlug(slug: string): { slug: string; title: string } | null {
+  return BLOG_CATEGORIES.find((c) => c.slug === slug) ?? null;
+}
+
+export function getPostsByCategorySlug(categorySlug: string): BlogPost[] {
+  const cat = getCategoryBySlug(categorySlug);
+  if (!cat) return [];
+  return BLOG_POSTS.filter((p) => p.category === cat.title);
 }

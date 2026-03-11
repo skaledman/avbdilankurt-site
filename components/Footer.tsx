@@ -32,13 +32,13 @@ export function Footer() {
               </div>
             </div>
             <p className="max-w-sm text-base leading-8 text-[var(--text-faint)]">
-              Bireysel ve kurumsal müvekkiller için farklı hukuk alanlarında özenli danışmanlık, dava takibi ve stratejik hukuki destek sunulmaktadır.
+              Adana&apos;da hukuki danışmanlık ve avukatlık hizmeti. Bireysel ve kurumsal müvekkiller için farklı hukuk alanlarında özenli danışmanlık, dava takibi ve stratejik hukuki destek sunulmaktadır.
             </p>
             <div className="flex items-center gap-3">
-              <a href={SITE_INFO.instagram} target="_blank" rel="noopener noreferrer" className="footer-social">
+              <a href={SITE_INFO.instagram} target="_blank" rel="noopener noreferrer" className="footer-social" aria-label="Instagram">
                 <Instagram size={16} />
               </a>
-              <a href={SITE_INFO.linkedin} target="_blank" rel="noopener noreferrer" className="footer-social">
+              <a href={SITE_INFO.linkedin} target="_blank" rel="noopener noreferrer" className="footer-social" aria-label="LinkedIn">
                 <Linkedin size={16} />
               </a>
             </div>

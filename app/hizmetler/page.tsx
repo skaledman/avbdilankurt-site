@@ -1,7 +1,21 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import { SERVICES } from "@/lib/site-data";
+
+export const metadata: Metadata = {
+  title: "Hizmet Alanları | Aile, Ceza, İş, Miras Hukuku | Av. Betül Dilan Kurt",
+  description:
+    "Aile hukuku, ceza hukuku, iş hukuku, miras hukuku, gayrimenkul ve ticaret hukuku alanlarında avukatlık hizmeti ve hukuki danışmanlık. Adana.",
+  openGraph: {
+    title: "Hizmet Alanları | Av. Betül Dilan Kurt | Adana Avukat",
+    description:
+      "Aile, ceza, iş, miras ve diğer hukuk alanlarında danışmanlık ve dava takibi. Adana avukatlık hizmeti.",
+    type: "website",
+    locale: "tr_TR",
+  },
+};
 
 export default function ServicesPage() {
   return (

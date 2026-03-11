@@ -1,7 +1,21 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
-import { BLOG_POSTS } from "@/lib/site-data";
+import { BLOG_CATEGORIES, BLOG_POSTS } from "@/lib/site-data";
+
+export const metadata: Metadata = {
+  title: "Blog | Hukuki Bilgilendirme Yazıları | Av. Betül Dilan Kurt",
+  description:
+    "Aile hukuku, iş hukuku, miras hukuku, ceza hukuku ve gayrimenkul hukuku konularında bilgilendirme yazıları. Adana avukatlık hizmeti ve hukuki danışmanlık.",
+  openGraph: {
+    title: "Blog | Hukuki Bilgilendirme Yazıları | Av. Betül Dilan Kurt",
+    description:
+      "Aile hukuku, iş hukuku, miras hukuku ve diğer alanlarda bilgilendirme yazıları. Adana avukatlık ve hukuki danışmanlık.",
+    type: "website",
+    locale: "tr_TR",
+  },
+};
 
 function getBlogPlaceholder(slug: string) {
   if (slug.includes("bosanma")) return "https://picsum.photos/seed/bosanma/800/400";
@@ -16,10 +30,25 @@ export default function BlogPage() {
       <PageHero
         eyebrow="Blog / Yazılar"
         title="Bilgilendirme Yazıları"
-        description="Hukuki süreçleri daha anlaşılır hale getirmek amacıyla hazırlanan örnek bilgilendirme yazılarına buradan ulaşabilirsiniz."
+        description="Hukuki süreçleri daha anlaşılır hale getirmek amacıyla hazırlanan bilgilendirme yazılarına buradan ulaşabilirsiniz."
       />
 
-      <section className="section-inner grid gap-6 lg:grid-cols-3">
+      <section className="section-inner">
+        <h2 className="sr-only">Kategoriler</h2>
+        <div className="mb-12 flex flex-wrap gap-3">
+          {BLOG_CATEGORIES.map((c) => (
+            <Link
+              key={c.slug}
+              href={`/blog/${c.slug}`}
+              className="rounded-full border border-[var(--gold-dim)] bg-[rgba(201,168,76,0.06)] px-4 py-2 text-sm font-semibold text-[var(--gold)] transition-colors hover:border-[var(--gold)] hover:bg-[rgba(201,168,76,0.12)]"
+            >
+              {c.title}
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className="section-inner grid gap-6 lg:grid-cols-3" aria-label="Tüm yazılar">
         {BLOG_POSTS.map((post, index) => (
           <Link
             key={post.slug}

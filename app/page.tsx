@@ -1,10 +1,12 @@
 import { Hero } from "@/components/Hero";
 import { SectionWrapper } from "@/components/SectionWrapper";
 import { AboutSection } from "@/components/sections/AboutSection";
-import { ServicesSection } from "@/components/sections/ServicesSection";
-import { WhyChooseUsSection } from "@/components/sections/WhyChooseUsSection";
 import { BlogPreviewSection } from "@/components/sections/BlogPreviewSection";
 import { ContactSection } from "@/components/sections/ContactSection";
+import { ReviewsSection } from "@/components/sections/ReviewsSection";
+import { ServicesSection } from "@/components/sections/ServicesSection";
+import { TrustIndicatorsSection } from "@/components/sections/TrustIndicatorsSection";
+import { WhyChooseUsSection } from "@/components/sections/WhyChooseUsSection";
 
 export default function Home() {
   return (
@@ -16,12 +18,20 @@ export default function Home() {
           <AboutSection />
         </SectionWrapper>
         <div className="divider" />
+        <SectionWrapper id="neden-biz">
+          <WhyChooseUsSection />
+        </SectionWrapper>
+        <div className="divider" />
         <SectionWrapper id="hizmetler">
           <ServicesSection />
         </SectionWrapper>
         <div className="divider" />
-        <SectionWrapper id="neden-biz">
-          <WhyChooseUsSection />
+        <SectionWrapper id="guven-gostergeleri">
+          <TrustIndicatorsSection />
+        </SectionWrapper>
+        <div className="divider" />
+        <SectionWrapper id="danisan-yorumlari">
+          <ReviewsSection />
         </SectionWrapper>
         <div className="divider" />
         <SectionWrapper id="blog">
