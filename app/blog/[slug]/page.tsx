@@ -14,15 +14,6 @@ import {
 } from "@/lib/site-data";
 import { absoluteUrl } from "@/lib/site-url";
 
-function getBlogPlaceholder(slug: string) {
-  if (slug.includes("bosanma")) return "https://picsum.photos/seed/bosanma/800/400";
-  if (slug.includes("is-sozlesmesi") || slug.includes("isten-cikarilan")) return "https://picsum.photos/seed/issozlesmesi/800/400";
-  if (slug.includes("miras")) return "https://picsum.photos/seed/miras/800/400";
-  if (slug.includes("ceza")) return "https://picsum.photos/seed/ceza/800/400";
-  if (slug.includes("kira")) return "https://picsum.photos/seed/kira/800/400";
-  return `https://picsum.photos/seed/${slug}/800/400`;
-}
-
 export function generateStaticParams() {
   const postSlugs = BLOG_POSTS.map((post) => ({ slug: post.slug }));
   const categorySlugs = BLOG_CATEGORIES.map((c) => ({ slug: c.slug }));
@@ -124,28 +115,20 @@ export default async function BlogDetailPage({
                 <Link
                   key={post.slug}
                   href={`/blog/${post.slug}`}
-                  className="group overflow-hidden rounded-2xl border border-white/[0.06] bg-[var(--bg-card)] transition-all hover:-translate-y-1 hover:border-[var(--gold-dim)]"
+                  className="group flex flex-col rounded-2xl border border-white/[0.06] bg-[var(--bg-card)] p-5 transition-all hover:-translate-y-1 hover:border-[var(--gold-dim)]"
                 >
-                  <div
-                    className="flex h-40 items-end bg-cover bg-center p-4"
-                    style={{
-                      backgroundImage: `linear-gradient(135deg, rgba(8,10,18,0.3), rgba(8,10,18,0.7)), url(${getBlogPlaceholder(post.slug)})`,
-                    }}
-                  />
-                  <div className="flex flex-col gap-2 p-5">
-                    <p className="text-[11px] uppercase tracking-[0.2em] text-[rgba(240,236,228,0.42)]">
-                      {post.date}
-                    </p>
-                    <h2 className="font-heading text-lg font-semibold leading-tight text-[var(--foreground)] transition-colors group-hover:text-[var(--gold)]">
-                      {post.title}
-                    </h2>
-                    <p className="line-clamp-2 text-sm leading-6 text-[var(--text-faint)]">
-                      {post.summary}
-                    </p>
-                    <span className="mt-2 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--gold)]">
-                      Oku <ArrowRight size={12} />
-                    </span>
-                  </div>
+                  <p className="text-[11px] uppercase tracking-[0.2em] text-[rgba(240,236,228,0.42)]">
+                    {post.date}
+                  </p>
+                  <h2 className="mt-2 font-heading text-lg font-semibold leading-tight text-[var(--foreground)] transition-colors group-hover:text-[var(--gold)]">
+                    {post.title}
+                  </h2>
+                  <p className="mt-2 line-clamp-2 text-sm leading-6 text-[var(--text-faint)]">
+                    {post.summary}
+                  </p>
+                  <span className="mt-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--gold)]">
+                    Oku <ArrowRight size={12} />
+                  </span>
                 </Link>
               ))}
             </div>

@@ -4,13 +4,6 @@ import { BLOG_POSTS } from "@/lib/site-data";
 
 const HOMEPAGE_BLOG_LIMIT = 6;
 
-function getBlogPlaceholder(slug: string) {
-  if (slug.includes("bosanma")) return "https://picsum.photos/seed/bosanma/800/400";
-  if (slug.includes("is-sozlesmesi")) return "https://picsum.photos/seed/issozlesmesi/800/400";
-  if (slug.includes("miras")) return "https://picsum.photos/seed/miras/800/400";
-  return `https://picsum.photos/seed/${slug}/800/400`;
-}
-
 export function BlogPreviewSection() {
   const posts = BLOG_POSTS.slice(0, HOMEPAGE_BLOG_LIMIT);
 
@@ -39,43 +32,24 @@ export function BlogPreviewSection() {
           <Link
             key={post.slug}
             href={`/blog/${post.slug}`}
-            className="group overflow-hidden rounded-2xl border border-white/[0.06] bg-[var(--bg-card)] transition-all hover:-translate-y-1 hover:border-[var(--gold-dim)]"
+            className="group card-dark flex flex-col rounded-2xl p-6 transition-all hover:-translate-y-1 hover:border-[var(--gold-dim)]"
           >
-            <div
-              className="flex h-48 items-end bg-cover bg-center p-5"
-              style={{
-                backgroundImage: `linear-gradient(135deg, rgba(8,10,18,0.2), rgba(8,10,18,0.72)), url(${getBlogPlaceholder(
-                  post.slug,
-                )})`,
-              }}
-            >
-              <span className="rounded-full border border-[var(--gold-dim)] bg-black/20 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.28em] text-[var(--gold)]">
-                {post.category}
-              </span>
-            </div>
-            <div className="flex flex-col gap-3 p-6">
-              <div className="flex items-center justify-between gap-3 text-[11px] uppercase tracking-[0.2em] text-[rgba(240,236,228,0.42)]">
-                <span>{post.category}</span>
-                <span>{post.date}</span>
-              </div>
-              <h3 className="font-heading text-2xl font-semibold leading-tight text-[var(--foreground)] transition-colors group-hover:text-[var(--gold)]">
-                {post.title}
-              </h3>
-              <p className="text-base leading-8 text-[var(--text-faint)]">{post.summary}</p>
-              <div className="flex flex-wrap gap-2 pt-1">
-                {post.tags.slice(0, 3).map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-full border border-white/[0.08] bg-black/15 px-2.5 py-1 text-[10px] uppercase tracking-[0.18em] text-[rgba(240,236,228,0.52)]"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-              <span className="mt-2 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[var(--gold)]">
-                Devamını Oku <ArrowRight size={14} />
-              </span>
-            </div>
+            <span className="inline-block w-fit rounded-full border border-[var(--gold-dim)] bg-[rgba(201,168,76,0.06)] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.28em] text-[var(--gold)]">
+              {post.category}
+            </span>
+            <h3 className="mt-4 font-heading text-xl font-semibold leading-tight text-[var(--foreground)] transition-colors group-hover:text-[var(--gold)] sm:text-2xl">
+              {post.title}
+            </h3>
+            <p className="mt-3 line-clamp-3 text-base leading-8 text-[var(--text-faint)]">
+              {post.summary}
+            </p>
+            <p className="mt-4 text-[11px] uppercase tracking-[0.2em] text-[rgba(240,236,228,0.42)]">
+              {post.date}
+            </p>
+            <span className="mt-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[var(--gold)]">
+              Devamını Oku
+              <ArrowRight size={14} />
+            </span>
           </Link>
         ))}
       </div>

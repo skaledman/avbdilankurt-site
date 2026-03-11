@@ -56,43 +56,27 @@ export default function CourtDecisionsPage() {
               <Link
                 key={decision.slug}
                 href={`/yargi-kararlari/${decision.slug}`}
-                className="group overflow-hidden rounded-3xl border border-white/[0.06] bg-[var(--bg-card)] transition-all hover:-translate-y-1 hover:border-[var(--gold-dim)]"
+                className="group flex flex-col rounded-2xl border border-white/[0.06] bg-[var(--bg-card)] p-6 transition-all hover:-translate-y-1 hover:border-[var(--gold-dim)] sm:p-7"
               >
-                <div
-                  className="h-48 bg-cover bg-center"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(135deg, rgba(9,25,14,0.32), rgba(9,25,14,0.8)), url(https://picsum.photos/seed/yargi/800/400)",
-                  }}
-                />
-                <div className="p-6 sm:p-7">
-                  <div className="flex flex-wrap items-center justify-between gap-3 text-[11px] uppercase tracking-[0.18em] text-[rgba(240,236,228,0.42)]">
-                    <span className="rounded-full border border-white/[0.08] bg-black/10 px-3 py-1 text-[var(--foreground)]">
-                      {decision.category}
-                    </span>
-                    <span>{decision.date}</span>
-                  </div>
-
-                  <h2 className="mt-5 font-heading text-3xl font-semibold leading-tight text-[var(--foreground)] transition-colors group-hover:text-[var(--gold)]">
-                    {decision.title}
-                  </h2>
-
-                  <p className="mt-4 text-base leading-8 text-[var(--text-muted)]">
-                    <strong>Karar Yeri:</strong> {decision.court}
-                  </p>
-
-                  <p className="mt-4 text-base leading-8 text-[var(--text-faint)]">
-                    {decision.excerpt}
-                  </p>
-
-                  <div className="mt-6 rounded-2xl border border-white/[0.06] bg-black/10 p-4 text-base leading-8 text-[var(--text-faint)]">
-                    {decision.summary}
-                  </div>
-
-                  <span className="mt-6 inline-flex text-sm font-semibold uppercase tracking-[0.18em] text-[var(--gold)]">
-                    Kararın Tamamını İncele
-                  </span>
-                </div>
+                <span className="inline-block w-fit rounded-full border border-[var(--gold-dim)] bg-[rgba(201,168,76,0.06)] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--gold)]">
+                  {decision.category}
+                </span>
+                <h2 className="mt-4 font-heading text-2xl font-semibold leading-tight text-[var(--foreground)] transition-colors group-hover:text-[var(--gold)] sm:text-3xl">
+                  {decision.title}
+                </h2>
+                <p className="mt-3 text-sm text-[var(--text-muted)]">
+                  {decision.court}
+                </p>
+                <p className="mt-2 text-[11px] uppercase tracking-[0.2em] text-[rgba(240,236,228,0.42)]">
+                  {decision.date}
+                </p>
+                <p className="mt-4 line-clamp-3 text-base leading-8 text-[var(--text-faint)]">
+                  {decision.summary}
+                </p>
+                <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-[var(--gold)]">
+                  Detayı incele
+                  <span className="transition-transform group-hover:translate-x-0.5" aria-hidden>→</span>
+                </span>
               </Link>
             ))}
           </div>

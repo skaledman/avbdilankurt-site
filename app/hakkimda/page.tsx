@@ -10,7 +10,7 @@ export default function AboutPage() {
         description="Av. Betül Dilan Kurt'un çalışma yaklaşımı, mesleki öncelikleri ve müvekkil odaklı hukuki hizmet anlayışı hakkında genel bilgilere bu sayfadan ulaşabilirsiniz."
       />
 
-      <section className="section-inner pt-16">
+      <section id="calisma" className="section-inner pt-16" aria-label="İçerik">
         <AboutSection />
       </section>
     </div>
