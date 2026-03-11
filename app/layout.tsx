@@ -1,24 +1,46 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter } from "next/font/google";
+import { Cormorant_Garamond, DM_Sans } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/components/Providers";
+import { Navbar } from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
+import { FloatingContactButtons } from "@/components/FloatingContactButtons";
 
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
+const cormorant = Cormorant_Garamond({
+  variable: "--font-cormorant",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
-const inter = Inter({
-  variable: "--font-inter",
+const dmSans = DM_Sans({
+  variable: "--font-dm-sans",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
   title: "Av. Betül Dilan Kurt | Adana Avukat",
   description:
-    "Av. Betül Dilan Kurt, Adana Barosu'na kayıtlı avukat olarak aile hukuku, ceza hukuku, iş hukuku ve daha birçok alanda profesyonel danışmanlık ve dava takibi hizmeti sunmaktadır.",
+    "Av. Betül Dilan Kurt; aile hukuku, ceza hukuku, iş hukuku, ticaret hukuku ve farklı hukuki alanlarda danışmanlık ve avukatlık hizmeti sunmaktadır.",
+  keywords: [
+    "Adana avukat",
+    "Betül Dilan Kurt",
+    "aile hukuku",
+    "ceza hukuku",
+    "iş hukuku",
+    "ticaret hukuku",
+    "miras hukuku",
+    "hukuki danışmanlık",
+  ],
+  openGraph: {
+    title: "Av. Betül Dilan Kurt | Adana Avukat",
+    description:
+      "Aile hukuku, ceza hukuku, iş hukuku, miras hukuku ve ticaret hukuku alanlarında danışmanlık ve avukatlık hizmeti.",
+    type: "website",
+    locale: "tr_TR",
+  },
 };
 
 export default function RootLayout({
@@ -29,12 +51,15 @@ export default function RootLayout({
   return (
     <html lang="tr" suppressHydrationWarning>
       <body
-        className={`${playfair.variable} ${inter.variable} font-body antialiased bg-slate-950 text-slate-100`}
+        className={`${cormorant.variable} ${dmSans.variable} font-body antialiased`}
       >
-        <div className="relative min-h-screen bg-gradient-to-b from-slate-950 via-[#050818] to-black">
-          <div className="pointer-events-none fixed inset-0 -z-10 opacity-60 [background-image:radial-gradient(circle_at_top,_rgba(201,168,76,0.14),transparent_55%),radial-gradient(circle_at_bottom,_rgba(15,23,42,0.9),#020617)]" />
-          <div className="pointer-events-none fixed inset-x-0 top-0 -z-10 h-64 bg-gradient-to-b from-[#C9A84C0d] via-transparent to-transparent blur-3xl" />
-          <Providers>{children}</Providers>
+        <div className="page-shell">
+          <Providers>
+            <Navbar />
+            <FloatingContactButtons />
+            {children}
+            <Footer />
+          </Providers>
         </div>
       </body>
     </html>
