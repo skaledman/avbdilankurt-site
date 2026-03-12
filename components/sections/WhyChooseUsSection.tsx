@@ -25,7 +25,7 @@ export function WhyChooseUsSection() {
       </div>
 
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {WHY_CHOOSE_US.map((item, i) => {
+        {WHY_CHOOSE_US.map((item) => {
           const Icon = item.icon;
           return (
             <div
