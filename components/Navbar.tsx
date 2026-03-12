@@ -11,6 +11,7 @@ import { SERVICES } from "@/lib/site-data";
 const HAKKINDA_LINKS = [
   { href: "/hakkimda", tr: "Avukat Profili", en: "Attorney Profile" },
   { href: "/hakkimda#calisma", tr: "Çalışma Yaklaşımı", en: "Approach" },
+  { href: "/sss", tr: "Sık Sorulan Sorular", en: "FAQ" },
 ];
 
 export function Navbar() {
@@ -34,13 +35,16 @@ export function Navbar() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "nav-blur border-b border-white/[0.06] bg-[rgba(6,8,15,0.94)]"
-          : "bg-transparent"
+          ? "nav-blur bg-[rgba(6,8,15,0.92)] shadow-[0_12px_30px_rgba(0,0,0,0.18)]"
+          : "bg-[linear-gradient(180deg,rgba(6,8,15,0.82),rgba(6,8,15,0.18),transparent)]"
       }`}
     >
+      <div className={`mx-auto max-w-[1500px] px-4 lg:px-6 ${scrolled ? "" : "pt-2"}`}>
       <nav
-        className={`mx-auto flex max-w-[1500px] items-center justify-between gap-6 px-4 py-3 transition-all duration-300 lg:px-6 ${
-          scrolled ? "min-h-[64px]" : "min-h-[80px]"
+        className={`relative mx-auto flex items-center justify-between gap-4 rounded-[1.35rem] px-3 transition-all duration-300 sm:px-4 ${
+          scrolled
+            ? "min-h-[68px] border border-white/[0.06] bg-[rgba(9,12,24,0.88)] py-2"
+            : "min-h-[72px] border border-transparent py-2.5"
         }`}
       >
         <Link href="/" className="group flex min-w-0 shrink-0 items-center gap-2 pr-2 lg:gap-3">
@@ -48,22 +52,22 @@ export function Navbar() {
             src="/logo.png"
             alt="Av. Betül Dilan Kurt logo"
             className="object-contain transition-all duration-300"
-            width={scrolled ? 100 : 140}
-            height={scrolled ? 50 : 70}
+            width={scrolled ? 94 : 124}
+            height={scrolled ? 48 : 62}
             sizes="(max-width: 1024px) 100px, 140px"
             priority
           />
           <div className="hidden min-w-0 flex-col leading-none md:flex">
             <span
               className={`font-heading font-semibold tracking-[0.1em] text-[var(--foreground)] transition-colors group-hover:text-[var(--gold)] whitespace-nowrap ${
-                scrolled ? "text-base xl:text-lg" : "text-lg xl:text-xl"
+                scrolled ? "text-[0.95rem] xl:text-lg" : "text-base xl:text-[1.15rem]"
               }`}
             >
               AV. BETÜL DILAN KURT
             </span>
             <span
               className={`mt-0.5 uppercase text-[var(--muted)] whitespace-nowrap ${
-                scrolled ? "text-[9px] tracking-[0.2em] xl:text-[10px]" : "text-[10px] tracking-[0.22em] xl:text-[11px]"
+                scrolled ? "text-[9px] tracking-[0.2em] xl:text-[10px]" : "text-[9px] tracking-[0.22em] xl:text-[10px]"
               }`}
             >
               {language === "tr" ? "Hukuk & Danışmanlık" : "Law & Consultancy"}
@@ -143,6 +147,12 @@ export function Navbar() {
             {language === "tr" ? "Yazılar" : "Articles"}
           </Link>
           <Link
+            href="/sss"
+            className={`nav-link ${pathname === "/sss" ? "nav-link-active" : ""}`}
+          >
+            {language === "tr" ? "SSS" : "FAQ"}
+          </Link>
+          <Link
             href="/iletisim"
             className={`nav-link ${pathname === "/iletisim" ? "nav-link-active" : ""}`}
           >
@@ -171,6 +181,7 @@ export function Navbar() {
           {open ? <X size={18} /> : <Menu size={18} />}
         </button>
       </nav>
+      </div>
 
       {/* Mobile menu */}
       {open && (
@@ -239,6 +250,9 @@ export function Navbar() {
             </Link>
             <Link href="/blog" onClick={() => setOpen(false)} className="nav-mobile-link">
               {language === "tr" ? "Yazılar" : "Articles"}
+            </Link>
+            <Link href="/sss" onClick={() => setOpen(false)} className="nav-mobile-link">
+              {language === "tr" ? "SSS" : "FAQ"}
             </Link>
             <Link href="/iletisim" onClick={() => setOpen(false)} className="nav-mobile-link">
               {language === "tr" ? "İletişim" : "Contact"}

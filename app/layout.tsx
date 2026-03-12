@@ -49,6 +49,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "tr_TR",
     siteName: "Av. Betül Dilan Kurt",
+    url: SITE_URL,
   },
   twitter: {
     card: "summary_large_image",
@@ -58,6 +59,10 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: SITE_URL,
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 

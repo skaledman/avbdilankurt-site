@@ -3,17 +3,26 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import { SERVICES } from "@/lib/site-data";
+import { absoluteUrl } from "@/lib/site-url";
 
 export const metadata: Metadata = {
-  title: "Hizmet Alanları | Aile, Ceza, İş, Miras Hukuku | Av. Betül Dilan Kurt",
+  title: "Hizmet Alanları | Aile, Ceza, İş ve Miras Hukuku",
   description:
-    "Aile hukuku, ceza hukuku, iş hukuku, miras hukuku, gayrimenkul ve ticaret hukuku alanlarında avukatlık hizmeti ve hukuki danışmanlık. Adana.",
+    "Adana ve Seyhan bölgesinde aile hukuku, ceza hukuku, iş hukuku, miras hukuku, gayrimenkul ve ticaret hukuku alanlarında hukuki danışmanlık ve avukatlık hizmeti.",
+  alternates: { canonical: absoluteUrl("/hizmetler") },
   openGraph: {
     title: "Hizmet Alanları | Av. Betül Dilan Kurt | Adana Avukat",
     description:
       "Aile, ceza, iş, miras ve diğer hukuk alanlarında danışmanlık ve dava takibi. Adana avukatlık hizmeti.",
     type: "website",
     locale: "tr_TR",
+    url: absoluteUrl("/hizmetler"),
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hizmet Alanları | Av. Betül Dilan Kurt",
+    description:
+      "Adana'da aile, ceza, iş, miras, gayrimenkul ve ticaret hukuku alanlarında sunulan hizmetler.",
   },
 };
 
@@ -43,7 +52,7 @@ export default function ServicesPage() {
               <h2 className="mt-6 font-heading text-3xl font-semibold text-[var(--foreground)] transition-colors group-hover:text-[var(--gold)]">
                 {service.title}
               </h2>
-              <p className="mt-4 text-base leading-8 text-[var(--text-faint)]">
+              <p className="mt-4 min-h-[96px] text-base leading-8 text-[var(--text-faint)]">
                 {service.shortDescription}
               </p>
 

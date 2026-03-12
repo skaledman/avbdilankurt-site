@@ -1,5 +1,14 @@
+import type { Metadata } from "next";
 import { PageHero } from "@/components/PageHero";
 import { AboutSection } from "@/components/sections/AboutSection";
+import { absoluteUrl } from "@/lib/site-url";
+
+export const metadata: Metadata = {
+  title: "Hakkında | Avukat Profili ve Çalışma Yaklaşımı",
+  description:
+    "Av. Betül Dilan Kurt'un Adana Seyhan merkezli hukuki danışmanlık yaklaşımı, mesleki öncelikleri ve çalışma ilkeleri hakkında bilgi alın.",
+  alternates: { canonical: absoluteUrl("/hakkimda") },
+};
 
 export default function AboutPage() {
   return (

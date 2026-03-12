@@ -35,7 +35,7 @@ export function Hero() {
       </div>
 
       {/* Main content */}
-      <div className="mx-auto flex w-full max-w-6xl flex-col items-center px-5 pt-28 pb-20 text-center sm:px-8 lg:px-10">
+      <div className="mx-auto flex w-full max-w-6xl flex-col items-center px-5 pt-24 pb-18 text-center sm:px-8 sm:pt-28 lg:px-10 lg:pt-32">
         {/* Name */}
         <h1 className="font-heading text-5xl font-semibold leading-[1.1] tracking-tight text-[var(--foreground)] sm:text-6xl lg:text-7xl">
           {language === "tr" ? (
@@ -108,7 +108,7 @@ export function Hero() {
         </div>
 
         {/* Contact info strip */}
-        <div className="mt-14 flex flex-wrap items-center justify-center gap-8 border-t border-white/[0.06] pt-8">
+        <div className="mt-12 flex flex-wrap items-center justify-center gap-8 border-t border-white/[0.06] pt-8">
           <a
             href="tel:+905465781662"
             className="flex items-center gap-2.5 text-base text-[var(--text-faint)] transition-colors hover:text-[var(--foreground)]"

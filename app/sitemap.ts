@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { absoluteUrl } from "@/lib/site-url";
-import { BLOG_CATEGORIES, BLOG_POSTS, SERVICES } from "@/lib/site-data";
+import { BLOG_CATEGORIES, BLOG_POSTS, COURT_DECISIONS, SERVICES } from "@/lib/site-data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = absoluteUrl("");
@@ -37,5 +37,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.75,
   }));
 
-  return [...staticPages, ...servicePages, ...blogCategoryPages, ...blogPages];
+  const courtDecisionPages: MetadataRoute.Sitemap = COURT_DECISIONS.map((decision) => ({
+    url: absoluteUrl(`/yargi-kararlari/${decision.slug}`),
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.65,
+  }));
+
+  return [...staticPages, ...servicePages, ...blogCategoryPages, ...blogPages, ...courtDecisionPages];
 }

@@ -66,6 +66,13 @@ export type Testimonial = {
   serviceArea: string;
 };
 
+export type ProcessStep = {
+  key: string;
+  title: string;
+  description: string;
+  icon: LucideIcon;
+};
+
 export type TrustIndicator = {
   key: string;
   title: string;
@@ -351,54 +358,54 @@ export const BLOG_POSTS: BlogPost[] = [
 
 export const FAQ_ITEMS: FaqItem[] = [
   {
-    question: "İlk görüşmede hangi bilgi ve belgeleri hazırlamam gerekir?",
+    question: "İlk danışma ücretli mi?",
     answer:
-      "Uyuşmazlığın niteliğine göre kimlik bilgileri, sözleşmeler, ihtarnameler, dava evrakları, mesaj veya e-posta kayıtları, tapu ya da bordro gibi ilgili belgelerin hazır edilmesi faydalı olur. Belgeler eksik olsa dahi, mevcut durumun kronolojik şekilde aktarılması ilk değerlendirme için önemlidir.",
+      "İlk görüşmenin kapsamı, dosyanın niteliğine ve talep edilen inceleme düzeyine göre değişebilir. Net bilgi verilebilmesi için randevu öncesinde konu başlığı ve beklenen değerlendirme çerçevesi birlikte belirlenir.",
   },
   {
-    question: "Telefon veya internet üzerinden kesin hukuki görüş verilir mi?",
+    question: "Boşanma davası ne kadar sürer?",
     answer:
-      "Hukuki değerlendirme somut olayın tüm özelliklerine göre yapılır. Bu nedenle ön bilgi verilebilse de, belge incelemesi yapılmadan ve olayın detayları görülmeden kesin sonuç taahhüdünde bulunulması doğru değildir.",
+      "Anlaşmalı ve çekişmeli boşanma davalarında süreler farklıdır. Mahkemenin iş yoğunluğu, delil durumu ve taleplerin kapsamı süreyi etkilediğinden her dosya özelinde gerçekçi bir zaman planı yapılması gerekir.",
+  },
+  {
+    question: "Nafaka nasıl belirlenir?",
+    answer:
+      "Nafaka miktarı; tarafların ekonomik durumu, çocuğun ihtiyaçları, yaşam koşulları ve dosyadaki deliller birlikte değerlendirilerek belirlenir. Talebin doğru hazırlanması, miktarın sağlıklı değerlendirilmesi açısından önem taşır.",
+  },
+  {
+    question: "Ceza soruşturmasında ilk adım ne olmalı?",
+    answer:
+      "İfade verilmeden veya resmi işlem yapılmadan önce dosyanın niteliğine uygun hukuki destek alınması önemlidir. Özellikle gözaltı, ifade ve koruma tedbirleri söz konusuysa ilk aşama sürecin tamamını etkileyebilir.",
+  },
+  {
+    question: "İşten çıkarılan çalışan ne yapmalı?",
+    answer:
+      "Fesih bildirimi, çalışma belgeleri ve ücret kayıtları gecikmeden incelenmelidir. Arabuluculuk ve dava süreleri hak kaybına yol açabileceği için mümkün olan en kısa sürede hukuki değerlendirme alınması tavsiye edilir.",
+  },
+  {
+    question: "Miras paylaşımı davası nasıl açılır?",
+    answer:
+      "Öncelikle mirasçılık durumu ve terekeye ilişkin belgeler değerlendirilir. Uyuşmazlığın niteliğine göre ortaklığın giderilmesi, tenkis veya muris muvazaası gibi uygun dava yolu belirlenerek süreç başlatılır.",
+  },
+  {
+    question: "Tapu / ortaklığın giderilmesi davası ne kadar sürer?",
+    answer:
+      "Taşınmazın niteliği, taraf sayısı, keşif ve bilirkişi ihtiyacı gibi unsurlar davanın süresini doğrudan etkiler. Süre konusunda sağlıklı öngörü için tapu kayıtları ve uyuşmazlık konusu birlikte incelenmelidir.",
+  },
+  {
+    question: "Avukatla görüşmeden önce hangi belgeler hazırlanmalı?",
+    answer:
+      "Kimlik bilgileriyle birlikte uyuşmazlıkla ilgili sözleşme, dava evrakı, tapu kaydı, bordro, ihtarname, mesaj veya e-posta çıktıları gibi temel belgelerin hazırlanması ilk değerlendirmeyi kolaylaştırır. Belgeler eksik olsa da olayın kronolojisi önemlidir.",
   },
   {
     question: "Dava açmadan önce arabuluculuk zorunlu olabilir mi?",
     answer:
-      "Evet. Özellikle iş hukuku, ticari uyuşmazlıklar ve bazı tüketici uyuşmazlıklarında dava şartı arabuluculuk söz konusu olabilir. Uyuşmazlığınızın niteliğine göre ön başvuru yollarının değerlendirilmesi gerekir.",
+      "Evet. Özellikle iş hukuku ve ticari uyuşmazlıklarda dava şartı arabuluculuk gündeme gelebilir. Uyuşmazlığın niteliğine göre dava öncesi başvuru yollarının önceden kontrol edilmesi gerekir.",
   },
   {
-    question: "Boşanma davasında velayet ve nafaka birlikte talep edilebilir mi?",
+    question: "Paylaşılan bilgiler gizli tutulur mu?",
     answer:
-      "Evet. Boşanmanın fer'i sonuçları kapsamında velayet, iştirak nafakası, yoksulluk nafakası, maddi ve manevi tazminat gibi talepler aynı süreç içinde ileri sürülebilir. Taleplerin somut olaya uygun şekilde hazırlanması önem taşır.",
-  },
-  {
-    question: "İşten çıkarıldığımda ne kadar sürede hukuki destek almalıyım?",
-    answer:
-      "İş hukuku uyuşmazlıklarında süreler hak kaybına yol açabilecek kadar önemlidir. Fesih bildiriminin tebliği, arabuluculuk başvuru süresi ve alacak kalemlerine ilişkin zamanaşımı değerlendirilerek gecikmeden hukuki inceleme yapılmalıdır.",
-  },
-  {
-    question: "Ceza soruşturmasında ifade vermeden önce avukat desteği alınabilir mi?",
-    answer:
-      "Evet. Şüpheli, sanık veya mağdur sıfatıyla ifade verme öncesinde avukat desteği alınması savunma ve usul haklarının korunması bakımından önemlidir. Özellikle gözaltı, tutuklama ve adli kontrol tedbirleri söz konusuysa hızlı hukuki destek gerekir.",
-  },
-  {
-    question: "Miras paylaşımında anlaşma sağlanamazsa ne yapılır?",
-    answer:
-      "Mirasçılar arasında uzlaşma sağlanamaması halinde ortaklığın giderilmesi, tenkis, muris muvazaası veya miras payının tespiti gibi hukuki yollar gündeme gelebilir. Uygun yol, terekenin yapısı ve uyuşmazlığın sebebine göre belirlenir.",
-  },
-  {
-    question: "Paylaştığım bilgiler gizli tutulur mu?",
-    answer:
-      "Evet. Avukatlık mesleğinin temel ilkeleri kapsamında paylaşılan bilgi ve belgeler gizlilik çerçevesinde değerlendirilir. İnternet sitesi üzerinden iletilen veriler de yalnızca iletişim ve ön değerlendirme amacıyla işlenir.",
-  },
-  {
-    question: "İletişim formu göndermek avukat-müvekkil ilişkisi kurar mı?",
-    answer:
-      "Hayır. İletişim formu, yalnızca ön temas ve bilgilendirme amacı taşır. Vekâlet ilişkisi, somut dosyanın değerlendirilmesi ve karşılıklı kabul ile kurulur.",
-  },
-  {
-    question: "Dava sonucu hakkında garanti verilebilir mi?",
-    answer:
-      "Hayır. Hukuki süreçlerde sonuç; delil durumu, mevzuat, yargısal takdir ve somut olayın özelliklerine göre belirlenir. Mesleki etik ve mevzuat gereği sonuç garantisi verilmesi uygun değildir.",
+      "Evet. Paylaşılan bilgi ve belgeler avukatlık mesleğinin gizlilik ve özen yükümlülüğü çerçevesinde değerlendirilir. İnternet sitesi üzerinden iletilen bilgiler de yalnızca iletişim ve ön değerlendirme amacıyla kullanılır.",
   },
 ];
 
@@ -567,6 +574,51 @@ export const TESTIMONIALS: Testimonial[] = [
     quote:
       "Ceza hukuku sürecinde her aşamada bilgilendirildim. Savunma stratejisi net ve anlaşılır şekilde anlatıldı.",
     serviceArea: "Ceza Hukuku",
+  },
+];
+
+export const PROCESS_STEPS: ProcessStep[] = [
+  {
+    key: "initial-review",
+    title: "İlk Değerlendirme",
+    description:
+      "Uyuşmazlığın hukuki çerçevesi, acil riskler ve öncelikli ihtiyaçlar ilk görüşmede netleştirilir.",
+    icon: Scale,
+  },
+  {
+    key: "document-review",
+    title: "Belge İnceleme",
+    description:
+      "Dosyaya ilişkin sözleşme, kayıt, yazışma ve resmi evraklar dikkatle incelenerek somut zemin oluşturulur.",
+    icon: FileCheck,
+  },
+  {
+    key: "roadmap",
+    title: "Hukuki Yol Haritası",
+    description:
+      "Dava, başvuru, arabuluculuk veya önleyici danışmanlık seçenekleri açık ve anlaşılır şekilde planlanır.",
+    icon: Target,
+  },
+  {
+    key: "updates-process",
+    title: "Düzenli Bilgilendirme",
+    description:
+      "Sürecin önemli aşamalarında dosyanın durumu, olası gelişmeler ve atılacak adımlar düzenli olarak paylaşılır.",
+    icon: Bell,
+  },
+  {
+    key: "confidentiality-care",
+    title: "Gizlilik ve Mesleki Özen",
+    description:
+      "Paylaşılan bilgiler gizlilik yükümlülüğü çerçevesinde korunur; süreç mesleki dikkat ve sorumlulukla yürütülür.",
+    icon: ShieldCheck,
+  },
+  {
+    key: "representation",
+    title: "Süreç Boyunca Temsil",
+    description:
+      "İhtiyaca göre müzakere, başvuru, dava ve duruşma aşamalarında etkin temsil ve danışmanlık sağlanır.",
+    icon: Users,
   },
 ];
 

@@ -1,11 +1,42 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ChevronRight } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import { COURT_DECISIONS, getCourtDecisionBySlug } from "@/lib/site-data";
+import { absoluteUrl } from "@/lib/site-url";
 
 export function generateStaticParams() {
   return COURT_DECISIONS.map((decision) => ({ slug: decision.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const decision = getCourtDecisionBySlug(slug);
+
+  if (!decision) return { title: "Karar Bulunamadı" };
+
+  return {
+    title: `${decision.title} | Yargı Kararları`,
+    description: decision.summary,
+    alternates: { canonical: absoluteUrl(`/yargi-kararlari/${slug}`) },
+    openGraph: {
+      title: `${decision.title} | Av. Betül Dilan Kurt`,
+      description: decision.summary,
+      type: "article",
+      locale: "tr_TR",
+      url: absoluteUrl(`/yargi-kararlari/${slug}`),
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${decision.title} | Yargı Kararları`,
+      description: decision.summary,
+    },
+  };
 }
 
 export default async function CourtDecisionDetailPage({ params }: { params: Promise<{ slug: string }> }) {

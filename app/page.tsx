@@ -3,6 +3,7 @@ import { SectionWrapper } from "@/components/SectionWrapper";
 import { AboutSection } from "@/components/sections/AboutSection";
 import { BlogPreviewSection } from "@/components/sections/BlogPreviewSection";
 import { ContactSection } from "@/components/sections/ContactSection";
+import { FaqPreviewSection } from "@/components/sections/FaqPreviewSection";
 import { ReviewsSection } from "@/components/sections/ReviewsSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
 import { TrustIndicatorsSection } from "@/components/sections/TrustIndicatorsSection";
@@ -36,6 +37,10 @@ export default function Home() {
         <div className="divider" />
         <SectionWrapper id="blog">
           <BlogPreviewSection />
+        </SectionWrapper>
+        <div className="divider" />
+        <SectionWrapper id="sss">
+          <FaqPreviewSection />
         </SectionWrapper>
         <div className="divider" />
         <SectionWrapper id="iletisim">

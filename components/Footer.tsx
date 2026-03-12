@@ -8,11 +8,20 @@ import { SERVICES, SITE_INFO } from "@/lib/site-data";
 
 export function Footer() {
   const { language } = useLanguage();
+  const quickLinks = [
+    { href: "/", label: "Ana Sayfa" },
+    { href: "/hakkimda", label: "Hakkında" },
+    { href: "/hizmetler", label: "Hizmetler" },
+    { href: "/blog", label: "Yazılar" },
+    { href: "/yargi-kararlari", label: "Yargı Kararları" },
+    { href: "/sss", label: "SSS" },
+    { href: "/iletisim", label: "İletişim" },
+  ];
 
   return (
     <footer className="border-t border-white/[0.06] bg-[var(--bg-main)]">
-      <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 lg:px-10">
-        <div className="grid gap-12 md:grid-cols-2 xl:grid-cols-4">
+      <div className="mx-auto max-w-6xl px-5 py-18 sm:px-8 lg:px-10">
+        <div className="grid gap-12 md:grid-cols-2 xl:grid-cols-[1.25fr_0.9fr_1fr_1fr]">
           {/* 1) Kurumsal */}
           <div className="space-y-5">
             <h3 className="footer-title text-lg">Kurumsal</h3>
@@ -30,7 +39,7 @@ export function Footer() {
               </p>
             </div>
             <p className="max-w-sm text-sm leading-7 text-[var(--text-faint)]">
-              Adana&apos;da hukuki danışmanlık ve avukatlık hizmeti. Bireysel ve kurumsal müvekkiller için farklı hukuk alanlarında özenli danışmanlık, dava takibi ve stratejik hukuki destek sunulmaktadır.
+              Adana Seyhan merkezli hukuk bürosunda; aile, iş, ceza, miras, gayrimenkul ve ticaret hukuku alanlarında özenli hukuki danışmanlık, dava takibi ve stratejik süreç yönetimi sunulmaktadır.
             </p>
             <div className="flex items-center gap-3">
               <a href={SITE_INFO.instagram} target="_blank" rel="noopener noreferrer" className="footer-social" aria-label="Instagram">
@@ -46,24 +55,11 @@ export function Footer() {
           <div>
             <h3 className="footer-title text-lg">Hızlı Bağlantılar</h3>
             <nav className="mt-5 flex flex-col gap-3" aria-label="Sayfa bağlantıları">
-              <Link href="/" className="footer-link text-sm">
-                Ana Sayfa
-              </Link>
-              <Link href="/hakkimda" className="footer-link text-sm">
-                Hakkında
-              </Link>
-              <Link href="/hizmetler" className="footer-link text-sm">
-                Hizmetler
-              </Link>
-              <Link href="/blog" className="footer-link text-sm">
-                Yazılar
-              </Link>
-              <Link href="/yargi-kararlari" className="footer-link text-sm">
-                Yargı Kararları
-              </Link>
-              <Link href="/iletisim" className="footer-link text-sm">
-                İletişim
-              </Link>
+              {quickLinks.map((link) => (
+                <Link key={link.href} href={link.href} className="footer-link text-sm">
+                  {link.label}
+                </Link>
+              ))}
             </nav>
           </div>
 
@@ -71,7 +67,7 @@ export function Footer() {
           <div>
             <h3 className="footer-title text-lg">Hizmetler</h3>
             <nav className="mt-5 flex flex-col gap-3" aria-label="Hizmet alanları">
-              {SERVICES.map((service) => (
+              {SERVICES.slice(0, 6).map((service) => (
                 <Link
                   key={service.slug}
                   href={`/hizmetler/${service.slug}`}
@@ -104,11 +100,14 @@ export function Footer() {
         </div>
 
         {/* Alt footer */}
-        <div className="mt-14 flex flex-col gap-6 border-t border-white/[0.06] pt-8 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-14 flex flex-col gap-6 border-t border-white/[0.06] pt-8 lg:flex-row lg:items-center lg:justify-between">
           <p className="text-xs text-[rgba(240,236,228,0.35)]">
             © {new Date().getFullYear()} {SITE_INFO.name}. {language === "tr" ? "Tüm hakları saklıdır." : "All rights reserved."}
           </p>
           <div className="flex flex-wrap gap-6 text-xs text-[var(--text-muted)]">
+            <Link href="/sss" className="footer-link">
+              SSS
+            </Link>
             <Link href="/gizlilik-politikasi" className="footer-link">
               Gizlilik Politikası
             </Link>
