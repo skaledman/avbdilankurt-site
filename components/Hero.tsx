@@ -69,24 +69,6 @@ export function Hero() {
             : "Considered legal counsel and representation for individual and corporate clients."}
         </p>
 
-        {/* Description */}
-        <div className="mt-4 max-w-3xl space-y-4 text-base leading-8 text-[var(--text-faint)] sm:text-[1.05rem]">
-          {language === "tr"
-            ? (
-              <>
-                <p>Yenilikçi hukuk anlayışımızla, her türlü hukuki probleminizde yanınızdayız. Aile, iş, ceza ve ticaret hukuku başta olmak üzere birçok alanda uzman avukatlık hizmeti sunarak, haklarınızı en güçlü şekilde korumayı ve hukuki süreçlerinizi güvenle yönetmenizi sağlıyoruz.</p>
-                <p>Hukuki süreçlerde profesyonel destek alarak güvenilir, şeffaf ve çözüm odaklı bir hizmet deneyimi sunuyor; dava ve danışmanlık süreçlerinizde doğru stratejilerle yanınızda yer alıyoruz.</p>
-                <p>Adalet yolculuğunuzda güvenilir bir rehber arıyorsanız, doğru yerdesiniz.</p>
-              </>
-            ) : (
-              <>
-                <p>With our innovative understanding of law, we stand by you in every legal matter.</p>
-                <p>We provide reliable, transparent and solution-oriented legal support with sound strategy.</p>
-                <p>If you are looking for a trusted guide in your pursuit of justice, you are in the right place.</p>
-              </>
-            )}
-        </div>
-
         {/* CTA Buttons */}
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
           <button

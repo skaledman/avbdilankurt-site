@@ -354,6 +354,81 @@ export const BLOG_POSTS: BlogPost[] = [
     ],
     tags: ["kira", "tahliye", "gayrimenkul hukuku", "kira tespit", "tahliye davası"],
   },
+  {
+    slug: "velayet-davasi-nasil-acilir",
+    title: "Velayet Davası Nasıl Açılır?",
+    date: "10 Mart 2026",
+    category: "Aile Hukuku",
+    summary:
+      "Velayet taleplerinde mahkemelerin gözettiği ölçütler ve sürecin nasıl işlediğine ilişkin genel bilgi.",
+    content: [
+      "Velayete ilişkin uyuşmazlıklarda mahkemeler, çocuğun üstün yararını her şeyin önünde tutar. Ebeveynlerin ekonomik durumu, yaşam koşulları, çocukla kurulan ilişki ve günlük bakım kapasitesi bu değerlendirmenin temel unsurlarıdır.",
+      "Velayet davası boşanma davasıyla birlikte ya da ayrı olarak açılabilir. Daha önce verilmiş bir velayet kararının değiştirilmesi de mümkündür; bunun için koşulların esaslı biçimde değişmiş olması aranır.",
+      "Sosyal inceleme raporları, tanık beyanları ve çocuğun yaşına göre kendi görüşü de süreci etkileyebilir. Bu nedenle taleplerin başından itibaren doğru hazırlanması büyük önem taşır.",
+      "Velayet süreçleri hem hukuki hem duygusal açıdan yoğun olabilir. Sürecin sağlıklı yönetilebilmesi için hukuki danışmanlık alınması önerilir.",
+    ],
+    tags: ["velayet", "aile hukuku", "boşanma", "çocuk velayeti"],
+  },
+  {
+    slug: "trafik-kazasinda-tazminat-hakki",
+    title: "Trafik Kazasında Tazminat Hakkı",
+    date: "3 Mart 2026",
+    category: "Genel Hukuk",
+    summary:
+      "Trafik kazası sonrasında maddi ve manevi tazminat taleplerinde dikkat edilmesi gereken temel noktalar.",
+    content: [
+      "Trafik kazasından kaynaklanan tazminat talepleri; kusur oranları, sigorta kapsamı ve zararın niteliğine göre farklı hukuki yollarla takip edilebilir. Zorunlu trafik sigortası (ZMMS) ve ihtiyari kasko poliçelerinin kapsamı, talep sürecini doğrudan etkiler.",
+      "Maddi tazminat; araç hasarı, tedavi giderleri, iş göremezlik ve kazanç kaybını kapsayabilir. Manevi tazminat ise olayın yarattığı elem ve üzüntü gözetilerek mahkemelerce takdir edilir.",
+      "Tazminat taleplerinde zamanaşımı sürelerine dikkat edilmesi gerekir. Kaza tespit tutanağı, sağlık raporları ve sigorta poliçesi gibi belgelerin eksiksiz muhafaza edilmesi sürecin sağlıklı yürütülmesi açısından önemlidir.",
+      "Trafik kazası sonrasında hakların doğru değerlendirilebilmesi için hukuki danışmanlık alınması önerilir.",
+    ],
+    tags: ["trafik kazası", "tazminat", "sigorta", "maddi manevi tazminat"],
+  },
+  {
+    slug: "bosanmada-mal-paylasimi",
+    title: "Boşanmada Mal Paylaşımı Nasıl Olur?",
+    date: "18 Şubat 2026",
+    category: "Aile Hukuku",
+    summary:
+      "Boşanma sürecinde edinilmiş mallara katılma rejimi ve mal paylaşımının nasıl gerçekleştiğine dair genel bilgi.",
+    content: [
+      "Türk Medeni Kanunu'nda yasal mal rejimi olarak edinilmiş mallara katılma rejimi benimsenmiştir. Bu rejim kapsamında evlilik süresince edinilen mallar, kural olarak eşler arasında eşit biçimde paylaşılır.",
+      "Kişisel mallar bu paylaşımın dışında tutulur. Miras yoluyla veya evlilik öncesinde edinilen mallar ile kişisel kullanıma özgü eşyalar kişisel mal sayılır. Hangi malın hangi kategoriye girdiği somut koşullara göre değerlendirilir.",
+      "Taraflar, evlilik öncesinde veya evlilik süresince mal rejimi sözleşmesi yaparak farklı bir rejim seçebilir. Bu sözleşmelerin geçerliliği ve kapsamı hukuki açıdan titizlikle incelenmelidir.",
+      "Mal paylaşımı uyuşmazlıkları çoğunlukla teknik ve belgeye dayalı bir süreç gerektirir. Hak kaybı yaşanmaması için hukuki danışmanlık alınması önerilir.",
+    ],
+    tags: ["mal paylaşımı", "boşanma", "edinilmiş mal", "aile hukuku"],
+  },
+  {
+    slug: "is-kazasinda-iscinin-haklari",
+    title: "İş Kazasında İşçinin Hakları Nelerdir?",
+    date: "25 Şubat 2026",
+    category: "İş Hukuku",
+    summary:
+      "İş kazası geçiren işçinin SGK, tazminat ve dava hakları hakkında genel bilgi.",
+    content: [
+      "İş kazası; işyerinde, işin yürütümü sırasında veya işveren tarafından görevlendirilen bir faaliyette meydana gelen ve işçinin bedensel ya da ruhsal zarara uğramasına yol açan olaydır. Kazanın iş kazası sayılabilmesi için yasal koşulların sağlanması ve süresinde SGK'ya bildirilmesi gerekir.",
+      "İş kazası geçiren işçi; geçici iş göremezlik ödeneği, sürekli iş göremezlik geliri ve destekten yoksun kalma tazminatı gibi haklardan yararlanabilir. İşverenin kusuru oranında maddi ve manevi tazminat talep edilmesi de mümkündür.",
+      "İşverenin iş güvenliği tedbirlerini alıp almadığı, kazanın oluşumundaki kusur dağılımı ve SGK'nın yaptığı tespit, tazminat miktarını belirleyen başlıca unsurlardır.",
+      "İş kazası süreçleri hem idari hem yargısal boyut içerdiğinden süreler ve başvuru yolları açısından hukuki danışmanlık alınması önerilir.",
+    ],
+    tags: ["iş kazası", "işçi hakları", "SGK", "tazminat", "iş hukuku"],
+  },
+  {
+    slug: "miras-reddi-nasil-yapilir",
+    title: "Miras Reddi Nasıl Yapılır?",
+    date: "21 Şubat 2026",
+    category: "Miras Hukuku",
+    summary:
+      "Mirasın reddinde yasal süre, başvuru yolu ve borçlu terekelerde dikkat edilmesi gereken hususlar.",
+    content: [
+      "Miras reddi, yasal mirasçının miras bırakanın ölümünü öğrenmesinden itibaren üç aylık süre içinde sulh hukuk mahkemesine yazılı veya sözlü başvurusuyla yapılır. Bu sürenin kaçırılması halinde miras kayıtsız şartsız kabul edilmiş sayılır.",
+      "Terekenin borca batık olduğunun açıkça belli olduğu durumlarda mirasçılar mirası reddedebilir. Borca batıklık şüphesi varsa mahkemeden terekenin tespiti talep edilmesi, karar vermeden önce değerlendirilebilir.",
+      "Mirasın reddedilmesi halinde miras, diğer yasal mirasçılara geçer. Tüm mirasçıların mirası reddetmesi durumunda tereke, mahkeme tarafından iflas hükümlerine göre tasfiye edilir.",
+      "Miras reddi, sonuçları itibariyle kalıcı bir karar olduğundan tereke hakkında yeterli bilgi edinildikten sonra ve gerektiğinde hukuki danışmanlık alınarak değerlendirilmesi önerilir.",
+    ],
+    tags: ["miras reddi", "tereke", "miras hukuku", "borçlu tereke"],
+  },
 ];
 
 export const FAQ_ITEMS: FaqItem[] = [
@@ -687,6 +762,7 @@ export const BLOG_CATEGORIES = [
   { slug: "miras-hukuku", title: "Miras Hukuku" },
   { slug: "ceza-hukuku", title: "Ceza Hukuku" },
   { slug: "gayrimenkul-hukuku", title: "Gayrimenkul Hukuku" },
+  { slug: "genel-hukuk", title: "Genel Hukuk" },
 ] as const;
 
 export function getCategoryBySlug(slug: string): { slug: string; title: string } | null {
