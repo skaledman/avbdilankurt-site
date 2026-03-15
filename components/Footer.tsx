@@ -9,12 +9,13 @@ import { SERVICES, SITE_INFO } from "@/lib/site-data";
 export function Footer() {
   const { language } = useLanguage();
   const quickLinks = [
-    { href: "/", label: "Ana Sayfa" },
-    { href: "/hakkimda", label: "Hakkında" },
-    { href: "/hizmetler", label: "Hizmetler" },
-    { href: "/blog", label: "Yazılar" },
-    { href: "/yargi-kararlari", label: "Yargı Kararları" },
-    { href: "/iletisim", label: "İletişim" },
+    { href: "/", label: language === "tr" ? "Ana Sayfa" : "Home" },
+    { href: "/hakkimda", label: language === "tr" ? "Hakkında" : "About" },
+    { href: "/hizmetler", label: language === "tr" ? "Hizmetler" : "Services" },
+    { href: "/blog", label: language === "tr" ? "Yazılar" : "Articles" },
+    { href: "/yargi-kararlari", label: language === "tr" ? "Yargı Kararları" : "Case Law" },
+    { href: "/sss", label: "SSS" },
+    { href: "/iletisim", label: language === "tr" ? "İletişim" : "Contact" },
   ];
 
   return (
@@ -105,16 +106,21 @@ export function Footer() {
           </p>
           <div className="flex flex-wrap gap-6 text-xs text-[var(--text-muted)]">
             <Link href="/gizlilik-politikasi" className="footer-link">
-              Gizlilik Politikası
+              {language === "tr" ? "Gizlilik Politikası" : "Privacy Policy"}
             </Link>
             <Link href="/cerez-politikasi" className="footer-link">
-              Çerez Politikası
+              {language === "tr" ? "Çerez Politikası" : "Cookie Policy"}
             </Link>
           </div>
         </div>
-        <p className="mt-4 max-w-xl text-[10px] leading-relaxed text-[rgba(240,236,228,0.25)]">
-          Avukatlık Kanunu m.55 uyarınca hazırlanmıştır. Bu internet sitesi bilgilendirme amaçlıdır; reklam veya iş sağlama amacı taşımaz.
-        </p>
+        <div className="mt-4 max-w-xl space-y-1 text-[10px] leading-relaxed text-[rgba(240,236,228,0.25)]">
+          <p>Adana Barosu Üyesi</p>
+          <p>
+            {language === "tr"
+              ? "Avukatlık Kanunu m.55 ve TBB Reklam Yasağı Yönetmeliği uyarınca bu internet sitesi bilgilendirme amaçlıdır; reklam veya iş kazanma amacı taşımaz."
+              : "This website is for information purposes only under the Attorneyship Law art.55 and the TBB Advertising Ban Regulation; it does not constitute advertising or solicitation of work."}
+          </p>
+        </div>
       </div>
     </footer>
   );

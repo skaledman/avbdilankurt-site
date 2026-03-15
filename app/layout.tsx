@@ -4,6 +4,7 @@ import "./globals.css";
 import { Providers } from "@/components/Providers";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { CookieBanner } from "@/components/CookieBanner";
 import { FloatingContactButtons } from "@/components/FloatingContactButtons";
 import { JsonLdLegalService } from "@/components/JsonLdLegalService";
 import { SITE_URL } from "@/lib/site-url";
@@ -83,6 +84,7 @@ export default function RootLayout({
             <FloatingContactButtons />
             {children}
             <Footer />
+            <CookieBanner />
           </Providers>
         </div>
       </body>

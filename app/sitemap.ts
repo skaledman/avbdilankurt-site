@@ -14,6 +14,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: absoluteUrl("/mesleki-ilkeler"), lastModified: new Date(), changeFrequency: "yearly", priority: 0.5 },
     { url: absoluteUrl("/yargi-kararlari"), lastModified: new Date(), changeFrequency: "monthly", priority: 0.6 },
     { url: absoluteUrl("/sss"), lastModified: new Date(), changeFrequency: "monthly", priority: 0.6 },
+    { url: absoluteUrl("/kvkk-aydinlatma"), lastModified: new Date(), changeFrequency: "yearly", priority: 0.5 },
+    { url: absoluteUrl("/gizlilik-politikasi"), lastModified: new Date(), changeFrequency: "yearly", priority: 0.5 },
+    { url: absoluteUrl("/cerez-politikasi"), lastModified: new Date(), changeFrequency: "yearly", priority: 0.5 },
   ];
 
   const servicePages: MetadataRoute.Sitemap = SERVICES.map((s) => ({

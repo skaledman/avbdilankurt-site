@@ -1,17 +1,25 @@
 "use client";
 
 import { Mail, MapPin, Phone } from "lucide-react";
+import Link from "next/link";
 import { useState, FormEvent } from "react";
 import { useLanguage } from "@/components/language-context";
 import { SITE_INFO } from "@/lib/site-data";
+
+const KVKK_CONSENT_LABEL_TR =
+  "Kişisel verilerimin işlenmesine ilişkin Aydınlatma Metni'ni okudum ve onaylıyorum.";
+const KVKK_CONSENT_LABEL_EN =
+  "I have read and consent to the Privacy Notice regarding the processing of my personal data.";
 
 export function ContactSection() {
   const { language } = useLanguage();
   const [submitting, setSubmitting] = useState(false);
   const [sent, setSent] = useState(false);
+  const [kvkkConsent, setKvkkConsent] = useState(false);
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    if (!kvkkConsent) return;
     setSubmitting(true);
     setSent(false);
     window.setTimeout(() => {
@@ -190,6 +198,44 @@ export function ContactSection() {
               />
             </div>
 
+            <div className="flex flex-col gap-2 rounded-xl border border-white/[0.06] bg-white/[0.02] p-4">
+              <label className="flex cursor-pointer items-start gap-3 text-sm leading-6 text-[var(--text-soft)]">
+                <input
+                  type="checkbox"
+                  required
+                  checked={kvkkConsent}
+                  onChange={(e) => setKvkkConsent(e.target.checked)}
+                  className="mt-1 h-4 w-4 shrink-0 rounded border-white/20 bg-white/5 accent-[var(--gold)]"
+                  aria-required="true"
+                />
+                <span>
+                  {language === "tr" ? (
+                    <>
+                      Kişisel verilerimin işlenmesine ilişkin{" "}
+                      <Link
+                        href="/kvkk-aydinlatma"
+                        className="font-medium text-[var(--gold)] underline underline-offset-2 hover:text-[var(--gold-light)]"
+                      >
+                        Aydınlatma Metni
+                      </Link>
+                      {"'"}ni okudum ve onaylıyorum.
+                    </>
+                  ) : (
+                    <>
+                      I have read and consent to the{" "}
+                      <Link
+                        href="/kvkk-aydinlatma"
+                        className="font-medium text-[var(--gold)] underline underline-offset-2 hover:text-[var(--gold-light)]"
+                      >
+                        Privacy Notice
+                      </Link>
+                      {" "}regarding the processing of my personal data.
+                    </>
+                  )}
+                </span>
+              </label>
+            </div>
+
             <div className="flex items-center justify-between gap-4 pt-1">
               <p className="text-[11px] leading-6 text-[rgba(232,229,221,0.38)]">
                 {language === "tr"
@@ -198,7 +244,7 @@ export function ContactSection() {
               </p>
               <button
                 type="submit"
-                disabled={submitting}
+                disabled={submitting || !kvkkConsent}
                 className="shrink-0 rounded-full bg-[var(--gold)] px-6 py-2.5 text-xs font-semibold uppercase tracking-[0.25em] text-[#0a0a0a] transition-all hover:bg-[var(--gold-light)] hover:shadow-[0_6px_24px_rgba(201,168,76,0.2)] disabled:cursor-not-allowed disabled:opacity-60"
               >
                 {submitting

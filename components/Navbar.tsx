@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { useLanguage } from "./language-context";
 import { SITE_INFO } from "@/lib/site-data";
@@ -20,66 +20,43 @@ const HIZMETLER_LINKS = [
 export function Navbar() {
   const { language, toggleLanguage } = useLanguage();
   const pathname = usePathname();
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [openHakkinda, setOpenHakkinda] = useState(false);
   const [openHizmetler, setOpenHizmetler] = useState(false);
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   const isActive = (href: string) => pathname === href || (href !== "/" && pathname.startsWith(href));
+
+  const nameUppercase = SITE_INFO.name.toLocaleUpperCase("tr-TR");
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-[rgba(6,8,15,0.86)]"
-          : "bg-[linear-gradient(180deg,rgba(6,8,15,0.78),rgba(6,8,15,0.14),transparent)]"
-      }`}
+      className="fixed inset-x-0 top-0 z-50 border-b border-white/[0.06] bg-[rgba(10,13,24,0.94)] shadow-[0_4px_24px_rgba(0,0,0,0.2)] backdrop-blur-md"
     >
-      <div className="mx-auto max-w-[1500px] px-3 pt-2 sm:px-4 lg:px-6 lg:pt-3">
-      <nav
-        className={`nav-blur relative mx-auto grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 rounded-[1.6rem] border px-3 transition-all duration-300 sm:px-4 lg:grid-cols-[minmax(320px,1.1fr)_minmax(0,1fr)_auto] ${
-          scrolled
-            ? "min-h-[72px] border-[rgba(201,168,76,0.14)] bg-[rgba(10,13,24,0.88)] shadow-[0_18px_40px_rgba(0,0,0,0.24)]"
-            : "min-h-[78px] border-white/[0.06] bg-[rgba(10,13,24,0.66)] shadow-[0_14px_34px_rgba(0,0,0,0.16)]"
-        }`}
-      >
-        <Link href="/" className="group flex min-w-0 items-center gap-3 py-2 lg:gap-4">
+      <nav className="mx-auto grid max-w-[1500px] grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-3 py-2 sm:px-4 lg:grid-cols-[minmax(320px,1.1fr)_1fr_auto] lg:px-6 lg:py-2.5">
+        <Link href="/" className="group flex min-w-0 items-center gap-3 py-1 lg:gap-4">
           <Image
             src="/logo.png"
             alt="Av. Betül Dilan Kurt logo"
             className="object-contain transition-all duration-300"
-            width={scrolled ? 72 : 82}
-            height={scrolled ? 72 : 82}
+            width={72}
+            height={72}
             sizes="82px"
             priority
           />
           <div className="hidden min-w-0 flex-col justify-center md:flex">
             <span
-              className={`font-heading font-semibold tracking-[0.08em] text-[var(--foreground)] transition-colors group-hover:text-[var(--gold)] whitespace-nowrap ${
-                scrolled ? "text-[1.02rem] xl:text-[1.18rem]" : "text-[1.05rem] xl:text-[1.26rem]"
-              }`}
+              className="font-heading text-[1.02rem] font-semibold tracking-[0.08em] text-[var(--foreground)] transition-colors group-hover:text-[var(--gold)] whitespace-nowrap xl:text-[1.18rem]"
             >
-              {SITE_INFO.name.toUpperCase()}
+              {nameUppercase}
             </span>
-            <span
-              className={`mt-1 uppercase text-[var(--muted)] whitespace-nowrap ${
-                scrolled ? "text-[9px] tracking-[0.24em]" : "text-[9px] tracking-[0.28em]"
-              }`}
-            >
+            <span className="mt-1 text-[9px] uppercase tracking-[0.24em] text-[var(--muted)] whitespace-nowrap">
               {language === "tr" ? "Hukuk & Danışmanlık" : "Law & Consultancy"}
             </span>
           </div>
         </Link>
 
-        {/* Desktop nav */}
-        <div className="hidden items-center justify-center lg:flex">
+        {/* Desktop nav — menü öğeleri ve TR/EN aynı hizada */}
+        <div className="hidden items-center justify-center gap-0 lg:flex">
           <div className="flex items-center rounded-full border border-white/[0.05] bg-[rgba(255,255,255,0.02)] px-3 py-2 xl:px-4">
           <Link
             href="/"
@@ -156,19 +133,16 @@ export function Navbar() {
           >
             {language === "tr" ? "İletişim" : "Contact"}
           </Link>
-          </div>
-        </div>
-
-        <div className="hidden shrink-0 lg:flex lg:justify-end">
           <button
             type="button"
             onClick={toggleLanguage}
-            className="rounded-full border border-[var(--gold-dim)] bg-[rgba(255,255,255,0.03)] px-4 py-2.5 text-[10px] font-semibold uppercase tracking-[0.25em] transition-colors hover:border-[var(--gold)] hover:bg-[rgba(201,168,76,0.06)]"
+            className="ml-1 rounded-full border border-[var(--gold-dim)] bg-[rgba(255,255,255,0.03)] px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.25em] transition-colors hover:border-[var(--gold)] hover:bg-[rgba(201,168,76,0.06)] xl:ml-2"
           >
             <span className={language === "tr" ? "text-[var(--gold)]" : "text-[var(--muted)]"}>TR</span>
             <span className="text-[var(--muted)]">/</span>
             <span className={language === "en" ? "text-[var(--gold)]" : "text-[var(--muted)]"}>EN</span>
           </button>
+          </div>
         </div>
 
         <button
@@ -180,7 +154,6 @@ export function Navbar() {
           {open ? <X size={18} /> : <Menu size={18} />}
         </button>
       </nav>
-      </div>
 
       {/* Mobile menu */}
       {open && (
