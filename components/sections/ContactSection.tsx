@@ -11,21 +11,47 @@ const KVKK_CONSENT_LABEL_TR =
 const KVKK_CONSENT_LABEL_EN =
   "I have read and consent to the Privacy Notice regarding the processing of my personal data.";
 
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xwvrngqa";
+
 export function ContactSection() {
   const { language } = useLanguage();
   const [submitting, setSubmitting] = useState(false);
   const [sent, setSent] = useState(false);
+  const [error, setError] = useState(false);
   const [kvkkConsent, setKvkkConsent] = useState(false);
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!kvkkConsent) return;
     setSubmitting(true);
     setSent(false);
-    window.setTimeout(() => {
+    setError(false);
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const body: Record<string, string> = {};
+    formData.forEach((value, key) => {
+      if (typeof value === "string") body[key] = value;
+    });
+
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        body: JSON.stringify(body),
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+      });
+      if (res.ok) {
+        setSent(true);
+        form.reset();
+        setKvkkConsent(false);
+      } else {
+        setError(true);
+      }
+    } catch {
+      setError(true);
+    } finally {
       setSubmitting(false);
-      setSent(true);
-    }, 800);
+    }
   };
 
   return (
@@ -254,10 +280,17 @@ export function ContactSection() {
             </div>
 
             {sent && (
-              <p className="text-[11px] font-medium text-[var(--gold)]">
+              <p className="text-sm font-medium text-[var(--gold)]">
                 {language === "tr"
-                  ? "✓ Mesajınız alınmıştır. En kısa sürede sizinle iletişime geçilecektir."
-                  : "✓ Your message has been received. You will be contacted as soon as possible."}
+                  ? "Mesajınız iletildi. En kısa sürede dönüş sağlanacaktır."
+                  : "Your message has been sent. We will get back to you shortly."}
+              </p>
+            )}
+            {error && (
+              <p className="text-sm font-medium text-red-400">
+                {language === "tr"
+                  ? "Bir hata oluştu. Lütfen tekrar deneyiniz."
+                  : "An error occurred. Please try again."}
               </p>
             )}
           </form>
