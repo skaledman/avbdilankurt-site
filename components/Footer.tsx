@@ -14,7 +14,6 @@ export function Footer() {
     { href: "/hizmetler", label: "Hizmetler" },
     { href: "/blog", label: "Yazılar" },
     { href: "/yargi-kararlari", label: "Yargı Kararları" },
-    { href: "/sss", label: "SSS" },
     { href: "/iletisim", label: "İletişim" },
   ];
 
@@ -105,9 +104,6 @@ export function Footer() {
             © {new Date().getFullYear()} {SITE_INFO.name}. {language === "tr" ? "Tüm hakları saklıdır." : "All rights reserved."}
           </p>
           <div className="flex flex-wrap gap-6 text-xs text-[var(--text-muted)]">
-            <Link href="/sss" className="footer-link">
-              SSS
-            </Link>
             <Link href="/gizlilik-politikasi" className="footer-link">
               Gizlilik Politikası
             </Link>

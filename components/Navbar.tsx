@@ -6,12 +6,15 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { useLanguage } from "./language-context";
-import { SERVICES } from "@/lib/site-data";
+import { SITE_INFO } from "@/lib/site-data";
 
 const HAKKINDA_LINKS = [
   { href: "/hakkimda", tr: "Avukat Profili", en: "Attorney Profile" },
   { href: "/hakkimda#calisma", tr: "Çalışma Yaklaşımı", en: "Approach" },
-  { href: "/sss", tr: "Sık Sorulan Sorular", en: "FAQ" },
+];
+
+const HIZMETLER_LINKS = [
+  { href: "/hizmetler", tr: "Tüm Hizmet Alanları", en: "All Practice Areas" },
 ];
 
 export function Navbar() {
@@ -35,39 +38,39 @@ export function Navbar() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "nav-blur bg-[rgba(6,8,15,0.92)] shadow-[0_12px_30px_rgba(0,0,0,0.18)]"
-          : "bg-[linear-gradient(180deg,rgba(6,8,15,0.82),rgba(6,8,15,0.18),transparent)]"
+          ? "bg-[rgba(6,8,15,0.86)]"
+          : "bg-[linear-gradient(180deg,rgba(6,8,15,0.78),rgba(6,8,15,0.14),transparent)]"
       }`}
     >
-      <div className={`mx-auto max-w-[1500px] px-4 lg:px-6 ${scrolled ? "" : "pt-2"}`}>
+      <div className="mx-auto max-w-[1500px] px-3 pt-2 sm:px-4 lg:px-6 lg:pt-3">
       <nav
-        className={`relative mx-auto flex items-center justify-between gap-4 rounded-[1.35rem] px-3 transition-all duration-300 sm:px-4 ${
+        className={`nav-blur relative mx-auto grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 rounded-[1.6rem] border px-3 transition-all duration-300 sm:px-4 lg:grid-cols-[minmax(320px,1.1fr)_minmax(0,1fr)_auto] ${
           scrolled
-            ? "min-h-[68px] border border-white/[0.06] bg-[rgba(9,12,24,0.88)] py-2"
-            : "min-h-[72px] border border-transparent py-2.5"
+            ? "min-h-[72px] border-[rgba(201,168,76,0.14)] bg-[rgba(10,13,24,0.88)] shadow-[0_18px_40px_rgba(0,0,0,0.24)]"
+            : "min-h-[78px] border-white/[0.06] bg-[rgba(10,13,24,0.66)] shadow-[0_14px_34px_rgba(0,0,0,0.16)]"
         }`}
       >
-        <Link href="/" className="group flex min-w-0 shrink-0 items-center gap-2 pr-2 lg:gap-3">
+        <Link href="/" className="group flex min-w-0 items-center gap-3 py-2 lg:gap-4">
           <Image
             src="/logo.png"
             alt="Av. Betül Dilan Kurt logo"
             className="object-contain transition-all duration-300"
-            width={scrolled ? 94 : 124}
-            height={scrolled ? 48 : 62}
-            sizes="(max-width: 1024px) 100px, 140px"
+            width={scrolled ? 72 : 82}
+            height={scrolled ? 72 : 82}
+            sizes="82px"
             priority
           />
-          <div className="hidden min-w-0 flex-col leading-none md:flex">
+          <div className="hidden min-w-0 flex-col justify-center md:flex">
             <span
-              className={`font-heading font-semibold tracking-[0.1em] text-[var(--foreground)] transition-colors group-hover:text-[var(--gold)] whitespace-nowrap ${
-                scrolled ? "text-[0.95rem] xl:text-lg" : "text-base xl:text-[1.15rem]"
+              className={`font-heading font-semibold tracking-[0.08em] text-[var(--foreground)] transition-colors group-hover:text-[var(--gold)] whitespace-nowrap ${
+                scrolled ? "text-[1.02rem] xl:text-[1.18rem]" : "text-[1.05rem] xl:text-[1.26rem]"
               }`}
             >
-              AV. BETÜL DILAN KURT
+              {SITE_INFO.name.toUpperCase()}
             </span>
             <span
-              className={`mt-0.5 uppercase text-[var(--muted)] whitespace-nowrap ${
-                scrolled ? "text-[9px] tracking-[0.2em] xl:text-[10px]" : "text-[9px] tracking-[0.22em] xl:text-[10px]"
+              className={`mt-1 uppercase text-[var(--muted)] whitespace-nowrap ${
+                scrolled ? "text-[9px] tracking-[0.24em]" : "text-[9px] tracking-[0.28em]"
               }`}
             >
               {language === "tr" ? "Hukuk & Danışmanlık" : "Law & Consultancy"}
@@ -76,7 +79,8 @@ export function Navbar() {
         </Link>
 
         {/* Desktop nav */}
-        <div className="hidden flex-1 items-center justify-center gap-1 lg:flex xl:gap-2">
+        <div className="hidden items-center justify-center lg:flex">
+          <div className="flex items-center rounded-full border border-white/[0.05] bg-[rgba(255,255,255,0.02)] px-3 py-2 xl:px-4">
           <Link
             href="/"
             className={`nav-link ${isActive("/") && pathname === "/" ? "nav-link-active" : ""}`}
@@ -95,7 +99,7 @@ export function Navbar() {
               <ChevronDown size={12} className="transition-transform group-hover/nav:rotate-180" />
             </button>
             <div className="invisible absolute left-1/2 top-full z-50 -translate-x-1/2 pt-2 opacity-0 transition-all duration-200 group-hover/nav:visible group-hover/nav:opacity-100">
-              <div className="min-w-[200px] rounded-xl border border-white/[0.08] bg-[var(--bg-elevated)] py-2 shadow-xl">
+              <div className="min-w-[220px] rounded-2xl border border-white/[0.08] bg-[rgba(10,13,24,0.96)] py-2 shadow-[0_18px_40px_rgba(0,0,0,0.34)]">
                 {HAKKINDA_LINKS.map((item) => (
                   <Link
                     key={item.href}
@@ -120,14 +124,14 @@ export function Navbar() {
               <ChevronDown size={12} className="transition-transform group-hover/nav:rotate-180" />
             </button>
             <div className="invisible absolute left-1/2 top-full z-50 -translate-x-1/2 pt-2 opacity-0 transition-all duration-200 group-hover/nav:visible group-hover/nav:opacity-100">
-              <div className="min-w-[240px] rounded-xl border border-white/[0.08] bg-[var(--bg-elevated)] py-2 shadow-xl">
-                {SERVICES.map((service) => (
+              <div className="min-w-[240px] rounded-2xl border border-white/[0.08] bg-[rgba(10,13,24,0.96)] py-2 shadow-[0_18px_40px_rgba(0,0,0,0.34)]">
+                {HIZMETLER_LINKS.map((service) => (
                   <Link
-                    key={service.slug}
-                    href={`/hizmetler/${service.slug}`}
+                    key={service.href}
+                    href={service.href}
                     className="block px-4 py-2.5 text-[11px] font-medium uppercase tracking-[0.18em] text-[var(--text-muted)] transition-colors hover:bg-white/[0.06] hover:text-[var(--gold)]"
                   >
-                    {service.title}
+                    {language === "tr" ? service.tr : service.en}
                   </Link>
                 ))}
               </div>
@@ -147,24 +151,19 @@ export function Navbar() {
             {language === "tr" ? "Yazılar" : "Articles"}
           </Link>
           <Link
-            href="/sss"
-            className={`nav-link ${pathname === "/sss" ? "nav-link-active" : ""}`}
-          >
-            {language === "tr" ? "SSS" : "FAQ"}
-          </Link>
-          <Link
             href="/iletisim"
             className={`nav-link ${pathname === "/iletisim" ? "nav-link-active" : ""}`}
           >
             {language === "tr" ? "İletişim" : "Contact"}
           </Link>
+          </div>
         </div>
 
-        <div className="hidden shrink-0 lg:flex">
+        <div className="hidden shrink-0 lg:flex lg:justify-end">
           <button
             type="button"
             onClick={toggleLanguage}
-            className="rounded-full border border-[var(--gold-dim)] bg-[var(--bg-card)] px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.25em] transition-colors hover:border-[var(--gold)]"
+            className="rounded-full border border-[var(--gold-dim)] bg-[rgba(255,255,255,0.03)] px-4 py-2.5 text-[10px] font-semibold uppercase tracking-[0.25em] transition-colors hover:border-[var(--gold)] hover:bg-[rgba(201,168,76,0.06)]"
           >
             <span className={language === "tr" ? "text-[var(--gold)]" : "text-[var(--muted)]"}>TR</span>
             <span className="text-[var(--muted)]">/</span>
@@ -175,7 +174,7 @@ export function Navbar() {
         <button
           type="button"
           onClick={() => setOpen((p) => !p)}
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-[var(--bg-card)] text-[var(--foreground)] transition-colors hover:border-[var(--gold-dim)] lg:hidden"
+          className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-[rgba(255,255,255,0.03)] text-[var(--foreground)] transition-colors hover:border-[var(--gold-dim)] lg:hidden"
           aria-label="Menü"
         >
           {open ? <X size={18} /> : <Menu size={18} />}
@@ -185,7 +184,7 @@ export function Navbar() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="border-t border-white/[0.06] bg-[rgba(6,8,15,0.98)] px-4 pb-6 pt-2 lg:hidden">
+        <div className="mx-3 mt-2 rounded-[1.5rem] border border-white/[0.06] bg-[rgba(10,13,24,0.96)] px-4 pb-5 pt-3 shadow-[0_18px_40px_rgba(0,0,0,0.26)] lg:hidden sm:mx-4">
           <div className="flex flex-col gap-0.5">
             <Link
               href="/"
@@ -231,14 +230,14 @@ export function Navbar() {
               </button>
               {openHizmetler && (
                 <div className="ml-4 flex flex-col border-l border-white/10 py-2">
-                  {SERVICES.map((service) => (
+                  {HIZMETLER_LINKS.map((service) => (
                     <Link
-                      key={service.slug}
-                      href={`/hizmetler/${service.slug}`}
+                      key={service.href}
+                      href={service.href}
                       onClick={() => setOpen(false)}
                       className="py-2 pl-3 text-[11px] uppercase tracking-[0.2em] text-[var(--text-muted)] hover:text-[var(--gold)]"
                     >
-                      {service.title}
+                      {language === "tr" ? service.tr : service.en}
                     </Link>
                   ))}
                 </div>
@@ -250,9 +249,6 @@ export function Navbar() {
             </Link>
             <Link href="/blog" onClick={() => setOpen(false)} className="nav-mobile-link">
               {language === "tr" ? "Yazılar" : "Articles"}
-            </Link>
-            <Link href="/sss" onClick={() => setOpen(false)} className="nav-mobile-link">
-              {language === "tr" ? "SSS" : "FAQ"}
             </Link>
             <Link href="/iletisim" onClick={() => setOpen(false)} className="nav-mobile-link">
               {language === "tr" ? "İletişim" : "Contact"}

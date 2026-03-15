@@ -35,7 +35,7 @@ export function Hero() {
       </div>
 
       {/* Main content */}
-      <div className="mx-auto flex w-full max-w-6xl flex-col items-center px-5 pt-24 pb-18 text-center sm:px-8 sm:pt-28 lg:px-10 lg:pt-32">
+      <div className="mx-auto flex w-full max-w-6xl flex-col items-center px-5 pb-18 pt-20 text-center sm:px-8 sm:pt-24 lg:px-10 lg:pt-26">
         {/* Name */}
         <h1 className="font-heading text-5xl font-semibold leading-[1.1] tracking-tight text-[var(--foreground)] sm:text-6xl lg:text-7xl">
           {language === "tr" ? (
