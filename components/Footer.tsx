@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 import { useLanguage } from "./language-context";
@@ -22,24 +21,12 @@ export function Footer() {
     <footer className="border-t border-white/[0.06] bg-[var(--bg-main)]">
       <div className="mx-auto max-w-6xl px-5 py-18 sm:px-8 lg:px-10">
         <div className="grid gap-12 md:grid-cols-2 xl:grid-cols-[1.25fr_0.9fr_1fr_1fr]">
-          {/* 1) Kurumsal */}
-          <div className="space-y-5">
-            <h3 className="footer-title text-lg">Kurumsal</h3>
-            <div className="flex items-center gap-3">
-              <Image
-                src="/logo.png"
-                alt=""
-                className="object-contain"
-                width={80}
-                height={40}
-                sizes="80px"
-              />
-              <p className="font-heading text-lg font-semibold tracking-[0.06em] text-[var(--foreground)]">
-                {SITE_INFO.name}
-              </p>
-            </div>
+          {/* 1) Açıklama + sosyal medya */}
+          <div className="space-y-4">
             <p className="max-w-sm text-sm leading-7 text-[var(--text-faint)]">
-              Adana Seyhan merkezli hukuk bürosunda; aile, iş, ceza, miras, gayrimenkul ve ticaret hukuku alanlarında özenli hukuki danışmanlık, dava takibi ve stratejik süreç yönetimi sunulmaktadır.
+              {language === "tr"
+                ? "Adana merkezli hukuk bürosunda; aile, iş, ceza, miras, gayrimenkul ve ticaret hukuku alanlarında özenli hukuki danışmanlık, dava takibi ve stratejik süreç yönetimi sunulmaktadır."
+                : "Our Adana-based law office provides careful legal counsel, litigation support and strategic process management in family, employment, criminal, inheritance, real estate and commercial law."}
             </p>
             <div className="flex items-center gap-3">
               <a href={SITE_INFO.instagram} target="_blank" rel="noopener noreferrer" className="footer-social" aria-label="Instagram">

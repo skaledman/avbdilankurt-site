@@ -8,7 +8,7 @@ import { absoluteUrl } from "@/lib/site-url";
 export const metadata: Metadata = {
   title: "Hizmet Alanları | Aile, Ceza, İş ve Miras Hukuku",
   description:
-    "Adana ve Seyhan bölgesinde aile hukuku, ceza hukuku, iş hukuku, miras hukuku, gayrimenkul ve ticaret hukuku alanlarında hukuki danışmanlık ve avukatlık hizmeti.",
+    "Adana'da aile hukuku, ceza hukuku, iş hukuku, miras hukuku, gayrimenkul ve ticaret hukuku alanlarında hukuki danışmanlık ve avukatlık hizmeti.",
   alternates: { canonical: absoluteUrl("/hizmetler") },
   openGraph: {
     title: "Hizmet Alanları | Av. Betül Dilan Kurt | Adana Avukat",

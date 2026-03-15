@@ -88,7 +88,7 @@ export const SITE_INFO = {
   whatsappHref: "https://wa.me/905465781662",
   email: "info@avbdilankurt.com",
   address: "Reşatbey, Beş Ocak Cd. Nevin Hanım Apartmanı Kat:3 Daire:5 01120 Seyhan/Adana",
-  city: "Seyhan / Adana",
+  city: "Adana",
   instagram: "https://www.instagram.com/av.bdilankurt",
   linkedin: "https://tr.linkedin.com/in/avbdilankurt",
 };

@@ -107,7 +107,7 @@ export function Hero() {
             <span>info@avbdilankurt.com</span>
           </a>
           <div className="h-4 w-px bg-white/10 hidden sm:block" />
-          <span className="text-base text-[rgba(232,229,221,0.46)]">Seyhan / Adana</span>
+          <span className="text-base text-[rgba(232,229,221,0.46)]">Adana</span>
         </div>
       </div>
 

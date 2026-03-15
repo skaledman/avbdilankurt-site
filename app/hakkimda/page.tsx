@@ -6,7 +6,7 @@ import { absoluteUrl } from "@/lib/site-url";
 export const metadata: Metadata = {
   title: "Hakkında | Avukat Profili ve Çalışma Yaklaşımı",
   description:
-    "Av. Betül Dilan Kurt'un Adana Seyhan merkezli hukuki danışmanlık yaklaşımı, mesleki öncelikleri ve çalışma ilkeleri hakkında bilgi alın.",
+    "Av. Betül Dilan Kurt'un Adana merkezli hukuki danışmanlık yaklaşımı, mesleki öncelikleri ve çalışma ilkeleri hakkında bilgi alın.",
   alternates: { canonical: absoluteUrl("/hakkimda") },
 };
 

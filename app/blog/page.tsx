@@ -8,7 +8,7 @@ import { absoluteUrl } from "@/lib/site-url";
 export const metadata: Metadata = {
   title: "Blog | Hukuki Bilgilendirme Yazıları",
   description:
-    "Adana ve Seyhan odaklı hukuki danışmanlık kapsamında aile hukuku, iş hukuku, miras hukuku, ceza hukuku ve gayrimenkul hukuku konularında bilgilendirme yazıları.",
+    "Adana odaklı hukuki danışmanlık kapsamında aile hukuku, iş hukuku, miras hukuku, ceza hukuku ve gayrimenkul hukuku konularında bilgilendirme yazıları.",
   alternates: { canonical: absoluteUrl("/blog") },
   openGraph: {
     title: "Blog | Hukuki Bilgilendirme Yazıları | Av. Betül Dilan Kurt",

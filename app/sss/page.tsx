@@ -10,7 +10,7 @@ import { absoluteUrl } from "@/lib/site-url";
 export const metadata: Metadata = {
   title: "Sık Sorulan Sorular | Adana Hukuki Danışmanlık",
   description:
-    "İlk danışma, boşanma davası süresi, nafaka, ceza soruşturması, iş hukuku ve miras paylaşımı gibi konularda sık sorulan sorular. Adana Seyhan merkezli hukuki danışmanlık.",
+    "İlk danışma, boşanma davası süresi, nafaka, ceza soruşturması, iş hukuku ve miras paylaşımı gibi konularda sık sorulan sorular. Adana merkezli hukuki danışmanlık.",
   alternates: { canonical: absoluteUrl("/sss") },
   openGraph: {
     title: "Sık Sorulan Sorular | Av. Betül Dilan Kurt",
