@@ -570,6 +570,96 @@ export const COURT_DECISIONS: CourtDecision[] = [
       "Bu içtihadın uygulamadaki değeri, temel hak incelemesinin otomatik veya formel bir denetimden ibaret olmadığını açık biçimde göstermesidir. Anayasal koruma sistemi, derece mahkemelerinin ve idarenin gerekçeli, somut, denetlenebilir ve hak eksenli değerlendirme yapmasını zorunlu kılar. İfade açıklamasının bağlamı, muhatabı, kamusal tartışmaya katkısı, kullanılan dilin niteliği ve müdahalenin ağırlığı birlikte değerlendirilmeden verilen kararlar, bireysel başvuru denetiminden dönme riski taşır. Dolayısıyla bu karar, hem ifade özgürlüğü alanında çalışan uygulayıcılar hem de kamu otoriteleri için ölçülülük analizinin vazgeçilmezliğini gösteren temel nitelikte bir anayasal rehberdir."
     ],
   },
+  {
+    slug: "whatsapp-yazismalari-delil-niteligi-tasir",
+    title: "WhatsApp Yazışmaları Delil Niteliği Taşır",
+    date: "2020",
+    court: "Yargıtay 13. Hukuk Dairesi",
+    category: "Yargıtay",
+    summary:
+      "Alacak davalarında WhatsApp ve benzeri elektronik ortamdaki yazışmalar belge ve delil niteliğindedir.",
+    excerpt:
+      "Elektronik iletişim araçlarıyla yapılan yazışmalar, usulüne uygun şekilde toplandığı takdirde alacak davalarında delil olarak kullanılabilir.",
+    content: [
+      "Yargıtay 13. Hukuk Dairesi'nin 2017/1014 E., 2020/4488 K. sayılı kararında, alacak davalarında WhatsApp ve benzeri elektronik ortamlarda gerçekleşen yazışmaların belge ve delil niteliği taşıdığı kabul edilmiştir. Elektronik iletişim kanalları günlük hayatta yaygın kullanıldığından, taraflar arasındaki borç-alacak ilişkisini veya anlaşmaları yansıtan bu tür kayıtlar, usulüne uygun şekilde mahkemeye sunulduğunda delil olarak değerlendirilebilir.",
+      "Karar, özellikle sözleşme ilişkileri, alacak iddiaları ve iş davalarında elektronik yazışmaların ispat gücünü ortaya koymaktadır. Bu içtihat uygulamada, ilgili yazışmaların hangi koşullarda delil sayılacağı ve nasıl sunulması gerektiği konusunda hukuki danışmanlık alınması faydalı olabilir."
+    ],
+  },
+  {
+    slug: "whatsapp-yazismalari-kisisel-veri-niteliginde-olup-delil-olarak-kullanilamaz",
+    title: "WhatsApp Yazışmaları Kişisel Veri Niteliğinde Olup Delil Olarak Kullanılamaz",
+    date: "2019",
+    court: "Yargıtay 9. Hukuk Dairesi",
+    category: "Yargıtay",
+    summary:
+      "WhatsApp konuşmaları gizlilik içeren kişisel veri niteliğinde olduğundan, salt nasıl temin edildiği anlaşılamayan bu yazışmalara dayanılarak iş akdinin feshi haksız olup kıdem ve ihbar tazminatı taleplerinin kabulü yerine reddi hatalıdır.",
+    excerpt:
+      "Kişisel veri niteliğindeki yazışmaların hukuka uygun biçimde temin edilmediği durumlarda, buna dayalı fesih haksız sayılabilir.",
+    content: [
+      "Yargıtay 9. Hukuk Dairesi 2018/10718 E., 2019/559 K. sayılı kararında, WhatsApp konuşmalarının gizlilik içeren kişisel veri niteliğinde olduğu vurgulanmıştır. Yazışmaların nasıl temin edildiği açıklığa kavuşturulmadan ve hukuka uygunluk sağlanmadan iş akdinin feshi için dayanak yapılması hâlinde fesih haksız kabul edilmiş; kıdem ve ihbar tazminatı taleplerinin reddi yerine kabulü gerektiği belirtilmiştir.",
+      "Bu karar, kişisel verilerin korunması ile iş hukuku uyuşmazlıklarının kesişiminde önemli bir içtihat oluşturmaktadır. İşverenin disiplin veya fesih süreçlerinde elektronik yazışmalara dayanması durumunda, verilerin elde ediliş biçiminin mevzuata uygunluğunun değerlendirilmesi gerekir. Somut olayınızda haklarınızın korunması için hukuki danışmanlık alınması önerilir."
+    ],
+  },
+  {
+    slug: "iscinin-yalnizlastirilmasi-ve-gorev-tanimi-disinda-is-verilmesi-manevi-tazminat-gerektirir",
+    title: "İşçinin Yalnızlaştırılması ve Görev Tanımı Dışında İş Verilmesi Manevi Tazminat Gerektirir",
+    date: "2022",
+    court: "Ankara Bölge Adliye Mahkemesi 7. Hukuk Dairesi",
+    category: "Bölge Adliye Mahkemesi",
+    summary:
+      "İşçinin yalnızlaştırılması ve görev tanımı dışında iş verilerek işten ayrılmaya zorlanması manevi tazminat gerektirir.",
+    excerpt:
+      "İşverenin mobbing niteliğindeki davranışları ve görev tanımı dışında iş verme suretiyle işçiyi ayrılmaya zorlaması manevi tazminat yükümlülüğü doğurur.",
+    content: [
+      "Ankara Bölge Adliye Mahkemesi 7. Hukuk Dairesi'nin 2022/2005 E., 2022/2166 K. sayılı kararında, işçinin işyerinde yalnızlaştırılması ve görev tanımı dışında iş verilerek işten ayrılmaya zorlanmasının manevi tazminat gerektirdiği kabul edilmiştir. Bu tür davranışlar, işçinin kişilik haklarının ihlali ve mobbing kapsamında değerlendirilebilmektedir.",
+      "Karar, işverenin dürüstlük ve eşit davranma borcu çerçevesinde işçiye uygun iş vermesi ve psikolojik taciz oluşturan tutumlardan kaçınması gerektiğini ortaya koymaktadır. Benzer bir durumda haklarınızı değerlendirmek için iş hukuku alanında hukuki danışmanlık almanız önerilir."
+    ],
+  },
+  {
+    slug: "defter-ve-belgelerin-baska-mahkemede-bulunmasi-mucbir-sebep-sayilir",
+    title: "Defter ve Belgelerin Başka Mahkemede Bulunması Mücbir Sebep Sayılır",
+    date: "2015",
+    court: "Danıştay 3. Vergi Dava Dairesi",
+    category: "Danıştay",
+    summary:
+      "Defter ve belgelerin başka bir mahkemede bulunması mücbir sebep hali olarak kabul edilmelidir. Bu nedenle cezalı tarhiyatın iptali gerekir.",
+    excerpt:
+      "Mükellefin elinde olmayan ve başka bir yargı mercisinde bulunan defter ve belgeler nedeniyle cezalı tarhiyat yapılması mücbir sebep kapsamında değerlendirilir.",
+    content: [
+      "Danıştay 3. Vergi Dava Dairesi'nin 2015/4634 K. sayılı kararında, defter ve belgelerin başka bir mahkemede bulunmasının mücbir sebep hali olarak kabul edilmesi gerektiği belirtilmiştir. Bu nedenle söz konusu koşullarda yapılan cezalı tarhiyatın iptali gerekir.",
+      "Karar, vergi uyuşmazlıklarında mükellefin iradesi dışındaki nedenlerle belge ve defterlere ulaşamaması durumunda cezai uygulamanın hakkaniyete uygun olmadığını ortaya koymaktadır. Vergi hukuku süreçlerinde hukuki danışmanlık alınması faydalı olabilir."
+    ],
+  },
+  {
+    slug: "sahte-fatura-kullanimi-sebebiyle-ozel-usulsuzluk-cezasi-kesilemez",
+    title: "Sahte Fatura Kullanımı Sebebiyle Özel Usulsüzlük Cezası Kesilemez",
+    date: "04.04.2022",
+    court: "Danıştay 3. Dairesi",
+    category: "Danıştay",
+    summary:
+      "Harcamaların sahte veya muhteviyatı itibarıyla yanıltıcı faturalarla belgelendirilmesi, 213 sayılı Kanun'un 353/1. maddesinde özel usulsüzlük cezası kesilmesi gereken eylemler arasında gösterilmediğinden kesilen özel usulsüzlük cezası maddenin öngörülüş amacına uygun düşmediği gerekçesiyle kaldırılmıştır.",
+    excerpt:
+      "213 sayılı Kanun'un 353/1. maddesi kapsamında sahte veya yanıltıcı fatura kullanımı özel usulsüzlük cezası gerektiren haller arasında sayılmadığından ceza kaldırılmıştır.",
+    content: [
+      "Danıştay 3. Dairesi 2021/3892 E., 2022/1507 K. sayılı kararında, harcamaların sahte veya muhteviyatı itibarıyla yanıltıcı faturalarla belgelendirilmesinin 213 sayılı Vergi Usul Kanunu'nun 353/1. maddesinde özel usulsüzlük cezası kesilmesi gereken eylemler arasında sayılmadığı kabul edilmiş; bu nedenle kesilen özel usulsüzlük cezasının maddenin öngörülüş amacına uygun düşmediği gerekçesiyle kaldırılmasına hükmedilmiştir.",
+      "İçtihat, vergi ceza hukukunda kanuni düzenlemenin lafzı ve amacı çerçevesinde ceza uygulanması gerektiğini vurgulamaktadır. Vergi uyuşmazlıklarında hukuki danışmanlık alınması önerilir."
+    ],
+  },
+  {
+    slug: "vergi-borcundan-dolayi-esin-gayrimenkulune-haciz-uygulanamaz",
+    title: "Vergi Borcundan Dolayı Eşin Gayrimenkulüne Haciz Uygulanamaz",
+    date: "2003",
+    court: "Danıştay 4. Dairesi",
+    category: "Danıştay",
+    summary:
+      "Vergi mükellefi olan davacının vergi borcundan dolayı eşinin adına kayıtlı gayrimenkul üzerine haciz uygulanamaz.",
+    excerpt:
+      "Mükellefin vergi borcundan dolayı eşine ait taşınmazlara haciz konulması hukuka aykırıdır.",
+    content: [
+      "Danıştay 4. Dairesi 2003/1733 E., 2003/2369 K. sayılı kararında, vergi mükellefi olan davacının vergi borcundan dolayı eşinin adına kayıtlı gayrimenkul üzerine haciz uygulanamayacağı kabul edilmiştir. Vergi alacağının tahsili için haciz uygulanacak malvarlığı, mükellefin kendisine ait olanlarla sınırlıdır; eşe ait mallar bu kapsamın dışındadır.",
+      "Karar, vergi icra hukukunda mükellef ile üçüncü kişilerin malvarlığının ayrımını net biçimde ortaya koymaktadır. Vergi borcu ve haciz uyuşmazlıklarında hukuki danışmanlık alınması faydalı olabilir."
+    ],
+  },
 ];
 
 /** Neden Biz / Neden Av. Betül Dilan Kurt? – güven unsurları */
