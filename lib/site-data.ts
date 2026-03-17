@@ -39,11 +39,11 @@ export type ServiceItem = {
 
 export type BlogPost = {
   slug: string;
-  title: string;
+  title: { tr: string; en: string };
   date: string;
   category: string;
-  summary: string;
-  content: string[];
+  summary: { tr: string; en: string };
+  content: { tr: string[]; en: string[] };
   contentBlocks?: BlogContentBlock[];
   tags: string[];
 };
@@ -400,61 +400,113 @@ export const SERVICES: ServiceItem[] = [
 export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "bosanma-davasi-sureci-bilinmesi-gerekenler",
-    title: "Boşanma Davası Süreci: Bilinmesi Gerekenler",
+    title: {
+      tr: "Boşanma Davası Süreci: Bilinmesi Gerekenler",
+      en: "Divorce Proceedings: What You Need to Know",
+    },
     date: "11 Mart 2026",
     category: "Aile Hukuku",
-    summary:
-      "Boşanma davasına başlamadan önce usul, delil ve hak talepleri bakımından dikkat edilmesi gereken temel noktalar.",
-    content: [
-      "Boşanma davası açılmadan önce hangi taleplerin ileri sürüleceğinin netleştirilmesi gerekir. Velayet, nafaka, maddi ve manevi tazminat ile mal paylaşımına ilişkin başlıklar çoğu zaman birbiriyle bağlantılıdır. Bu nedenle davanın yalnızca boşanma talebi üzerinden değil, bütün sonuçlarıyla birlikte değerlendirilmesi önem taşır.",
-      "Anlaşmalı boşanma ile çekişmeli boşanma arasındaki fark, sürenin ve ispat yükünün niteliğini doğrudan etkiler. Çekişmeli boşanma davalarında tanık anlatımları, yazılı belgeler, mesaj kayıtları ve diğer deliller sürecin en önemli parçalarıdır. Eksik hazırlık, davanın uzamasına veya hak kaybına neden olabilir.",
-      "Boşanma sürecinde çocukların üstün yararı mahkemeler tarafından öncelikli olarak gözetilir. Velayet ve kişisel ilişki kurulmasına dair değerlendirmeler yapılırken yalnızca ebeveynlerin beyanları değil, sosyal inceleme raporları ve çocuğun koşulları da dikkate alınır.",
-      "Sürece başlamadan önce uzman bir değerlendirme alınması; dava stratejisinin, olası sonuçların ve risklerin netleştirilmesi açısından fayda sağlar. Böylece duygusal yönü ağır basan bu süreç daha kontrollü ve planlı biçimde yürütülebilir.",
-    ],
+    summary: {
+      tr: "Boşanma davasına başlamadan önce usul, delil ve hak talepleri bakımından dikkat edilmesi gereken temel noktalar.",
+      en: "Key procedural points, evidence issues and claim types that should be assessed before initiating a divorce case.",
+    },
+    content: {
+      tr: [
+        "Boşanma davası açılmadan önce hangi taleplerin ileri sürüleceğinin netleştirilmesi gerekir. Velayet, nafaka, maddi ve manevi tazminat ile mal paylaşımına ilişkin başlıklar çoğu zaman birbiriyle bağlantılıdır. Bu nedenle davanın yalnızca boşanma talebi üzerinden değil, bütün sonuçlarıyla birlikte değerlendirilmesi önem taşır.",
+        "Anlaşmalı boşanma ile çekişmeli boşanma arasındaki fark, sürenin ve ispat yükünün niteliğini doğrudan etkiler. Çekişmeli boşanma davalarında tanık anlatımları, yazılı belgeler, mesaj kayıtları ve diğer deliller sürecin en önemli parçalarıdır. Eksik hazırlık, davanın uzamasına veya hak kaybına neden olabilir.",
+        "Boşanma sürecinde çocukların üstün yararı mahkemeler tarafından öncelikli olarak gözetilir. Velayet ve kişisel ilişki kurulmasına dair değerlendirmeler yapılırken yalnızca ebeveynlerin beyanları değil, sosyal inceleme raporları ve çocuğun koşulları da dikkate alınır.",
+        "Sürece başlamadan önce uzman bir değerlendirme alınması; dava stratejisinin, olası sonuçların ve risklerin netleştirilmesi açısından fayda sağlar. Böylece duygusal yönü ağır basan bu süreç daha kontrollü ve planlı biçimde yürütülebilir.",
+      ],
+      en: [
+        "Before filing for divorce, it is important to clarify which claims will be brought before the court. Matters such as custody, alimony, material and moral compensation and the division of matrimonial property are usually interconnected. For this reason, the case should not be viewed as a mere request for divorce, but together with all of its legal and financial consequences.",
+        "Whether the case will proceed as an uncontested or a contested divorce has a direct impact on the duration of the proceedings and the nature of the burden of proof. In contested divorces, witness statements, written correspondence, electronic messages and other evidence form a central part of the file. Inadequate preparation may prolong the proceedings or lead to loss of rights.",
+        "Throughout divorce proceedings, courts give primary consideration to the best interests of the child. In assessing custody and contact arrangements, they do not only take the parents’ statements into account, but also social enquiry reports and the child’s living conditions.",
+        "Obtaining tailored legal advice before starting the process helps to clarify litigation strategy, possible outcomes and risks. Since divorce is often an emotionally demanding process, having a realistic and structured roadmap makes it easier to manage the steps involved. This text is for general information only and does not constitute legal advice; professional legal support should be sought for your specific situation.",
+      ],
+    },
     tags: ["boşanma davası", "anlaşmalı boşanma", "çekişmeli boşanma", "velayet", "nafaka"],
   },
   {
     slug: "is-sozlesmesi-feshinde-haklariniz",
-    title: "İş Sözleşmesi Feshinde Haklarınız",
+    title: {
+      tr: "İş Sözleşmesi Feshinde Haklarınız",
+      en: "Your Rights When an Employment Contract is Terminated",
+    },
     date: "7 Mart 2026",
     category: "İş Hukuku",
-    summary:
-      "İş sözleşmesinin sona erdirilmesi halinde işçi ve işveren açısından doğan temel haklar ve dikkat edilmesi gereken süreler.",
-    content: [
-      "İş sözleşmesinin feshi, sadece çalışma ilişkisinin sona ermesi anlamına gelmez; aynı zamanda tazminat, izin, ücret ve dava hakkı gibi birçok hukuki sonucu beraberinde getirir. Bu nedenle fesih işleminin nedenine ve şekline göre hangi hakların doğduğu dikkatle incelenmelidir.",
-      "İşveren tarafından yapılan fesihte, haklı neden bulunup bulunmadığı ve yazılı bildirimin usule uygun yapılıp yapılmadığı büyük önem taşır. İşçi bakımından ise fesih sonrası arabuluculuk başvurusunun süresi içinde yapılması, işe iade veya alacak taleplerinin korunması açısından kritiktir.",
-      "Kıdem tazminatı, ihbar tazminatı, fazla mesai, ulusal bayram ve genel tatil ücretleri ile yıllık izin alacakları en sık gündeme gelen kalemlerdir. Ancak her çalışan için hakların kapsamı aynı değildir; çalışma süresi, ücret yapısı ve fesih nedeni sonuca etki eder.",
-      "Fesih sonrasında imzalanan belgelerin içeriği de ayrıca önemlidir. İbraname ya da çıkış belgeleri bilinmeden imzalandığında hak kayıpları yaşanabilir. Bu nedenle süreç baştan sona hukuki değerlendirme ile yürütülmelidir.",
-    ],
+    summary: {
+      tr: "İş sözleşmesinin sona erdirilmesi halinde işçi ve işveren açısından doğan temel haklar ve dikkat edilmesi gereken süreler.",
+      en: "An overview of key rights and time limits that arise for employees and employers when an employment contract is terminated.",
+    },
+    content: {
+      tr: [
+        "İş sözleşmesinin feshi, sadece çalışma ilişkisinin sona ermesi anlamına gelmez; aynı zamanda tazminat, izin, ücret ve dava hakkı gibi birçok hukuki sonucu beraberinde getirir. Bu nedenle fesih işleminin nedenine ve şekline göre hangi hakların doğduğu dikkatle incelenmelidir.",
+        "İşveren tarafından yapılan fesihte, haklı neden bulunup bulunmadığı ve yazılı bildirimin usule uygun yapılıp yapılmadığı büyük önem taşır. İşçi bakımından ise fesih sonrası arabuluculuk başvurusunun süresi içinde yapılması, işe iade veya alacak taleplerinin korunması açısından kritiktir.",
+        "Kıdem tazminatı, ihbar tazminatı, fazla mesai, ulusal bayram ve genel tatil ücretleri ile yıllık izin alacakları en sık gündeme gelen kalemlerdir. Ancak her çalışan için hakların kapsamı aynı değildir; çalışma süresi, ücret yapısı ve fesih nedeni sonuca etki eder.",
+        "Fesih sonrasında imzalanan belgelerin içeriği de ayrıca önemlidir. İbraname ya da çıkış belgeleri bilinmeden imzalandığında hak kayıpları yaşanabilir. Bu nedenle süreç baştan sona hukuki değerlendirme ile yürütülmelidir.",
+      ],
+      en: [
+        "Termination of an employment contract does not only mean that the working relationship ends; it also gives rise to a number of legal consequences such as compensation, outstanding salary and leave payments and potential claims. For this reason, the grounds and form of termination must be examined carefully to understand which rights have arisen.",
+        "In terminations initiated by the employer, it is crucial to assess whether there is just cause or a valid reason and whether the written notice complies with legal formalities. For employees, making a timely application to mediation after termination is often decisive in preserving reinstatement and receivable claims.",
+        "Severance pay, notice pay, overtime, national holiday and general holiday wages and unused annual leave payments are among the most common items raised in practice. However, the scope of the rights involved is not identical for every employee; factors such as length of service, remuneration structure and the reason for termination all affect the outcome.",
+        "Documents signed after termination, such as releases or exit forms, may also have significant consequences. Signing such documents without understanding their content may lead to loss of rights. Therefore the entire process should be managed with legal assessment from the outset. This text provides general information only; for your own case, individual legal advice should be obtained.",
+      ],
+    },
     tags: ["iş hukuku", "işten çıkarılma", "kıdem tazminatı", "ihbar tazminatı", "işe iade"],
   },
   {
     slug: "miras-hukukunda-sakli-pay-nedir",
-    title: "Miras Hukukunda Saklı Pay Nedir?",
+    title: {
+      tr: "Miras Hukukunda Saklı Pay Nedir?",
+      en: "What is the Reserved Share in Inheritance Law?",
+    },
     date: "2 Mart 2026",
     category: "Miras Hukuku",
-    summary:
-      "Saklı pay kavramı, hangi mirasçılar için geçerli olduğu ve miras bırakanın tasarruf özgürlüğünü nasıl sınırlandırdığı hakkında kısa bir rehber.",
-    content: [
-      "Saklı pay, miras bırakanın bazı yakın mirasçılar aleyhine tamamen ortadan kaldıramayacağı yasal miras payını ifade eder. Türk Medeni Kanunu uyarınca altsoy, ana-baba ve sağ kalan eş belirli koşullarda saklı paylı mirasçı olarak korunur.",
-      "Miras bırakan vasiyetname veya bağış yoluyla malvarlığı üzerinde tasarrufta bulunabilir; ancak bu tasarruflar saklı paylı mirasçıların yasal korunan paylarını ihlal edemez. Aksi durumda tenkis davası gündeme gelebilir.",
-      "Saklı pay hesabı yapılırken terekenin aktif ve pasifleri, sağlığında yapılan bazı kazandırmalar ve mirasçıların yasal pay oranları dikkate alınır. Bu nedenle hesaplama çoğu zaman teknik bir inceleme gerektirir.",
-      "Özellikle aile içi taşınmaz devirleri ve bağış işlemlerinde, görünürde satış gibi yapılan bazı işlemlerin gerçekte mirastan mal kaçırma amacı taşıyıp taşımadığı ayrıca değerlendirilebilir. Bu da muris muvazaası ve tenkis davalarının önemini artırır.",
-    ],
+    summary: {
+      tr: "Saklı pay kavramı, hangi mirasçılar için geçerli olduğu ve miras bırakanın tasarruf özgürlüğünü nasıl sınırlandırdığı hakkında kısa bir rehber.",
+      en: "A brief guide on the concept of the reserved share, which heirs benefit from it and how it limits the testator’s freedom of disposition.",
+    },
+    content: {
+      tr: [
+        "Saklı pay, miras bırakanın bazı yakın mirasçılar aleyhine tamamen ortadan kaldıramayacağı yasal miras payını ifade eder. Türk Medeni Kanunu uyarınca altsoy, ana-baba ve sağ kalan eş belirli koşullarda saklı paylı mirasçı olarak korunur.",
+        "Miras bırakan vasiyetname veya bağış yoluyla malvarlığı üzerinde tasarrufta bulunabilir; ancak bu tasarruflar saklı paylı mirasçıların yasal korunan paylarını ihlal edemez. Aksi durumda tenkis davası gündeme gelebilir.",
+        "Saklı pay hesabı yapılırken terekenin aktif ve pasifleri, sağlığında yapılan bazı kazandırmalar ve mirasçıların yasal pay oranları dikkate alınır. Bu nedenle hesaplama çoğu zaman teknik bir inceleme gerektirir.",
+        "Özellikle aile içi taşınmaz devirleri ve bağış işlemlerinde, görünürde satış gibi yapılan bazı işlemlerin gerçekte mirastan mal kaçırma amacı taşıyıp taşımadığı ayrıca değerlendirilebilir. Bu da muris muvazaası ve tenkis davalarının önemini artırır.",
+      ],
+      en: [
+        "The reserved share is the portion of the estate that a testator cannot completely deprive certain close heirs of. Under Turkish Civil Code provisions, descendants, parents and the surviving spouse are protected as reserved share heirs in specified situations.",
+        "Although the testator may dispose of assets by way of will or gifts during lifetime, such dispositions may not lawfully infringe the statutory reserved portions of protected heirs. If the reserved share is violated, a reduction (tenkis) action may be brought.",
+        "When calculating the reserved share, the active and passive elements of the estate, certain lifetime dispositions and the statutory shares of the heirs are taken into account. For this reason, the calculation often requires a technical and careful assessment.",
+        "In particular, intra-family transfers of immovable property or gifts structured as apparent sales may raise questions as to whether assets were intentionally removed from the estate. This is why actions based on simulated transactions and reduction claims have practical importance. The information provided here is general in nature; specific inheritance disputes should be evaluated with professional legal advice.",
+      ],
+    },
     tags: ["miras hukuku", "saklı pay", "tenkis davası", "vasiyetname", "muris muvazaası"],
   },
   {
     slug: "bosanma-davasi-ne-kadar-surer",
-    title: "Boşanma Davası Ne Kadar Sürer?",
+    title: {
+      tr: "Boşanma Davası Ne Kadar Sürer?",
+      en: "How Long Does a Divorce Case Take?",
+    },
     date: "5 Mart 2026",
     category: "Aile Hukuku",
-    summary:
-      "Anlaşmalı ve çekişmeli boşanma davalarında süreler farklılık gösterir. Ortalama yargılama süreleri ve süreyi etkileyen faktörler hakkında bilgi.",
-    content: [
-      "Boşanma davasının ne kadar süreceği; davanın türüne, taleplerin kapsamına, delil durumuna ve yargılamanın usul adımlarına göre değişebilir. Bu nedenle her dosya kendi koşulları içinde değerlendirilmelidir.",
-      "Anlaşmalı boşanma ile çekişmeli boşanma arasındaki fark, sürecin akışını doğrudan etkiler. Çekişmeli davalarda delillerin toplanması, tanıkların dinlenmesi ve çocuk varsa sosyal inceleme gibi işlemler süreci uzatabilir.",
-      "Sürece ilişkin gerçekçi bir yol haritası oluşturmak için, somut olayın koşullarına göre hukuki danışmanlık alınması önerilir.",
-    ],
+    summary: {
+      tr: "Anlaşmalı ve çekişmeli boşanma davalarında süreler farklılık gösterir. Ortalama yargılama süreleri ve süreyi etkileyen faktörler hakkında bilgi.",
+      en: "An overview of the factors that affect the length of uncontested and contested divorce proceedings.",
+    },
+    content: {
+      tr: [
+        "Boşanma davasının ne kadar süreceği; davanın türüne, taleplerin kapsamına, delil durumuna ve yargılamanın usul adımlarına göre değişebilir. Bu nedenle her dosya kendi koşulları içinde değerlendirilmelidir.",
+        "Anlaşmalı boşanma ile çekişmeli boşanma arasındaki fark, sürecin akışını doğrudan etkiler. Çekişmeli davalarda delillerin toplanması, tanıkların dinlenmesi ve çocuk varsa sosyal inceleme gibi işlemler süreci uzatabilir.",
+        "Sürece ilişkin gerçekçi bir yol haritası oluşturmak için, somut olayın koşullarına göre hukuki danışmanlık alınması önerilir.",
+      ],
+      en: [
+        "The duration of a divorce case varies depending on the type of proceedings, the scope of the claims, the available evidence and the procedural steps to be taken. For this reason, each file should be assessed on its own circumstances rather than with a single fixed timeline.",
+        "The distinction between uncontested and contested divorce directly shapes how the process unfolds. In contested cases, the collection of evidence, hearing of witnesses and, where there are children, the preparation of social enquiry reports may extend the length of the proceedings.",
+        "Realistic planning of the process requires identifying the nature of the dispute, the claims to be made and the evidence that can support them from the outset. Obtaining tailored legal advice helps to form a timeline that is compatible with court practice and the specifics of the case.",
+        "The explanations in this article are of a general nature and do not replace consulting a lawyer. For accurate time estimates and strategy in your own situation, professional legal support should be sought.",
+      ],
+    },
     contentBlocks: [
       { type: "h2", text: "Boşanma davasının süresi neden değişir?" },
       {
