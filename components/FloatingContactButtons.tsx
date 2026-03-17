@@ -11,13 +11,13 @@ function WhatsAppIcon() {
 
 export function FloatingContactButtons() {
   return (
-    <div className="fixed left-4 top-1/2 z-50 flex -translate-y-1/2 flex-col gap-3 md:left-6">
+    <div className="fixed bottom-5 right-4 z-50 flex flex-col gap-3 md:bottom-auto md:left-6 md:right-auto md:top-1/2 md:-translate-y-1/2">
       <a
         href={SITE_INFO.whatsappHref}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="WhatsApp ile iletişim"
-        className="floating-contact-btn bg-[#22c55e] text-white shadow-[0_10px_30px_rgba(34,197,94,0.28)] hover:bg-[#16a34a]"
+        className="floating-contact-btn whatsapp-pulse bg-[#22c55e] text-white shadow-[0_10px_30px_rgba(34,197,94,0.28)] hover:bg-[#16a34a]"
       >
         <WhatsAppIcon />
       </a>

@@ -1,35 +1,27 @@
 "use client";
 
-import { useLanguage } from "@/components/language-context";
+import { useLocale, useTranslations } from "next-intl";
 import { WHY_CHOOSE_US } from "@/lib/site-data";
 import { MiniCta } from "@/components/MiniCta";
 
 export function WhyChooseUsSection() {
-  const { language } = useLanguage();
+  const t = useTranslations();
+  const locale = useLocale();
+  const withLocale = (href: string) => (href === "/" ? `/${locale}` : `/${locale}${href}`);
 
   return (
     <div className="section-inner">
       <div className="mb-14 flex flex-col gap-4">
-        <span className="section-kicker">
-          {language === "tr" ? "Neden Biz" : "Why Us"}
-        </span>
-        <h2 className="section-title">
-          {language === "tr"
-            ? "Neden Av. Betül Dilan Kurt?"
-            : "Why Atty. Betül Dilan Kurt?"}
-        </h2>
-        <p className="section-description">
-          {language === "tr"
-            ? "Adana'da hukuki danışmanlık ve avukatlık hizmeti alırken güven, şeffaflık ve titiz süreç yönetimi önceliklidir. Dava takibi ve ön değerlendirme süreçlerinde yanınızdayız."
-            : "When seeking legal counsel and representation, trust, transparency and diligent process management are our priorities."}
-        </p>
+        <span className="section-kicker">{t("whyUs.kicker")}</span>
+        <h2 className="section-title">{t("whyUs.title")}</h2>
+        <p className="section-description">{t("whyUs.description")}</p>
       </div>
 
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {WHY_CHOOSE_US.map((item) => {
           const Icon = item.icon;
-          const title = language === "tr" ? item.title.tr : item.title.en;
-          const description = language === "tr" ? item.description.tr : item.description.en;
+          const title = locale === "tr" ? item.title.tr : item.title.en;
+          const description = locale === "tr" ? item.description.tr : item.description.en;
           return (
             <div
               key={item.key}
@@ -52,14 +44,10 @@ export function WhyChooseUsSection() {
       </div>
 
       <MiniCta
-        title={language === "tr" ? "Ön Görüşme" : "Consultation"}
-        description={
-          language === "tr"
-            ? "Dosyanızın kapsamına göre izlenebilecek başvuru yolları ve süreç adımları hakkında genel bilgilendirme için iletişime geçebilirsiniz."
-            : "For preliminary information about possible steps and procedures for your matter, you may get in touch."
-        }
-        primary={{ href: "/iletisim", label: language === "tr" ? "Ön görüşme talep et" : "Request a consultation" }}
-        secondary={{ href: "/hizmetler", label: language === "tr" ? "Hizmetleri incele" : "View services" }}
+        title={t("whyUs.miniCtaTitle")}
+        description={t("whyUs.miniCtaDescription")}
+        primary={{ href: withLocale("/iletisim"), label: t("whyUs.miniCtaPrimary") }}
+        secondary={{ href: withLocale("/hizmetler"), label: t("whyUs.miniCtaSecondary") }}
       />
     </div>
   );

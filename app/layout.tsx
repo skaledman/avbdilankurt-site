@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, DM_Sans } from "next/font/google";
 import "./globals.css";
+import { NextIntlClientProvider } from "next-intl";
+import { getLocale } from "next-intl/server";
 import { Providers } from "@/components/Providers";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -59,7 +61,11 @@ export const metadata: Metadata = {
       "Aile, ceza, iş, miras ve ticaret hukuku alanlarında hukuki danışmanlık ve avukatlık hizmeti. Adana.",
   },
   alternates: {
-    canonical: SITE_URL,
+    canonical: `${SITE_URL.replace(/\/$/, "")}/tr`,
+    languages: {
+      "tr-TR": `${SITE_URL.replace(/\/$/, "")}/tr`,
+      "en-US": `${SITE_URL.replace(/\/$/, "")}/en`,
+    },
   },
   robots: {
     index: true,
@@ -67,24 +73,34 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getLocale().catch(() => "tr");
+  // Avoid build-time failures when no locale is available (e.g. prerender of non-prefixed routes)
+  const messages = (await import(`../locales/${locale}.json`)).default as Record<string, unknown>;
+
   return (
-    <html lang="tr" suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning>
       <body
         className={`${cormorant.variable} ${dmSans.variable} font-body antialiased`}
       >
-        <JsonLdLegalService />
         <div className="page-shell">
           <Providers>
-            <Navbar />
-            <FloatingContactButtons />
-            {children}
-            <Footer />
-            <CookieBanner />
+            {/* next-intl provider is safe in root layout; pages without locale will be redirected by middleware */}
+            <NextIntlClientProvider
+              locale={locale}
+              messages={messages}
+            >
+              <JsonLdLegalService />
+              <Navbar />
+              <FloatingContactButtons />
+              {children}
+              <Footer />
+              <CookieBanner />
+            </NextIntlClientProvider>
           </Providers>
         </div>
       </body>

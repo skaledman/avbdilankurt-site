@@ -1,0 +1,148 @@
+{
+  "meta": {
+    "siteName": "Av. Betül Dilan Kurt"
+  },
+  "common": {
+    "tr": "TR",
+    "en": "EN",
+    "home": "Ana Sayfa",
+    "about": "Hakkında",
+    "services": "Hizmetler",
+    "caseLaw": "Yargı Kararları",
+    "articles": "Yazılar",
+    "contact": "İletişim",
+    "faq": "SSS",
+    "lawConsultancy": "Hukuk & Danışmanlık"
+  },
+  "hero": {
+    "subtitle": "Hukuk & Danışmanlık",
+    "headline": "Boşanma, ceza ve iş uyuşmazlıklarında stratejik hukuki destek",
+    "description": "Adana merkezli olarak bireysel ve kurumsal müvekkillere, dava öncesi danışmanlıktan temsil sürecine kadar şeffaf ve titiz hukuki hizmet sunulmaktadır.",
+    "ctaPrimary": "İletişime Geçin",
+    "ctaSecondary": "Hizmet Alanlarını İnceleyin",
+    "explore": "Keşfet"
+  },
+  "cookie": {
+    "ariaLabel": "Çerez bildirimi",
+    "text": "Bu site yalnızca teknik çerezler kullanmaktadır. Kişisel veri toplama veya reklam amaçlı çerez kullanılmamaktadır.",
+    "policy": "Çerez Politikası",
+    "accept": "Kabul Et"
+  },
+  "footer": {
+    "quickLinks": "Hızlı Bağlantılar",
+    "services": "Hizmetler",
+    "contact": "İletişim",
+    "privacy": "Gizlilik Politikası",
+    "cookiePolicy": "Çerez Politikası",
+    "rights": "Tüm hakları saklıdır.",
+    "aboutText": "Adana merkezli hukuk bürosunda; aile, iş, ceza, miras, gayrimenkul ve ticaret hukuku alanlarında özenli hukuki danışmanlık, dava takibi ve stratejik süreç yönetimi sunulmaktadır.",
+    "barMember": "Adana Barosu Üyesi",
+    "disclaimer": "Avukatlık Kanunu m.55 ve TBB Reklam Yasağı Yönetmeliği uyarınca bu internet sitesi bilgilendirme amaçlıdır; reklam veya iş kazanma amacı taşımaz."
+  }
+  ,
+  "nav": {
+    "aboutProfile": "Avukat Profili",
+    "aboutApproach": "Çalışma Yaklaşımı",
+    "servicesAll": "Tüm Hizmet Alanları"
+  },
+  "whyUs": {
+    "kicker": "Neden Biz",
+    "title": "Neden Av. Betül Dilan Kurt?",
+    "description": "Dosyanın niteliğine göre bilgi, belge ve süreç adımları şeffaf biçimde paylaşılır; amaç belirsizliği azaltmaktır.",
+    "miniCtaTitle": "Ön Görüşme",
+    "miniCtaDescription": "Dosyanızın kapsamına göre izlenebilecek başvuru yolları ve süreç adımları hakkında genel bilgilendirme için iletişime geçebilirsiniz.",
+    "miniCtaPrimary": "Ön görüşme talep et",
+    "miniCtaSecondary": "Hizmetleri incele"
+  },
+  "services": {
+    "kicker": "Hizmet Alanlarım",
+    "title": "Uzmanlık Alanlarım",
+    "description": "Her dosya, hukuki gerekliliklerin yanı sıra müvekkilin hayatına etkileri de gözetilerek özenle ele alınır.",
+    "cardCta": "Detaylı İncele",
+    "bottomNote": "Tüm hukuki alanlarda ön bilgilendirme için iletişime geçebilirsiniz",
+    "miniCtaTitle": "Bir Sonraki Adım",
+    "miniCtaDescription": "Hizmet alanınıza göre gerekli belgeler ve başvuru yolları değişebilir. Dosyanız için ön değerlendirme talep edebilirsiniz.",
+    "miniCtaPrimary": "Ön görüşme talep et"
+  },
+  "trust": {
+    "kicker": "Güven",
+    "title": "Hukuki Süreçte Güven Göstergeleri",
+    "description": "Bireysel ve kurumsal müvekkillere farklı hukuk alanlarında düzenli iletişim ve özenli dosya takibi ile hukuki destek sunulmaktadır.",
+    "miniCtaTitle": "İletişim",
+    "miniCtaDescription": "Hukuki sürecinizin kapsamına göre izlenebilecek adımların netleşmesi için ön bilgilendirme talep edebilirsiniz.",
+    "miniCtaPrimary": "İletişime geçin"
+  },
+  "process": {
+    "kicker": "Çalışma Süreci",
+    "title": "Danışmanlık Sürecimiz",
+    "description": "Her dosyada ilk değerlendirmeden temsil aşamasına kadar düzenli ve mesleki özen odaklı bir çalışma akışı benimsenir.",
+    "ctaAppointment": "Randevu al",
+    "ctaSendFile": "Dosya gönder",
+    "ctaRequest": "Ön görüşme talep et",
+    "ctaContact": "İletişime geçin",
+    "miniCtaTitle": "İletişim",
+    "miniCtaDescription": "Davanız veya başvurunuz için izlenecek adımlar, talep kalemleri ve belge ihtiyaçları dosya özelinde belirlenir.",
+    "miniCtaPrimary": "Ön görüşme talep et"
+  }
+  ,
+  "faq": {
+    "eyebrow": "SSS",
+    "title": "Sık Sorulan Sorular",
+    "description": "İlk başvuru, belge hazırlığı ve sık karşılaşılan hukuki süreçlere ilişkin genel bilgilendirme niteliğinde yanıtlar burada yer almaktadır.",
+    "previewDescription": "İlk başvuru, belge hazırlığı ve hukuki süreçlerin temel adımlarına ilişkin sık yöneltilen soruların kısa yanıtlarını burada bulabilirsiniz.",
+    "viewAll": "Tüm soruları gör",
+    "noticeTitle": "Önemli Bilgilendirme",
+    "noticeText": "Bu sayfadaki açıklamalar yalnızca genel bilgilendirme amacı taşır. Her somut olayın koşulları farklı olduğundan, hak kaybı yaşanmaması için özel hukuki değerlendirme alınması önerilir. Bu içerikler avukat-müvekkil ilişkisi veya kesin hukuki görüş niteliği taşımaz."
+  }
+  ,
+  "contact": {
+    "title": "Güvenilir Hukuki Destek İçin",
+    "description": "Sorularınız veya danışmak istediğiniz konular için aşağıdaki kanallardan ya da form üzerinden ulaşabilirsiniz.",
+    "phoneLabel": "Telefon",
+    "addressLabel": "Adres",
+    "legalDisclaimer": "Bu internet sitesi bilgilendirme amaçlıdır; reklam veya iş kazanma amacı taşımaz. Avukatlık Kanunu m.55 ve TBB Reklam Yasağı Yönetmeliği kapsamında hazırlanmıştır.",
+    "locationLabel": "Konum",
+    "openInMaps": "Haritada aç",
+    "formKicker": "İletişim Formu",
+    "formDescription": "Lütfen iletişim bilgilerinizi ve kısaca talebinizi iletin. En kısa sürede dönüş sağlanacaktır.",
+    "fullNameLabel": "Ad Soyad",
+    "fullNamePlaceholder": "Adınız Soyadınız",
+    "emailLabel": "E-mail",
+    "emailPlaceholder": "ornek@email.com",
+    "formPhoneLabel": "Telefon",
+    "priorityLabel": "Öncelik",
+    "topicLabel": "Konu",
+    "serviceTypeLabel": "Hizmet Türü",
+    "messageLabel": "Mesajınız",
+    "messagePlaceholder": "Mesajınızı buraya yazınız...",
+    "select": "Seçiniz",
+    "selectOptional": "Seçiniz (opsiyonel)",
+    "priorityNormal": "Normal",
+    "priorityUrgent": "Acil",
+    "topicFamily": "Aile Hukuku",
+    "topicCriminal": "Ceza Hukuku",
+    "topicEmployment": "İş Hukuku",
+    "topicEnforcement": "İcra & İflas",
+    "topicInheritance": "Miras Hukuku",
+    "topicRealEstate": "Gayrimenkul",
+    "topicCommercial": "Ticaret Hukuku",
+    "topicOther": "Diğer",
+    "serviceTypeLitigation": "Dava takibi",
+    "serviceTypeCounsel": "Danışmanlık",
+    "serviceTypeContractReview": "Sözleşme inceleme",
+    "serviceTypeDocumentPrep": "Belge/başvuru hazırlığı",
+    "kvkkPrefix": "Kişisel verilerimin işlenmesine ilişkin",
+    "kvkkLink": "Aydınlatma Metni",
+    "kvkkSuffix": "'ni okudum ve anladım.",
+    "formNotice": "Bu form yalnızca ön bilgilendirme amacı taşır; hukuki görüş ya da vekâlet ilişkisi başlatmaz.",
+    "sending": "Gönderiliyor...",
+    "send": "Gönder",
+    "success": "Mesajınız iletildi. En kısa sürede dönüş sağlanacaktır.",
+    "error": "Bir hata oluştu. Lütfen tekrar deneyiniz."
+  }
+  ,
+  "seo": {
+    "legalServiceDescription": "Adana merkezli olarak aile, ceza, iş, miras ve ticaret hukuku alanlarında bilgilendirme ve hukuki süreç yönetimine yönelik danışmanlık ve temsil hizmetleri."
+  }
+}
+

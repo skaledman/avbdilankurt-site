@@ -2,28 +2,22 @@
 
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { useLanguage } from "@/components/language-context";
+import { useLocale, useTranslations } from "next-intl";
 import { SERVICES } from "@/lib/site-data";
 import { MiniCta } from "@/components/MiniCta";
 
 export function ServicesSection() {
-  const { language } = useLanguage();
+  const t = useTranslations();
+  const locale = useLocale();
+  const withLocale = (href: string) => (href === "/" ? `/${locale}` : `/${locale}${href}`);
 
   return (
     <div className="section-inner">
       {/* Header */}
       <div className="mb-14 flex flex-col gap-4">
-        <span className="section-kicker">
-          {language === "tr" ? "Hizmet Alanlarım" : "Practice Areas"}
-        </span>
-        <h2 className="section-title">
-          {language === "tr" ? "Uzmanlık Alanlarım" : "Areas of Expertise"}
-        </h2>
-        <p className="section-description">
-          {language === "tr"
-            ? "Her dosya, hukuki gerekliliklerin yanı sıra müvekkilin hayatına etkileri de gözetilerek titizlikle ele alınır."
-            : "Every matter is handled with care, considering not only legal requirements but also its impact on clients' lives."}
-        </p>
+        <span className="section-kicker">{t("services.kicker")}</span>
+        <h2 className="section-title">{t("services.title")}</h2>
+        <p className="section-description">{t("services.description")}</p>
       </div>
 
       {/* Services grid */}
@@ -32,7 +26,7 @@ export function ServicesSection() {
           const Icon = service.icon;
           return (
             <Link
-              href={`/hizmetler/${service.slug}`}
+              href={withLocale(`/hizmetler/${service.slug}`)}
               key={service.slug}
               className="group flex flex-col gap-4 bg-[var(--bg-main)] p-6 transition-colors hover:bg-[var(--bg-card)]"
             >
@@ -48,7 +42,7 @@ export function ServicesSection() {
                 {service.shortDescription}
               </p>
               <span className="mt-auto inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.24em] text-[var(--gold)]">
-                Detaylı İncele <ArrowRight size={14} />
+                {t("services.cardCta")} <ArrowRight size={14} />
               </span>
             </Link>
           );
@@ -57,19 +51,13 @@ export function ServicesSection() {
 
       {/* Bottom note */}
       <p className="mt-8 text-center text-[12px] text-[rgba(232,229,221,0.42)] uppercase tracking-[0.22em]">
-        {language === "tr"
-          ? "Tüm hukuki alanlarda ön bilgilendirme için iletişime geçebilirsiniz"
-          : "Contact for preliminary information on any legal matter"}
+        {t("services.bottomNote")}
       </p>
 
       <MiniCta
-        title={language === "tr" ? "Bir Sonraki Adım" : "Next step"}
-        description={
-          language === "tr"
-            ? "Hizmet alanınıza göre gerekli belgeler ve başvuru yolları değişebilir. Dosyanız için ön değerlendirme talep edebilirsiniz."
-            : "Required documents and procedures may vary by matter. You can request a preliminary assessment."
-        }
-        primary={{ href: "/iletisim", label: language === "tr" ? "Ön görüşme talep et" : "Request a consultation" }}
+        title={t("services.miniCtaTitle")}
+        description={t("services.miniCtaDescription")}
+        primary={{ href: withLocale("/iletisim"), label: t("services.miniCtaPrimary") }}
       />
     </div>
   );

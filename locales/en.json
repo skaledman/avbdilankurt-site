@@ -1,0 +1,148 @@
+{
+  "meta": {
+    "siteName": "Atty. Betül Dilan Kurt"
+  },
+  "common": {
+    "tr": "TR",
+    "en": "EN",
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "caseLaw": "Case Law",
+    "articles": "Articles",
+    "contact": "Contact",
+    "faq": "FAQ",
+    "lawConsultancy": "Law & Consultancy"
+  },
+  "hero": {
+    "subtitle": "Law & Consultancy",
+    "headline": "Strategic legal support in divorce, criminal and employment matters",
+    "description": "Based in Adana, we provide careful and transparent legal support for individual and corporate clients, from preliminary assessment to representation throughout the process.",
+    "ctaPrimary": "Get in Touch",
+    "ctaSecondary": "View Practice Areas",
+    "explore": "Explore"
+  },
+  "cookie": {
+    "ariaLabel": "Cookie notice",
+    "text": "This site uses only technical cookies. No cookies are used for personal data collection or advertising.",
+    "policy": "Cookie Policy",
+    "accept": "Accept"
+  },
+  "footer": {
+    "quickLinks": "Quick Links",
+    "services": "Services",
+    "contact": "Contact",
+    "privacy": "Privacy Policy",
+    "cookiePolicy": "Cookie Policy",
+    "rights": "All rights reserved.",
+    "aboutText": "Our Adana-based law office provides careful legal counsel, litigation support and strategic process management in family, employment, criminal, inheritance, real estate and commercial law.",
+    "barMember": "Member of the Adana Bar Association",
+    "disclaimer": "This website is for information purposes only under the Attorneyship Law art.55 and the TBB Advertising Ban Regulation; it does not constitute advertising or solicitation of work."
+  }
+  ,
+  "nav": {
+    "aboutProfile": "Attorney Profile",
+    "aboutApproach": "Approach",
+    "servicesAll": "All Practice Areas"
+  },
+  "whyUs": {
+    "kicker": "Why Us",
+    "title": "Why Atty. Betül Dilan Kurt?",
+    "description": "Depending on the matter, steps, documents and the process are communicated clearly to reduce uncertainty.",
+    "miniCtaTitle": "Consultation",
+    "miniCtaDescription": "For preliminary information about possible steps and procedures for your matter, you may get in touch.",
+    "miniCtaPrimary": "Request a consultation",
+    "miniCtaSecondary": "View services"
+  },
+  "services": {
+    "kicker": "Practice Areas",
+    "title": "Areas of Expertise",
+    "description": "Each matter is handled with care, considering not only legal requirements but also its impact on clients' lives.",
+    "cardCta": "View details",
+    "bottomNote": "Contact for preliminary information on any legal matter",
+    "miniCtaTitle": "Next step",
+    "miniCtaDescription": "Required documents and procedures may vary by matter. You can request a preliminary assessment.",
+    "miniCtaPrimary": "Request a consultation"
+  },
+  "trust": {
+    "kicker": "Trust",
+    "title": "Indicators of Trust in Legal Process",
+    "description": "Legal support is provided with consistent communication and careful case handling for individual and corporate clients.",
+    "miniCtaTitle": "Contact",
+    "miniCtaDescription": "For preliminary information on the steps relevant to your situation, you may contact us.",
+    "miniCtaPrimary": "Contact"
+  },
+  "process": {
+    "kicker": "Working Process",
+    "title": "How We Work",
+    "description": "Each matter follows a clear and diligent workflow from initial assessment to representation.",
+    "ctaAppointment": "Request an appointment",
+    "ctaSendFile": "Send your documents",
+    "ctaRequest": "Request a consultation",
+    "ctaContact": "Contact",
+    "miniCtaTitle": "Contact",
+    "miniCtaDescription": "Steps, requests and required documents are determined based on the specifics of your matter.",
+    "miniCtaPrimary": "Request a consultation"
+  }
+  ,
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "Frequently Asked Questions",
+    "description": "General answers to frequently asked questions about initial steps, document preparation and common legal processes are provided here.",
+    "previewDescription": "Find brief answers to frequently asked questions about initial steps, document preparation and basic legal procedures.",
+    "viewAll": "View all questions",
+    "noticeTitle": "Important Notice",
+    "noticeText": "This page is for general information only. Since each case has its own circumstances, obtaining legal advice tailored to your situation is recommended. This content does not constitute legal advice or establish an attorney-client relationship."
+  }
+  ,
+  "contact": {
+    "title": "For Reliable Legal Support",
+    "description": "For any questions or matters you wish to consult on, reach us via the channels below or through the contact form.",
+    "phoneLabel": "Phone",
+    "addressLabel": "Address",
+    "legalDisclaimer": "This website is for information only and does not constitute advertising or a solicitation of work. Prepared in line with Turkish Attorneyship Law art.55 and the Bar Association regulations on advertising.",
+    "locationLabel": "Location",
+    "openInMaps": "Open in Maps",
+    "formKicker": "Contact Form",
+    "formDescription": "Please leave your contact details and a brief description of your request. You will be contacted as soon as possible.",
+    "fullNameLabel": "Full Name",
+    "fullNamePlaceholder": "Your full name",
+    "emailLabel": "E-mail",
+    "emailPlaceholder": "example@email.com",
+    "formPhoneLabel": "Phone",
+    "priorityLabel": "Priority",
+    "topicLabel": "Topic",
+    "serviceTypeLabel": "Service type",
+    "messageLabel": "Your Message",
+    "messagePlaceholder": "Write your message here...",
+    "select": "Select",
+    "selectOptional": "Select (optional)",
+    "priorityNormal": "Normal",
+    "priorityUrgent": "Urgent",
+    "topicFamily": "Family Law",
+    "topicCriminal": "Criminal Law",
+    "topicEmployment": "Employment Law",
+    "topicEnforcement": "Enforcement & Bankruptcy",
+    "topicInheritance": "Inheritance Law",
+    "topicRealEstate": "Real Estate",
+    "topicCommercial": "Commercial Law",
+    "topicOther": "Other",
+    "serviceTypeLitigation": "Litigation",
+    "serviceTypeCounsel": "Legal counsel",
+    "serviceTypeContractReview": "Contract review",
+    "serviceTypeDocumentPrep": "Document / application preparation",
+    "kvkkPrefix": "I have read and understood the",
+    "kvkkLink": "Privacy Notice",
+    "kvkkSuffix": " regarding the processing of my personal data.",
+    "formNotice": "This form is for preliminary information only and does not create an attorney-client relationship.",
+    "sending": "Sending...",
+    "send": "Send",
+    "success": "Your message has been sent. We will get back to you shortly.",
+    "error": "An error occurred. Please try again."
+  }
+  ,
+  "seo": {
+    "legalServiceDescription": "Based in Adana, informational legal counsel and representation across family, criminal, employment, inheritance and commercial law matters."
+  }
+}
+

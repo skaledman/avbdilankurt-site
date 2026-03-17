@@ -1,6 +1,6 @@
 "use client";
 
-import { useLanguage } from "@/components/language-context";
+import { useLocale } from "next-intl";
 import { Scale, BookOpen, Users } from "lucide-react";
 
 const PILLARS = [
@@ -25,7 +25,8 @@ const PILLARS = [
 ];
 
 export function AboutSection() {
-  const { language } = useLanguage();
+  const locale = useLocale();
+  const isTr = locale === "tr";
 
   return (
     <div className="section-inner">
@@ -33,11 +34,11 @@ export function AboutSection() {
         {/* Left: Text */}
         <div className="flex flex-col gap-6">
           <span className="section-kicker">
-            {language === "tr" ? "Hakkımda" : "About"}
+            {isTr ? "Hakkımda" : "About"}
           </span>
 
           <h2 className="section-title">
-            {language === "tr"
+            {isTr
               ? "Güven, Özen ve Profesyonellik"
               : "Trust, Care and Professionalism"}
           </h2>
@@ -45,13 +46,13 @@ export function AboutSection() {
           <div className="h-px w-12 bg-[var(--gold)] opacity-40" />
 
           <p className="section-description">
-            {language === "tr"
+            {isTr
               ? "Av. Betül Dilan Kurt, çalışmalarında her dosyanın kendine özgü özelliklerini dikkate alarak hukuki sürecin dikkatli planlanmasına ve müvekkilin süreç hakkında düzenli bilgilendirilmesine önem verir."
               : "Atty. Betül Dilan Kurt approaches each matter according to its specific characteristics, with emphasis on careful planning and regular client updates."}
           </p>
 
           <p className="section-description">
-            {language === "tr"
+            {isTr
               ? "Her müvekkile kişisel ilgi gösterilir; hukuki süreç boyunca gizlilik ve şeffaflık ilkeleri titizlikle korunur."
               : "Personal attention is given to every client; confidentiality and transparency are maintained throughout the legal process."}
           </p>
@@ -71,10 +72,10 @@ export function AboutSection() {
                 </div>
                 <div>
                   <h3 className="mb-1 text-base font-semibold text-[var(--foreground)]">
-                    {language === "tr" ? p.tr.title : p.en.title}
+                    {isTr ? p.tr.title : p.en.title}
                   </h3>
                   <p className="text-sm leading-7 text-[var(--text-faint)]">
-                    {language === "tr" ? p.tr.desc : p.en.desc}
+                    {isTr ? p.tr.desc : p.en.desc}
                   </p>
                 </div>
               </div>

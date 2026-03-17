@@ -1,10 +1,10 @@
 "use client";
 
 import { PhoneCall, Mail, ArrowDown } from "lucide-react";
-import { useLanguage } from "./language-context";
+import { useTranslations } from "next-intl";
 
 export function Hero() {
-  const { language } = useLanguage();
+  const t = useTranslations();
 
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
@@ -36,17 +36,22 @@ export function Hero() {
 
       {/* Main content */}
       <div className="mx-auto flex w-full max-w-6xl flex-col items-center px-5 pb-18 pt-20 text-center sm:px-8 sm:pt-24 lg:px-10 lg:pt-26">
-        {/* Name */}
-        <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[rgba(240,236,228,0.52)]">
-          {language === "tr" ? "Av. Betül Dilan Kurt" : "Atty. Betül Dilan Kurt"}
+        {/* Brand (H1) */}
+        <h1 className="max-w-4xl font-heading text-[2.125rem] font-bold leading-[1.08] tracking-[0.02em] text-white sm:text-[3rem] lg:text-[4rem]">
+          <span className="bg-gradient-to-r from-[#C8A96A] via-[#E5C07B] to-[#C8A96A] bg-clip-text text-transparent">
+            {t("meta.siteName")}
+          </span>
+        </h1>
+
+        {/* Subtitle */}
+        <p className="mt-3 text-[10px] font-semibold uppercase tracking-[0.32em] text-[rgba(240,236,228,0.6)]">
+          {t("hero.subtitle")}
         </p>
 
         {/* Headline */}
-        <h1 className="mt-4 max-w-4xl font-heading text-4xl font-semibold leading-tight tracking-tight text-[var(--foreground)] sm:text-5xl lg:text-6xl">
-          {language === "tr"
-            ? "Boşanma, Ceza ve İş Davalarında Stratejik Hukuki Destek"
-            : "Strategic Legal Support in Divorce, Criminal and Employment Matters"}
-        </h1>
+        <h2 className="mt-6 max-w-4xl text-base font-semibold leading-8 text-[var(--foreground)] sm:text-lg">
+          {t("hero.headline")}
+        </h2>
 
         {/* Gold divider */}
         <div className="my-8 flex items-center gap-4">
@@ -57,9 +62,7 @@ export function Hero() {
 
         {/* Tagline */}
         <p className="max-w-3xl text-[1.02rem] leading-8 text-[var(--text-muted)] sm:text-[1.125rem]">
-          {language === "tr"
-            ? "Adana merkezli olarak bireysel ve kurumsal müvekkillere, dava öncesi danışmanlıktan temsil sürecine kadar şeffaf ve titiz hukuki hizmet sunulmaktadır."
-            : "Based in Adana, we provide careful and transparent legal support for individual and corporate clients, from preliminary assessment to representation throughout the process."}
+          {t("hero.description")}
         </p>
 
         {/* CTA Buttons */}
@@ -70,7 +73,7 @@ export function Hero() {
             className="group inline-flex items-center gap-2.5 rounded-full bg-[var(--gold)] px-7 py-3 text-sm font-semibold tracking-wide text-[#0a0a0a] transition-all hover:bg-[var(--gold-light)] hover:shadow-[0_8px_30px_rgba(201,168,76,0.25)]"
           >
             <PhoneCall size={15} />
-            <span>{language === "tr" ? "İletişime Geçin" : "Get in Touch"}</span>
+            <span>{t("hero.ctaPrimary")}</span>
           </button>
 
           <button
@@ -78,7 +81,7 @@ export function Hero() {
             onClick={() => scrollTo("hizmetler")}
             className="inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.04] px-7 py-3 text-sm font-medium tracking-wide text-[var(--text-soft)] transition-all hover:border-white/20 hover:bg-white/[0.07]"
           >
-            <span>{language === "tr" ? "Hizmet Alanlarını İnceleyin" : "View Practice Areas"}</span>
+            <span>{t("hero.ctaSecondary")}</span>
           </button>
         </div>
 
@@ -112,7 +115,7 @@ export function Hero() {
         aria-label="Aşağı kaydır"
       >
         <span className="text-[9px] uppercase tracking-[0.3em]">
-          {language === "tr" ? "Keşfet" : "Explore"}
+          {t("hero.explore")}
         </span>
         <ArrowDown size={14} className="animate-bounce" />
       </button>

@@ -85,15 +85,15 @@ export type Testimonial = {
 
 export type ProcessStep = {
   key: string;
-  title: string;
-  description: string;
+  title: { tr: string; en: string };
+  description: { tr: string; en: string };
   icon: LucideIcon;
 };
 
 export type TrustIndicator = {
   key: string;
-  title: string;
-  description: string;
+  title: { tr: string; en: string };
+  description: { tr: string; en: string };
   icon: LucideIcon;
 };
 
@@ -1081,44 +1081,56 @@ export const TESTIMONIALS: Testimonial[] = [
 export const PROCESS_STEPS: ProcessStep[] = [
   {
     key: "initial-review",
-    title: "İlk Değerlendirme",
-    description:
-      "Uyuşmazlığın hukuki çerçevesi, acil riskler ve öncelikli ihtiyaçlar ilk görüşmede netleştirilir.",
+    title: { tr: "İlk Değerlendirme", en: "Initial Assessment" },
+    description: {
+      tr: "Uyuşmazlığın hukuki çerçevesi, acil riskler ve öncelikli ihtiyaçlar ilk görüşmede netleştirilir.",
+      en: "In the first meeting, the legal framework, urgent risks and priorities are clarified.",
+    },
     icon: Scale,
   },
   {
     key: "document-review",
-    title: "Belge İnceleme",
-    description:
-      "Dosyaya ilişkin sözleşme, kayıt, yazışma ve resmi evraklar dikkatle incelenerek somut zemin oluşturulur.",
+    title: { tr: "Belge İnceleme", en: "Document Review" },
+    description: {
+      tr: "Dosyaya ilişkin sözleşme, kayıt, yazışma ve resmi evraklar dikkatle incelenerek somut zemin oluşturulur.",
+      en: "Contracts, records, correspondence and official documents are reviewed to establish a solid basis.",
+    },
     icon: FileCheck,
   },
   {
     key: "roadmap",
-    title: "Hukuki Yol Haritası",
-    description:
-      "Dava, başvuru, arabuluculuk veya önleyici danışmanlık seçenekleri açık ve anlaşılır şekilde planlanır.",
+    title: { tr: "Hukuki Yol Haritası", en: "Legal Roadmap" },
+    description: {
+      tr: "Dava, başvuru, arabuluculuk veya önleyici danışmanlık seçenekleri açık ve anlaşılır şekilde planlanır.",
+      en: "Possible steps such as litigation, applications, mediation or preventive counsel are planned clearly.",
+    },
     icon: Target,
   },
   {
     key: "updates-process",
-    title: "Düzenli Bilgilendirme",
-    description:
-      "Sürecin önemli aşamalarında dosyanın durumu, olası gelişmeler ve atılacak adımlar düzenli olarak paylaşılır.",
+    title: { tr: "Düzenli Bilgilendirme", en: "Ongoing Updates" },
+    description: {
+      tr: "Sürecin önemli aşamalarında dosyanın durumu, olası gelişmeler ve atılacak adımlar düzenli olarak paylaşılır.",
+      en: "Progress, expected developments and next steps are shared at key stages of the process.",
+    },
     icon: Bell,
   },
   {
     key: "confidentiality-care",
-    title: "Gizlilik ve Mesleki Özen",
-    description:
-      "Paylaşılan bilgiler gizlilik yükümlülüğü çerçevesinde korunur; süreç mesleki dikkat ve sorumlulukla yürütülür.",
+    title: { tr: "Gizlilik ve Mesleki Özen", en: "Confidentiality & Care" },
+    description: {
+      tr: "Paylaşılan bilgiler gizlilik yükümlülüğü çerçevesinde korunur; süreç mesleki dikkat ve sorumlulukla yürütülür.",
+      en: "Information is handled confidentially and the process is managed with professional care.",
+    },
     icon: ShieldCheck,
   },
   {
     key: "representation",
-    title: "Süreç Boyunca Temsil",
-    description:
-      "İhtiyaca göre müzakere, başvuru, dava ve duruşma aşamalarında etkin temsil ve danışmanlık sağlanır.",
+    title: { tr: "Süreç Boyunca Temsil", en: "Representation" },
+    description: {
+      tr: "İhtiyaca göre müzakere, başvuru, dava ve duruşma aşamalarında etkin temsil ve danışmanlık sağlanır.",
+      en: "Representation and counsel are provided through negotiations, applications and court stages as needed.",
+    },
     icon: Users,
   },
 ];
@@ -1127,26 +1139,38 @@ export const PROCESS_STEPS: ProcessStep[] = [
 export const TRUST_INDICATORS: TrustIndicator[] = [
   {
     key: "individual",
-    title: "Bireysel Müvekkil Desteği",
-    description: "Bireysel hukuki sorunlarda özenli değerlendirme ve süreç yönetimi.",
+    title: { tr: "Bireysel Müvekkil Desteği", en: "Individual Support" },
+    description: {
+      tr: "Bireysel hukuki sorunlarda özenli değerlendirme ve süreç yönetimi.",
+      en: "Careful assessment and process management for individual legal matters.",
+    },
     icon: Users,
   },
   {
     key: "corporate",
-    title: "Kurumsal Danışmanlık",
-    description: "İşletmeler için sözleşme, uyuşmazlık ve uyum süreçlerinde hukuki destek.",
+    title: { tr: "Kurumsal Danışmanlık", en: "Corporate Counsel" },
+    description: {
+      tr: "İşletmeler için sözleşme, uyuşmazlık ve uyum süreçlerinde hukuki destek.",
+      en: "Legal support for contracts, disputes and compliance processes for businesses.",
+    },
     icon: Briefcase,
   },
   {
     key: "transparent",
-    title: "Şeffaf Süreç Yönetimi",
-    description: "Düzenli bilgilendirme ve müvekkilin süreci takip edebilmesi önceliklidir.",
+    title: { tr: "Şeffaf Süreç Yönetimi", en: "Transparent Process" },
+    description: {
+      tr: "Düzenli bilgilendirme ve müvekkilin süreci takip edebilmesi önceliklidir.",
+      en: "Clear communication and a trackable process are prioritized.",
+    },
     icon: LayoutDashboard,
   },
   {
     key: "diligence",
-    title: "Titiz Dosya Takibi",
-    description: "Sürelere uyum ve belgelerin eksiksiz hazırlanması titizlikle takip edilir.",
+    title: { tr: "Titiz Dosya Takibi", en: "Diligent Case Handling" },
+    description: {
+      tr: "Sürelere uyum ve belgelerin eksiksiz hazırlanması titizlikle takip edilir.",
+      en: "Deadlines and documentation are tracked carefully to support a sound process.",
+    },
     icon: FileCheck,
   },
 ];
