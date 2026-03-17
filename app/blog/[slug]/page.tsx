@@ -6,6 +6,7 @@ import { PageHero } from "@/components/PageHero";
 import {
   BLOG_CATEGORIES,
   BLOG_POSTS,
+  type BlogContentBlock,
   getCategoryBySlug,
   getBlogPostBySlug,
   getPostsByCategorySlug,
@@ -13,6 +14,58 @@ import {
   getServiceSlugByCategory,
 } from "@/lib/site-data";
 import { absoluteUrl } from "@/lib/site-url";
+
+function BlogContent({ blocks, paragraphs }: { blocks?: BlogContentBlock[]; paragraphs: string[] }) {
+  if (!blocks || blocks.length === 0) {
+    return (
+      <div className="space-y-6">
+        {paragraphs.map((paragraph) => (
+          <p key={paragraph} className="text-sm leading-8 text-[rgba(240,236,228,0.68)]">
+            {paragraph}
+          </p>
+        ))}
+      </div>
+    );
+  }
+
+  return (
+    <div className="space-y-6">
+      {blocks.map((block, idx) => {
+        const key = `${block.type}-${idx}`;
+        if (block.type === "h2") {
+          return (
+            <h2 key={key} className="mt-10 font-heading text-2xl font-semibold text-[var(--foreground)]">
+              {block.text}
+            </h2>
+          );
+        }
+        if (block.type === "h3") {
+          return (
+            <h3 key={key} className="mt-8 font-heading text-xl font-semibold text-[var(--foreground)]">
+              {block.text}
+            </h3>
+          );
+        }
+        if (block.type === "ul") {
+          return (
+            <ul key={key} className="grid gap-3 rounded-2xl border border-white/[0.06] bg-black/10 p-5 text-sm text-[var(--text-muted)]">
+              {block.items.map((item) => (
+                <li key={item} className="leading-7">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          );
+        }
+        return (
+          <p key={key} className="text-sm leading-8 text-[rgba(240,236,228,0.68)]">
+            {block.text}
+          </p>
+        );
+      })}
+    </div>
+  );
+}
 
 export function generateStaticParams() {
   const postSlugs = BLOG_POSTS.map((post) => ({ slug: post.slug }));
@@ -183,13 +236,7 @@ export default async function BlogDetailPage({
             ))}
           </div>
 
-          <div className="space-y-6">
-            {post.content.map((paragraph) => (
-              <p key={paragraph} className="text-sm leading-8 text-[rgba(240,236,228,0.68)]">
-                {paragraph}
-              </p>
-            ))}
-          </div>
+          <BlogContent blocks={post.contentBlocks} paragraphs={post.content} />
         </article>
 
         <aside className="space-y-6 lg:sticky lg:top-28" aria-label="İlgili içerik">

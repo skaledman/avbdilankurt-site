@@ -9,7 +9,7 @@ const COOKIE_SECTIONS = [
   {
     title: "Hangi Tür Çerezler Kullanılabilir?",
     content:
-      "İnternet sitesinde zorunlu teknik çerezler, güvenlik ve oturum yönetimine ilişkin çerezler ile sınırlı ölçüde performans amaçlı çerezler kullanılabilir. Reklam veya profil oluşturma amacı taşıyan çerezler kullanılacaksa, yürürlükteki mevzuat çerçevesinde gerekli bilgilendirme ve gerektiğinde açık rıza süreçleri ayrıca uygulanır.",
+      "Bu internet sitesinde yalnızca zorunlu teknik çerezler kullanılmaktadır. Reklam, profil oluşturma veya ziyaretçi analitiği amaçlı çerezler kullanılmamaktadır.",
   },
   {
     title: "Çerezlerin Kullanım Amaçları",
@@ -20,11 +20,6 @@ const COOKIE_SECTIONS = [
     title: "Çerezlerin Yönetimi",
     content:
       "Tarayıcı ayarlarınızı değiştirerek çerezleri reddedebilir, mevcut çerezleri silebilir veya belirli çerez türleri için uyarı alabilirsiniz. Ancak bazı çerezlerin devre dışı bırakılması, internet sitesinin bazı bölümlerinin beklenen şekilde çalışmamasına neden olabilir.",
-  },
-  {
-    title: "Üçüncü Taraf Hizmetler",
-    content:
-      "Harita, gömülü içerik veya teknik altyapı sağlayıcıları gibi üçüncü taraf hizmetler kullanıldığında, ilgili hizmet sağlayıcıların kendi çerez ve gizlilik uygulamaları da devreye girebilir. Bu durumda ilgili üçüncü tarafın politikalarının ayrıca incelenmesi önerilir.",
   },
   {
     title: "Güncellemeler",

@@ -26,6 +26,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
+  const serviceSubPages: MetadataRoute.Sitemap = SERVICES.flatMap((s) =>
+    (s.subServices ?? [])
+      .filter((sub) => sub.hasPage)
+      .map((sub) => ({
+        url: absoluteUrl(`/hizmetler/${s.slug}/${sub.slug}`),
+        lastModified: new Date(),
+        changeFrequency: "monthly" as const,
+        priority: 0.75,
+      })),
+  );
+
   const blogPages: MetadataRoute.Sitemap = BLOG_POSTS.map((p) => ({
     url: absoluteUrl(`/blog/${p.slug}`),
     lastModified: new Date(),
@@ -47,5 +58,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.65,
   }));
 
-  return [...staticPages, ...servicePages, ...blogCategoryPages, ...blogPages, ...courtDecisionPages];
+  return [
+    ...staticPages,
+    ...servicePages,
+    ...serviceSubPages,
+    ...blogCategoryPages,
+    ...blogPages,
+    ...courtDecisionPages,
+  ];
 }

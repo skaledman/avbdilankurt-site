@@ -58,6 +58,8 @@ export default async function ServiceDetailPage({
   if (!service) notFound();
 
   const relatedPosts = getBlogPostsForService(service.title, 3);
+  const subServices = service.subServices ?? [];
+  const subServicesWithPages = subServices.filter((s) => s.hasPage);
 
   return (
     <div>
@@ -105,9 +107,69 @@ export default async function ServiceDetailPage({
               ))}
             </ul>
           </div>
+
+          {subServices.length > 0 && (
+            <div className="mt-10 rounded-2xl border border-white/[0.06] bg-black/10 p-6">
+              <h2 className="font-heading text-2xl font-semibold text-[var(--foreground)]">
+                Alt Başlıklar
+              </h2>
+              <p className="mt-3 text-sm leading-7 text-[var(--text-muted)]">
+                Aşağıdaki başlıklar genel bilgilendirme niteliğindedir. Somut durumunuza göre değerlendirme için iletişime geçebilirsiniz.
+              </p>
+              <div className="mt-5 grid gap-4 sm:grid-cols-2">
+                {subServices.map((sub) => (
+                  <div
+                    key={sub.slug}
+                    className="rounded-2xl border border-white/[0.06] bg-[var(--bg-card)] p-5"
+                  >
+                    <h3 className="text-base font-semibold text-[var(--foreground)]">
+                      {sub.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-7 text-[var(--text-faint)]">
+                      {sub.summary}
+                    </p>
+                    {sub.hasPage && (
+                      <p className="mt-4">
+                        <Link
+                          href={`/hizmetler/${service.slug}/${sub.slug}`}
+                          className="text-sm font-semibold text-[var(--gold)] transition-colors hover:text-[var(--gold-light)]"
+                        >
+                          Detayı inceleyin →
+                        </Link>
+                      </p>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </article>
 
         <aside className="space-y-6 lg:sticky lg:top-28" aria-label="İlgili içerik">
+          {subServicesWithPages.length > 0 && (
+            <div className="rounded-3xl border border-white/[0.06] bg-[var(--bg-card)] p-6">
+              <h3 className="font-heading text-xl font-semibold text-[var(--foreground)]">
+                İlgili Alt Başlıklar
+              </h3>
+              <div className="mt-5 flex flex-col divide-y divide-white/[0.06]">
+                {subServicesWithPages.map((sub) => (
+                  <Link
+                    key={sub.slug}
+                    href={`/hizmetler/${service.slug}/${sub.slug}`}
+                    className="py-4 transition-colors hover:text-[var(--gold)]"
+                  >
+                    <p className="text-base font-medium text-[var(--foreground)]">
+                      {sub.title}
+                    </p>
+                    <p className="mt-2 text-sm text-[var(--text-muted)]">
+                      {sub.summary}
+                    </p>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
+
           {relatedPosts.length > 0 && (
             <div className="rounded-3xl border border-white/[0.06] bg-[var(--bg-card)] p-6">
               <h3 className="font-heading text-xl font-semibold text-[var(--foreground)]">

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { useLanguage } from "@/components/language-context";
 import { SERVICES } from "@/lib/site-data";
+import { MiniCta } from "@/components/MiniCta";
 
 export function ServicesSection() {
   const { language } = useLanguage();
@@ -60,6 +61,16 @@ export function ServicesSection() {
           ? "Tüm hukuki alanlarda ön bilgilendirme için iletişime geçebilirsiniz"
           : "Contact for preliminary information on any legal matter"}
       </p>
+
+      <MiniCta
+        title={language === "tr" ? "Bir Sonraki Adım" : "Next step"}
+        description={
+          language === "tr"
+            ? "Hizmet alanınıza göre gerekli belgeler ve başvuru yolları değişebilir. Dosyanız için ön değerlendirme talep edebilirsiniz."
+            : "Required documents and procedures may vary by matter. You can request a preliminary assessment."
+        }
+        primary={{ href: "/iletisim", label: language === "tr" ? "Ön görüşme talep et" : "Request a consultation" }}
+      />
     </div>
   );
 }

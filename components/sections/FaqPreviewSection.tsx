@@ -4,12 +4,13 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { FaqAccordion } from "@/components/FaqAccordion";
 import { useLanguage } from "@/components/language-context";
-import { FAQ_ITEMS } from "@/lib/site-data";
+import { FAQ_ITEMS_EN, FAQ_ITEMS_TR } from "@/lib/site-data";
 
 const HOMEPAGE_FAQ_COUNT = 3;
 
 export function FaqPreviewSection() {
   const { language } = useLanguage();
+  const items = language === "tr" ? FAQ_ITEMS_TR : FAQ_ITEMS_EN;
   return (
     <div className="section-inner">
       <div className="mb-14 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
@@ -33,7 +34,7 @@ export function FaqPreviewSection() {
         </Link>
       </div>
 
-      <FaqAccordion items={FAQ_ITEMS} previewCount={HOMEPAGE_FAQ_COUNT} />
+      <FaqAccordion items={items} previewCount={HOMEPAGE_FAQ_COUNT} />
     </div>
   );
 }

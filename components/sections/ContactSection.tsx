@@ -6,11 +6,6 @@ import { useState, FormEvent } from "react";
 import { useLanguage } from "@/components/language-context";
 import { SITE_INFO } from "@/lib/site-data";
 
-const KVKK_CONSENT_LABEL_TR =
-  "Kişisel verilerimin işlenmesine ilişkin Aydınlatma Metni'ni okudum ve onaylıyorum.";
-const KVKK_CONSENT_LABEL_EN =
-  "I have read and consent to the Privacy Notice regarding the processing of my personal data.";
-
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/xwvrngqa";
 
 export function ContactSection() {
@@ -135,15 +130,22 @@ export function ContactSection() {
           </div>
 
           <div className="overflow-hidden rounded-2xl border border-[var(--gold-dim)] bg-[var(--bg-card)] p-2 shadow-[0_8px_24px_rgba(201,168,76,0.12)]">
-            <iframe
-              title="Adana harita"
-              src="https://www.google.com/maps?q=Re%C5%9Fatbey,%20Be%C5%9F%20Ocak%20Cd.%20Nevin%20Han%C4%B1m%20Apartman%C4%B1%20Kat:3%20Daire:5%2001120%20Seyhan%20Adana&z=16&output=embed"
-              width="100%"
-              height="260"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="rounded-xl border-0"
-            />
+            <div className="rounded-xl border border-white/[0.06] bg-black/10 p-5">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[rgba(240,236,228,0.45)]">
+                {language === "tr" ? "Konum" : "Location"}
+              </p>
+              <p className="mt-3 text-sm leading-7 text-[var(--text-muted)]">
+                {SITE_INFO.address}
+              </p>
+              <a
+                href="https://www.google.com/maps?q=Re%C5%9Fatbey,%20Be%C5%9F%20Ocak%20Cd.%20Nevin%20Han%C4%B1m%20Apartman%C4%B1%20Kat:3%20Daire:5%2001120%20Seyhan%20Adana"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-[var(--gold)] transition-colors hover:text-[var(--gold-light)]"
+              >
+                {language === "tr" ? "Haritada aç" : "Open in Maps"}
+              </a>
+            </div>
           </div>
         </div>
 
@@ -200,14 +202,92 @@ export function ContactSection() {
               </div>
               <div className="flex flex-col gap-1.5">
                 <label className="text-[10px] font-medium uppercase tracking-[0.25em] text-[var(--muted)]">
-                  {language === "tr" ? "Konu" : "Subject"}
+                  {language === "tr" ? "Öncelik" : "Priority"} *
                 </label>
-                <input
-                  name="subject"
-                  type="text"
-                  className="h-11 w-full rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 text-base text-[var(--foreground)] outline-none transition-colors placeholder:text-[rgba(240,236,228,0.2)] focus:border-[var(--gold-dim)] focus:bg-white/[0.05]"
-                  placeholder={language === "tr" ? "Konu başlığı" : "Subject"}
-                />
+                <select
+                  name="priority"
+                  required
+                  defaultValue=""
+                  className="h-11 w-full rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 text-base text-[var(--foreground)] outline-none transition-colors focus:border-[var(--gold-dim)] focus:bg-white/[0.05]"
+                >
+                  <option value="" disabled>
+                    {language === "tr" ? "Seçiniz" : "Select"}
+                  </option>
+                  <option value={language === "tr" ? "Normal" : "Normal"}>
+                    {language === "tr" ? "Normal" : "Normal"}
+                  </option>
+                  <option value={language === "tr" ? "Acil" : "Urgent"}>
+                    {language === "tr" ? "Acil" : "Urgent"}
+                  </option>
+                </select>
+              </div>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="flex flex-col gap-1.5">
+                <label className="text-[10px] font-medium uppercase tracking-[0.25em] text-[var(--muted)]">
+                  {language === "tr" ? "Konu" : "Topic"} *
+                </label>
+                <select
+                  name="topic"
+                  required
+                  defaultValue=""
+                  className="h-11 w-full rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 text-base text-[var(--foreground)] outline-none transition-colors focus:border-[var(--gold-dim)] focus:bg-white/[0.05]"
+                >
+                  <option value="" disabled>
+                    {language === "tr" ? "Seçiniz" : "Select"}
+                  </option>
+                  <option value={language === "tr" ? "Aile Hukuku" : "Family Law"}>
+                    {language === "tr" ? "Aile Hukuku" : "Family Law"}
+                  </option>
+                  <option value={language === "tr" ? "Ceza Hukuku" : "Criminal Law"}>
+                    {language === "tr" ? "Ceza Hukuku" : "Criminal Law"}
+                  </option>
+                  <option value={language === "tr" ? "İş Hukuku" : "Employment Law"}>
+                    {language === "tr" ? "İş Hukuku" : "Employment Law"}
+                  </option>
+                  <option value={language === "tr" ? "İcra & İflas" : "Enforcement & Bankruptcy"}>
+                    {language === "tr" ? "İcra & İflas" : "Enforcement & Bankruptcy"}
+                  </option>
+                  <option value={language === "tr" ? "Miras Hukuku" : "Inheritance Law"}>
+                    {language === "tr" ? "Miras Hukuku" : "Inheritance Law"}
+                  </option>
+                  <option value={language === "tr" ? "Gayrimenkul" : "Real Estate"}>
+                    {language === "tr" ? "Gayrimenkul" : "Real Estate"}
+                  </option>
+                  <option value={language === "tr" ? "Ticaret Hukuku" : "Commercial Law"}>
+                    {language === "tr" ? "Ticaret Hukuku" : "Commercial Law"}
+                  </option>
+                  <option value={language === "tr" ? "Diğer" : "Other"}>
+                    {language === "tr" ? "Diğer" : "Other"}
+                  </option>
+                </select>
+              </div>
+              <div className="flex flex-col gap-1.5">
+                <label className="text-[10px] font-medium uppercase tracking-[0.25em] text-[var(--muted)]">
+                  {language === "tr" ? "Hizmet Türü" : "Service type"}
+                </label>
+                <select
+                  name="service_type"
+                  defaultValue=""
+                  className="h-11 w-full rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 text-base text-[var(--foreground)] outline-none transition-colors focus:border-[var(--gold-dim)] focus:bg-white/[0.05]"
+                >
+                  <option value="">
+                    {language === "tr" ? "Seçiniz (opsiyonel)" : "Select (optional)"}
+                  </option>
+                  <option value={language === "tr" ? "Dava takibi" : "Litigation"}>
+                    {language === "tr" ? "Dava takibi" : "Litigation"}
+                  </option>
+                  <option value={language === "tr" ? "Danışmanlık" : "Legal counsel"}>
+                    {language === "tr" ? "Danışmanlık" : "Legal counsel"}
+                  </option>
+                  <option value={language === "tr" ? "Sözleşme inceleme" : "Contract review"}>
+                    {language === "tr" ? "Sözleşme inceleme" : "Contract review"}
+                  </option>
+                  <option value={language === "tr" ? "Belge/başvuru hazırlığı" : "Document/application preparation"}>
+                    {language === "tr" ? "Belge/başvuru hazırlığı" : "Document/application preparation"}
+                  </option>
+                </select>
               </div>
             </div>
 
@@ -244,11 +324,11 @@ export function ContactSection() {
                       >
                         Aydınlatma Metni
                       </Link>
-                      {"'"}ni okudum ve onaylıyorum.
+                      {"'"}ni okudum ve anladım.
                     </>
                   ) : (
                     <>
-                      I have read and consent to the{" "}
+                      I have read and understood the{" "}
                       <Link
                         href="/kvkk-aydinlatma"
                         className="font-medium text-[var(--gold)] underline underline-offset-2 hover:text-[var(--gold-light)]"

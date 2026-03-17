@@ -2,6 +2,7 @@
 
 import { useLanguage } from "@/components/language-context";
 import { WHY_CHOOSE_US } from "@/lib/site-data";
+import { MiniCta } from "@/components/MiniCta";
 
 export function WhyChooseUsSection() {
   const { language } = useLanguage();
@@ -27,6 +28,8 @@ export function WhyChooseUsSection() {
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {WHY_CHOOSE_US.map((item) => {
           const Icon = item.icon;
+          const title = language === "tr" ? item.title.tr : item.title.en;
+          const description = language === "tr" ? item.description.tr : item.description.en;
           return (
             <div
               key={item.key}
@@ -37,16 +40,27 @@ export function WhyChooseUsSection() {
               </div>
               <div className="flex flex-col gap-2">
                 <h3 className="text-base font-semibold text-[var(--foreground)]">
-                  {item.title}
+                  {title}
                 </h3>
                 <p className="text-sm leading-7 text-[var(--text-faint)]">
-                  {item.description}
+                  {description}
                 </p>
               </div>
             </div>
           );
         })}
       </div>
+
+      <MiniCta
+        title={language === "tr" ? "Ön Görüşme" : "Consultation"}
+        description={
+          language === "tr"
+            ? "Dosyanızın kapsamına göre izlenebilecek başvuru yolları ve süreç adımları hakkında genel bilgilendirme için iletişime geçebilirsiniz."
+            : "For preliminary information about possible steps and procedures for your matter, you may get in touch."
+        }
+        primary={{ href: "/iletisim", label: language === "tr" ? "Ön görüşme talep et" : "Request a consultation" }}
+        secondary={{ href: "/hizmetler", label: language === "tr" ? "Hizmetleri incele" : "View services" }}
+      />
     </div>
   );
 }

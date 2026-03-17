@@ -2,6 +2,7 @@
 
 import { useLanguage } from "@/components/language-context";
 import { TRUST_INDICATORS } from "@/lib/site-data";
+import { MiniCta } from "@/components/MiniCta";
 
 export function TrustIndicatorsSection() {
   const { language } = useLanguage();
@@ -45,6 +46,16 @@ export function TrustIndicatorsSection() {
           );
         })}
       </div>
+
+      <MiniCta
+        title={language === "tr" ? "İletişim" : "Contact"}
+        description={
+          language === "tr"
+            ? "Hukuki sürecinizin kapsamına göre izlenebilecek adımların netleşmesi için ön bilgilendirme talep edebilirsiniz."
+            : "For preliminary information on the steps relevant to your situation, you may contact us."
+        }
+        primary={{ href: "/iletisim", label: language === "tr" ? "İletişime geçin" : "Contact" }}
+      />
     </div>
   );
 }

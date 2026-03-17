@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { useLanguage } from "@/components/language-context";
 import { PROCESS_STEPS } from "@/lib/site-data";
+import { MiniCta } from "@/components/MiniCta";
 
 export function ReviewsSection() {
   const { language } = useLanguage();
@@ -29,6 +30,14 @@ export function ReviewsSection() {
       <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
         {PROCESS_STEPS.map((item) => {
           const Icon = item.icon;
+          const cta =
+            item.key === "initial-review"
+              ? { href: "/iletisim", tr: "Randevu al", en: "Request an appointment" }
+              : item.key === "document-review"
+                ? { href: "/iletisim", tr: "Dosya gönder", en: "Send your documents" }
+                : item.key === "roadmap"
+                  ? { href: "/iletisim", tr: "Ön görüşme talep et", en: "Request a consultation" }
+                  : { href: "/iletisim", tr: "İletişime geçin", en: "Contact" };
 
           return (
             <article key={item.key} className="card-dark flex min-h-[230px] flex-col gap-5 p-6 sm:p-7">
@@ -41,25 +50,29 @@ export function ReviewsSection() {
                 </h3>
                 <p className="text-sm leading-7 text-[var(--text-muted)]">{item.description}</p>
               </div>
+              <div className="mt-auto">
+                <Link
+                  href={cta.href}
+                  className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.24em] text-[var(--gold)] transition-colors hover:text-[var(--gold-light)]"
+                >
+                  {language === "tr" ? cta.tr : cta.en}
+                  <ArrowRight size={14} aria-hidden />
+                </Link>
+              </div>
             </article>
           );
         })}
       </div>
 
-      <div className="mt-10 flex flex-wrap items-center justify-between gap-4 rounded-[1.75rem] border border-white/[0.06] bg-[rgba(255,255,255,0.02)] px-6 py-5">
-        <p className="max-w-2xl text-sm leading-7 text-[var(--text-muted)]">
-          {language === "tr"
-            ? "Hukuki sürecinizin kapsamına göre dava, danışmanlık, sözleşme inceleme veya önleyici hukuk yaklaşımı birlikte planlanabilir."
-            : "Depending on the scope of your matter, litigation, consultancy, contract review or preventive legal strategy can be planned together."}
-        </p>
-        <Link
-          href="/iletisim"
-          className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.24em] text-[var(--gold)] transition-colors hover:text-[var(--gold-light)]"
-        >
-          {language === "tr" ? "Ön görüşme talep et" : "Request a consultation"}
-          <ArrowRight size={14} />
-        </Link>
-      </div>
+      <MiniCta
+        title={language === "tr" ? "İletişim" : "Contact"}
+        description={
+          language === "tr"
+            ? "Davanız veya başvurunuz için izlenecek adımlar, talep kalemleri ve belge ihtiyaçları dosya özelinde belirlenir."
+            : "Steps, requests and required documents are determined based on the specifics of your matter."
+        }
+        primary={{ href: "/iletisim", label: language === "tr" ? "Ön görüşme talep et" : "Request a consultation" }}
+      />
     </div>
   );
 }

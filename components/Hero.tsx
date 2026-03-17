@@ -37,22 +37,15 @@ export function Hero() {
       {/* Main content */}
       <div className="mx-auto flex w-full max-w-6xl flex-col items-center px-5 pb-18 pt-20 text-center sm:px-8 sm:pt-24 lg:px-10 lg:pt-26">
         {/* Name */}
-        <h1 className="font-heading text-5xl font-semibold leading-[1.1] tracking-tight text-[var(--foreground)] sm:text-6xl lg:text-7xl">
-          {language === "tr" ? (
-            <>
-              Av.{" "}
-              <span className="text-[var(--gold)]">Betül Dilan</span>
-              <br />
-              <span className="text-[var(--gold)]">Kurt</span>
-            </>
-          ) : (
-            <>
-              Atty.{" "}
-              <span className="text-[var(--gold)]">Betül Dilan</span>
-              <br />
-              <span className="text-[var(--gold)]">Kurt</span>
-            </>
-          )}
+        <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[rgba(240,236,228,0.52)]">
+          {language === "tr" ? "Av. Betül Dilan Kurt" : "Atty. Betül Dilan Kurt"}
+        </p>
+
+        {/* Headline */}
+        <h1 className="mt-4 max-w-4xl font-heading text-4xl font-semibold leading-tight tracking-tight text-[var(--foreground)] sm:text-5xl lg:text-6xl">
+          {language === "tr"
+            ? "Boşanma, Ceza ve İş Davalarında Stratejik Hukuki Destek"
+            : "Strategic Legal Support in Divorce, Criminal and Employment Matters"}
         </h1>
 
         {/* Gold divider */}
@@ -63,10 +56,10 @@ export function Hero() {
         </div>
 
         {/* Tagline */}
-        <p className="max-w-xl text-[1.05rem] leading-relaxed text-[var(--text-muted)] sm:text-xl">
+        <p className="max-w-3xl text-[1.02rem] leading-8 text-[var(--text-muted)] sm:text-[1.125rem]">
           {language === "tr"
-            ? "Bireysel ve kurumsal müvekkiller için özenli hukuki danışmanlık ve temsil."
-            : "Considered legal counsel and representation for individual and corporate clients."}
+            ? "Adana merkezli olarak bireysel ve kurumsal müvekkillere, dava öncesi danışmanlıktan temsil sürecine kadar şeffaf ve titiz hukuki hizmet sunulmaktadır."
+            : "Based in Adana, we provide careful and transparent legal support for individual and corporate clients, from preliminary assessment to representation throughout the process."}
         </p>
 
         {/* CTA Buttons */}
@@ -85,7 +78,7 @@ export function Hero() {
             onClick={() => scrollTo("hizmetler")}
             className="inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.04] px-7 py-3 text-sm font-medium tracking-wide text-[var(--text-soft)] transition-all hover:border-white/20 hover:bg-white/[0.07]"
           >
-            <span>{language === "tr" ? "Hizmet Alanlarım" : "Practice Areas"}</span>
+            <span>{language === "tr" ? "Hizmet Alanlarını İnceleyin" : "View Practice Areas"}</span>
           </button>
         </div>
 

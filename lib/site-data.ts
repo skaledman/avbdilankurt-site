@@ -24,6 +24,16 @@ export type ServiceItem = {
   heroDescription: string;
   detailParagraphs: string[];
   bullets: string[];
+  subServices?: {
+    slug: string;
+    title: string;
+    summary: string;
+    /** Karma model: sadece bazı alt başlıkların ayrı sayfası olur */
+    hasPage?: boolean;
+    /** Alt sayfa içeriği (bilgilendirme) */
+    detailParagraphs?: string[];
+    bullets?: string[];
+  }[];
   icon: LucideIcon;
 };
 
@@ -34,8 +44,15 @@ export type BlogPost = {
   category: string;
   summary: string;
   content: string[];
+  contentBlocks?: BlogContentBlock[];
   tags: string[];
 };
+
+export type BlogContentBlock =
+  | { type: "h2"; text: string }
+  | { type: "h3"; text: string }
+  | { type: "p"; text: string }
+  | { type: "ul"; items: string[] };
 
 export type FaqItem = {
   question: string;
@@ -55,8 +72,8 @@ export type CourtDecision = {
 
 export type WhyChooseUsItem = {
   key: string;
-  title: string;
-  description: string;
+  title: { tr: string; en: string };
+  description: { tr: string; en: string };
   icon: LucideIcon;
 };
 
@@ -108,6 +125,66 @@ export const SERVICES: ServiceItem[] = [
       "Sürecin her aşamasında müvekkilin düzenli bilgilendirilmesi, olası risklerin önceden açıklanması ve çözüm yollarının şeffaf biçimde paylaşılması esas alınır. Amaç, yıpratıcı olabilen aile hukuku süreçlerini mümkün olan en dikkatli ve güvenli şekilde yürütmektir.",
     ],
     bullets: ["Boşanma davaları", "Velayet ve nafaka", "Mal paylaşımı", "Koruma tedbirleri"],
+    subServices: [
+      {
+        slug: "anlasmali-bosanma",
+        title: "Anlaşmalı Boşanma",
+        summary: "Protokol hazırlanması, duruşma süreci ve fer'î sonuçlara ilişkin genel bilgilendirme.",
+        hasPage: true,
+        detailParagraphs: [
+          "Anlaşmalı boşanma, tarafların boşanma iradesi ile boşanmanın fer'î sonuçlarında (velayet, nafaka, tazminat, mal rejimi gibi) uzlaşmış olmaları halinde gündeme gelir. Mahkeme, tarafların beyanlarını ve protokolün kapsamını değerlendirerek karar verir.",
+          "Uygulamada protokolün açık, uygulanabilir ve tarafların gerçek iradesini yansıtacak şekilde hazırlanması önemlidir. Çocuk varsa velayet ve kişisel ilişki düzenlemeleri, çocuğun üstün yararı gözetilerek ele alınır.",
+          "Her somut olayın koşulları farklı olduğundan, protokolün içeriği ve hukuki sonuçları bakımından hukuki danışmanlık alınması önerilir.",
+        ],
+        bullets: ["Boşanma protokolü", "Velayet ve kişisel ilişki", "Nafaka/tazminat düzenlemeleri", "Duruşma süreci"],
+      },
+      {
+        slug: "cekismeli-bosanma",
+        title: "Çekişmeli Boşanma",
+        summary: "Delil hazırlığı, kusur değerlendirmesi ve yargılama sürecine ilişkin genel bilgi.",
+        hasPage: true,
+        detailParagraphs: [
+          "Çekişmeli boşanma davalarında temel mesele; boşanma sebebinin ispatı ile boşanmanın fer'î sonuçlarına ilişkin taleplerin dayanaklandırılmasıdır. Tanık anlatımları, yazılı belgeler ve diğer deliller süreçte belirleyici rol oynayabilir.",
+          "Velayet, nafaka ve tazminat talepleri çoğu zaman dosyanın bütününden ayrı değerlendirilemez. Bu nedenle dava stratejisinin, taleplerin kapsamı ve delil planı ile birlikte ele alınması gerekir.",
+          "Hak kaybı yaşanmaması için sürecin başından itibaren hukuki danışmanlık alınması önerilir.",
+        ],
+        bullets: ["Delil planı", "Kusur ve talepler", "Velayet/nafaka", "Yargılama süreci"],
+      },
+      {
+        slug: "velayet-davalari",
+        title: "Velayet Davaları",
+        summary: "Çocuğun üstün yararı, sosyal inceleme ve kararın değiştirilmesi gibi başlıklar.",
+        hasPage: true,
+        detailParagraphs: [
+          "Velayete ilişkin uyuşmazlıklarda mahkemeler, çocuğun üstün yararını öncelikli olarak gözetir. Ebeveynlerin yaşam koşulları, çocukla kurduğu bağ ve bakım kapasitesi değerlendirilir.",
+          "Velayet talepleri boşanma davası ile birlikte ileri sürülebileceği gibi, mevcut velayet düzenlemesinin değiştirilmesi talebi de gündeme gelebilir. Değişiklik taleplerinde somut koşulların nasıl değiştiği önem taşır.",
+          "Sürecin sağlıklı yönetilebilmesi için hukuki danışmanlık alınması önerilir.",
+        ],
+        bullets: ["Çocuğun üstün yararı", "Sosyal inceleme", "Velayet değişikliği", "Kişisel ilişki"],
+      },
+      {
+        slug: "nafaka-davalari",
+        title: "Nafaka Davaları",
+        summary: "İştirak/yoksulluk nafakası, değişiklik talepleri ve değerlendirme kriterleri.",
+        hasPage: true,
+        detailParagraphs: [
+          "Nafaka taleplerinde mahkemeler; tarafların ekonomik durumu, ihtiyaçlar ve somut koşulları birlikte değerlendirir. Çocuk bakımından iştirak nafakası, eş bakımından yoksulluk nafakası talepleri farklı kriterlere dayanabilir.",
+          "Nafaka miktarı ve koşulları zamanla değişebileceğinden, artırım/indirim veya kaldırma talepleri belirli şartlar altında gündeme gelebilir. Her dosyada delil durumu önemlidir.",
+          "Somut olayın koşullarına göre hukuki danışmanlık alınması önerilir.",
+        ],
+        bullets: ["İştirak nafakası", "Yoksulluk nafakası", "Artırım/indirim", "Delil değerlendirmesi"],
+      },
+      {
+        slug: "mal-paylasimi",
+        title: "Mal Paylaşımı",
+        summary: "Mal rejimi tasfiyesi, kişisel/edinilmiş mal ayrımı ve talep kalemleri.",
+      },
+      {
+        slug: "ziynet-alacagi",
+        title: "Ziynet Alacağı",
+        summary: "Ziynet eşyalarına ilişkin talep ve ispat konularına dair genel bilgilendirme.",
+      },
+    ],
     icon: Heart,
   },
   {
@@ -124,6 +201,42 @@ export const SERVICES: ServiceItem[] = [
       "Ceza hukukunda temel hedef; hukuki güvenceleri etkin şekilde kullanmak, müvekkilin savunma hakkını en güçlü biçimde ortaya koymak ve süreci şeffaf bir iletişimle yönetmektir.",
     ],
     bullets: ["Soruşturma aşaması", "Tutukluluğa itiraz", "Ceza davası savunması", "Mağdur vekilliği"],
+    subServices: [
+      {
+        slug: "sorusturma-asamasi",
+        title: "Soruşturma Aşaması",
+        summary: "Gözaltı/ifade, delil değerlendirmesi ve ilk aşamada haklara dair genel bilgi.",
+        hasPage: true,
+        detailParagraphs: [
+          "Ceza soruşturmasında ifade alma, gözaltı veya adli kontrol gibi tedbirler gündeme gelebilir. Bu aşamada susma hakkı, müdafi yardımı ve dosyanın niteliğine uygun strateji önem taşır.",
+          "İlk aşamada yapılan beyanlar ve atılan adımlar yargılamanın ilerleyen safhalarını etkileyebilir. Bu nedenle sürecin usule uygun yürütülmesi gerekir.",
+          "Somut olayın özelliklerine göre hukuki danışmanlık alınması önerilir.",
+        ],
+        bullets: ["İfade ve haklar", "Delil değerlendirmesi", "Tedbirler", "Strateji"],
+      },
+      {
+        slug: "tutukluluk-itirazi",
+        title: "Tutukluluğa İtiraz",
+        summary: "Tutuklama/adli kontrol tedbirleri ve itiraz süreçlerine ilişkin genel bilgilendirme.",
+        hasPage: true,
+        detailParagraphs: [
+          "Tutuklama, ceza yargılamasında istisnai bir koruma tedbiridir. Somut olayda kaçma şüphesi, delilleri karartma riski gibi ölçütler değerlendirilir.",
+          "Tutukluluk veya adli kontrol tedbirlerine itirazda, dosya kapsamı ve gerekçelendirme önem taşır. Süreçlerin süre yönünden de dikkatle takip edilmesi gerekir.",
+          "Hak kaybı yaşanmaması için hukuki danışmanlık alınması önerilir.",
+        ],
+        bullets: ["Tutuklama ölçütleri", "Adli kontrol", "İtiraz usulü", "Süre yönetimi"],
+      },
+      {
+        slug: "ifade-sureci",
+        title: "İfade Süreci",
+        summary: "İfade öncesi hazırlık ve usule ilişkin haklar hakkında genel bilgi.",
+      },
+      {
+        slug: "agir-ceza-davalari",
+        title: "Ağır Ceza Davaları",
+        summary: "Ağır ceza yargılamalarında savunma stratejisi ve delil yönetimi hakkında genel çerçeve.",
+      },
+    ],
     icon: Shield,
   },
   {
@@ -140,6 +253,34 @@ export const SERVICES: ServiceItem[] = [
       "İş hukuku dosyalarında amaç; tarafların yasal konumunu netleştirerek mümkün olan en etkili çözüm yolunu belirlemek, süreci hızlı ve doğru şekilde yönetmektir.",
     ],
     bullets: ["İşe iade davaları", "Kıdem ve ihbar tazminatı", "İşçilik alacakları", "Arabuluculuk süreci"],
+    subServices: [
+      {
+        slug: "ise-iade-davalari",
+        title: "İşe İade Davaları",
+        summary: "Fesih geçerliliği, arabuluculuk süreci ve işe iade talebine ilişkin genel bilgilendirme.",
+        hasPage: true,
+        detailParagraphs: [
+          "İşe iade davalarında temel mesele, fesih işleminin geçerli nedene dayanıp dayanmadığıdır. İş güvencesi kapsamı, fesih bildirimi ve usul şartları somut olayda birlikte değerlendirilir.",
+          "Uygulamada arabuluculuk başvurusu birçok uyuşmazlıkta dava şartıdır. Başvuru ve dava süreci, dosyanın niteliğine göre şekillenir.",
+          "Hak kaybı yaşanmaması için hukuki danışmanlık alınması önerilir.",
+        ],
+        bullets: ["Fesih değerlendirmesi", "Arabuluculuk", "Delil ve ispat", "Süreç yönetimi"],
+      },
+      {
+        slug: "kidem-ihbar-tazminati",
+        title: "Kıdem / İhbar Tazminatı",
+        summary: "Tazminat koşulları, fesih türü ve alacak kalemleri hakkında genel bilgi.",
+        hasPage: true,
+        detailParagraphs: [
+          "Kıdem ve ihbar tazminatı, fesih nedenine ve çalışma süresine göre değişen hukuki sonuçlar doğurur. Haklı nedenle fesih iddiaları, tazminat hakkını doğrudan etkileyebilir.",
+          "Ücret bordroları, hizmet dökümü ve çalışma düzenine ilişkin kayıtlar; tazminat ve diğer işçilik alacaklarının değerlendirilmesinde önem taşır.",
+          "Somut olayın koşullarına göre hukuki danışmanlık alınması önerilir.",
+        ],
+        bullets: ["Fesih türü", "Çalışma süresi", "Ücret/ek ödemeler", "Delil değerlendirmesi"],
+      },
+      { slug: "mobbing", title: "Mobbing", summary: "Psikolojik taciz iddiaları ve ispat araçlarına dair genel bilgilendirme." },
+      { slug: "is-sozlesmesi-feshi", title: "İş Sözleşmesi Feshi", summary: "Fesih bildirimi, geçerli/haklı neden ve süreç yönetimi." },
+    ],
     icon: Briefcase,
   },
   {
@@ -278,9 +419,57 @@ export const BLOG_POSTS: BlogPost[] = [
     summary:
       "Anlaşmalı ve çekişmeli boşanma davalarında süreler farklılık gösterir. Ortalama yargılama süreleri ve süreyi etkileyen faktörler hakkında bilgi.",
     content: [
-      "Boşanma davasının süresi, anlaşmalı veya çekişmeli olmasına, taleplerin kapsamına ve mahkemenin iş yoğunluğuna göre değişir. Anlaşmalı boşanmada taraflar boşanma ve fer'i sonuçlar üzerinde anlaşmışsa, tek veya birkaç duruşmada sonuç alınabilir.",
-      "Çekişmeli boşanma davalarında delil toplama, bilirkişi incelemeleri, sosyal inceleme raporu ve çocuk varsa velayet değerlendirmesi gibi aşamalar süreyi uzatabilir. Bu nedenle çekişmeli davalarda birkaç ay ile birkaç yıl arasında değişen süreler söz konusu olabilir.",
-      "Süreci etkileyen diğer unsurlar arasında tarafların işbirliği, delillerin hazırlanma hızı ve mahkeme takvimi yer alır. Hukuki süreç hakkında ön bilgi almak için avukatlık hizmeti ve danışmanlık desteği almanız faydalı olur.",
+      "Boşanma davasının ne kadar süreceği; davanın türüne, taleplerin kapsamına, delil durumuna ve yargılamanın usul adımlarına göre değişebilir. Bu nedenle her dosya kendi koşulları içinde değerlendirilmelidir.",
+      "Anlaşmalı boşanma ile çekişmeli boşanma arasındaki fark, sürecin akışını doğrudan etkiler. Çekişmeli davalarda delillerin toplanması, tanıkların dinlenmesi ve çocuk varsa sosyal inceleme gibi işlemler süreci uzatabilir.",
+      "Sürece ilişkin gerçekçi bir yol haritası oluşturmak için, somut olayın koşullarına göre hukuki danışmanlık alınması önerilir.",
+    ],
+    contentBlocks: [
+      { type: "h2", text: "Boşanma davasının süresi neden değişir?" },
+      {
+        type: "p",
+        text: "Boşanma davasının süresi tek bir ölçüte bağlı değildir. Mahkemenin iş yoğunluğu, tarafların talepleri, dosyadaki delil durumu ve yargılamanın hangi usul adımlarından geçeceği süreci etkileyebilir. Bu nedenle “tek bir süre” söylemek çoğu zaman mümkün olmaz; en doğru değerlendirme dosya özelinde yapılır.",
+      },
+      {
+        type: "p",
+        text: "Uygulamada ilk belirleyici ayrım, davanın anlaşmalı mı yoksa çekişmeli mi yürütüldüğüdür. Anlaşmalı boşanmada taraflar boşanma iradesi yanında fer'î sonuçlarda da uzlaşmışsa süreç daha kısa ve daha öngörülebilir ilerleyebilir. Çekişmeli davalarda ise ispat ve değerlendirme adımları daha fazla olduğundan süreç uzayabilir.",
+      },
+      { type: "h2", text: "Anlaşmalı boşanma sürecini etkileyen başlıklar" },
+      {
+        type: "p",
+        text: "Anlaşmalı boşanma, yalnızca protokol imzalamaktan ibaret değildir. Protokolde; velayet, kişisel ilişki, nafaka, tazminat ve mal rejimine ilişkin düzenlemeler yer alabilir. Mahkeme, tarafların iradelerini ve düzenlemenin uygunluğunu değerlendireceği için protokolün açık ve uygulanabilir olması önem taşır.",
+      },
+      {
+        type: "ul",
+        items: [
+          "Protokolün kapsamı ve açıklığı",
+          "Çocuk varsa velayet ve kişisel ilişki düzenlemesi",
+          "Nafaka ve tazminat kalemleri",
+          "Mal rejimi ve paylaşım başlıklarının ele alınışı",
+        ],
+      },
+      { type: "h2", text: "Çekişmeli boşanmada süreci uzatabilen adımlar" },
+      {
+        type: "p",
+        text: "Çekişmeli boşanma davalarında mahkeme; taraf iddialarını, kusur durumunu ve fer'î sonuçları birlikte değerlendirir. Tanık dinlenmesi, yazılı delillerin toplanması, gerekirse bilirkişi incelemesi veya sosyal inceleme raporu gibi işlemler yargılamanın seyrini etkileyebilir.",
+      },
+      {
+        type: "p",
+        text: "Çocuk varsa velayet ve kişisel ilişki düzenlemeleri çoğu zaman dosyanın merkezine yerleşir. Bu değerlendirmelerde çocuğun üstün yararı gözetilir; tarafların yaşam koşulları ve bakım kapasitesi gibi unsurlar incelenebilir. Bu nedenle taleplerin baştan doğru çerçevelenmesi ve delil planının buna göre kurulması önemlidir.",
+      },
+      { type: "h2", text: "Mal paylaşımı ayrı bir süreç olabilir mi?" },
+      {
+        type: "p",
+        text: "Boşanmanın fer'î sonuçlarından biri de mal rejiminin tasfiyesidir. Mal paylaşımı her zaman boşanma davasının içinde yürütülmeyebilir; dosyanın niteliğine göre ayrı bir süreç ve teknik inceleme gerektirebilir. Bu da toplam süre algısını etkileyen faktörlerdendir.",
+      },
+      { type: "h2", text: "Süreç daha öngörülebilir nasıl planlanır?" },
+      {
+        type: "p",
+        text: "Davanın türü, taleplerin kapsamı ve delillerin hazırlanma düzeyi, süreci daha yönetilebilir kılabilir. İlk aşamada amaç; dosyanın hangi başlıklarda ilerleyeceğini netleştirmek, gerekli belgeleri belirlemek ve gerçekçi bir yol haritası oluşturmaktır.",
+      },
+      {
+        type: "p",
+        text: "Her somut olayın koşulları farklı olduğundan, sürecin sağlıklı yönetilebilmesi için hukuki danışmanlık alınması önerilir.",
+      },
     ],
     tags: ["boşanma davası", "anlaşmalı boşanma", "çekişmeli boşanma", "dava süresi", "aile hukuku"],
   },
@@ -309,6 +498,45 @@ export const BLOG_POSTS: BlogPost[] = [
       "İşveren tarafından fesih halinde işçinin hakları, fesih nedenine ve süresine göre değişir. Haklı nedenle fesih yoksa kıdem tazminatı, ihbar tazminatı, kullanılmayan yıllık izin ücreti ve varsa diğer alacaklar talep edilebilir.",
       "Belirli sayıdaki işçi çalıştıran işyerlerinde feshe itiraz için önce arabulucuya başvuru yapılması gerekebilir. Süreler kaçırılmadan hareket edilmesi, işe iade ve alacak davaları açısından kritiktir.",
       "Fazla mesai, ulusal bayram ve genel tatil ücretleri gibi alacaklar da ayrıca değerlendirilir. İş hukuku alanında avukatlık hizmeti ve danışmanlık ile haklarınızı netleştirebilirsiniz.",
+    ],
+    contentBlocks: [
+      { type: "h2", text: "Fesih bildiriminde ilk kontrol edilmesi gerekenler" },
+      {
+        type: "p",
+        text: "İş sözleşmesinin sona erdirilmesi, yalnızca çalışma ilişkisinin bitmesi anlamına gelmez; tazminat ve alacak kalemleri bakımından da sonuç doğurur. İlk aşamada fesih bildiriminin gerekçesi, bildirimin şekli ve dosyadaki belgeler birlikte değerlendirilmelidir.",
+      },
+      {
+        type: "ul",
+        items: [
+          "Fesih bildiriminin yazılı olup olmadığı ve içeriği",
+          "Fesih türü (haklı/geçerli neden iddiası)",
+          "Ücret, bordro ve çalışma kayıtları",
+          "İşyerindeki görev ve çalışma düzeni",
+        ],
+      },
+      { type: "h2", text: "Kıdem ve ihbar tazminatı neye göre değerlendirilir?" },
+      {
+        type: "p",
+        text: "Kıdem ve ihbar tazminatı, çalışma süresi ve fesih nedenine göre farklı sonuçlar doğurabilir. Haklı nedenle fesih iddiası varsa bunun dayanakları ayrıca incelenir. Ücretin unsurları, yan haklar ve fiili çalışma düzeni de değerlendirmede rol oynayabilir.",
+      },
+      { type: "h2", text: "İşçilik alacakları: ücret, fazla mesai ve izin" },
+      {
+        type: "p",
+        text: "Fazla mesai, hafta tatili, ulusal bayram ve genel tatil ücretleri ile kullanılmayan yıllık izin ücreti gibi alacaklar, çoğu dosyada ayrıca gündeme gelir. Bu kalemlerde bordro, puantaj ve yazılı kayıtların yanı sıra tanık anlatımları da önem taşıyabilir.",
+      },
+      { type: "h2", text: "Arabuluculuk ve başvuru yolları" },
+      {
+        type: "p",
+        text: "İş uyuşmazlıklarının bir kısmında arabuluculuk dava şartıdır. Başvuru yollarının ve sürelerin dosya özelinde kontrol edilmesi, hakların korunması açısından önem taşır.",
+      },
+      {
+        type: "h2",
+        text: "Sonuç: dosya özelinde değerlendirme",
+      },
+      {
+        type: "p",
+        text: "Fesih sonrası imzalanan belgelerin içeriği, delil durumu ve talep kalemleri somut olayın koşullarına göre değişir. Hak kaybı yaşanmaması için hukuki danışmanlık alınması önerilir.",
+      },
     ],
     tags: ["iş hukuku", "işten çıkarılma", "kıdem tazminatı", "ihbar tazminatı", "işe iade"],
   },
@@ -431,7 +659,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
 ];
 
-export const FAQ_ITEMS: FaqItem[] = [
+export const FAQ_ITEMS_TR: FaqItem[] = [
   {
     question: "İlk danışma ücretli mi?",
     answer:
@@ -482,7 +710,103 @@ export const FAQ_ITEMS: FaqItem[] = [
     answer:
       "Evet. Paylaşılan bilgi ve belgeler avukatlık mesleğinin gizlilik ve özen yükümlülüğü çerçevesinde değerlendirilir. İnternet sitesi üzerinden iletilen bilgiler de yalnızca iletişim ve ön değerlendirme amacıyla kullanılır.",
   },
+  {
+    question: "Online danışmanlık var mı?",
+    answer:
+      "Dosyanın niteliğine göre çevrim içi görüşme yapılması mümkün olabilir. Görüşme yöntemi; konu başlığı, ihtiyaç duyulan belge/inceleme ve süreç gerekliliklerine göre birlikte planlanır.",
+  },
+  {
+    question: "Şehir dışı hizmet veriliyor mu?",
+    answer:
+      "Somut dosyanın türüne ve yürütülecek işlemlere göre şehir dışı iş ve başvurular değerlendirilebilir. Uygunluk ve yöntem, dosya özelinde planlanır.",
+  },
+  {
+    question: "Acil durumlarda nasıl ulaşabilirim?",
+    answer:
+      "Acil nitelikteki durumlarda telefon veya WhatsApp üzerinden iletişime geçebilirsiniz. Uygun ilk değerlendirme için temel bilgilerin kısa şekilde paylaşılması faydalı olur.",
+  },
+  {
+    question: "İlk görüşmede neler yapılır?",
+    answer:
+      "İlk görüşmede olayın kronolojisi, mevcut belgeler ve hedefler değerlendirilir; izlenebilecek hukuki yol ve gerekli adımlar hakkında genel bir çerçeve oluşturulur.",
+  },
 ];
+
+export const FAQ_ITEMS_EN: FaqItem[] = [
+  {
+    question: "Is the initial consultation paid?",
+    answer:
+      "The scope of the first meeting may vary depending on the matter and the level of review requested. For clarity, the topic and the expected framework are determined before the appointment.",
+  },
+  {
+    question: "How long does a divorce case take?",
+    answer:
+      "Timeframes may differ between uncontested and contested divorce cases. Court workload, evidence and the scope of requests can affect the process, so each matter should be assessed individually.",
+  },
+  {
+    question: "How is alimony determined?",
+    answer:
+      "The amount is assessed based on the parties' financial situation, the child's needs and the evidence in the file. Properly framing the request is important for a sound evaluation.",
+  },
+  {
+    question: "What should be the first step in a criminal investigation?",
+    answer:
+      "Before giving a statement or taking official steps, it is important to obtain legal support suitable for the nature of the file. Early-stage actions can affect the entire process.",
+  },
+  {
+    question: "What should an employee do after termination?",
+    answer:
+      "The termination notice, employment documents and pay records should be reviewed promptly. Since procedural steps and time limits may cause loss of rights, an early legal assessment is recommended.",
+  },
+  {
+    question: "How is an inheritance sharing case initiated?",
+    answer:
+      "First, heirship status and documents related to the estate are reviewed. Depending on the dispute, the appropriate legal path (such as dissolution of co-ownership or other actions) is determined.",
+  },
+  {
+    question: "How long can real estate / partition proceedings take?",
+    answer:
+      "Factors such as the nature of the property, number of parties, on-site inspection and expert review can affect the process. A realistic view requires reviewing the registry and the dispute details.",
+  },
+  {
+    question: "Which documents should be prepared before meeting a lawyer?",
+    answer:
+      "ID information and key documents such as contracts, court papers, title records, payrolls, notices, and relevant messages or emails help the first review. A clear chronology is also important.",
+  },
+  {
+    question: "Is mediation mandatory before filing a lawsuit?",
+    answer:
+      "In some disputes, yes. Especially in employment and certain commercial matters, mandatory mediation may apply. The required pre-application steps should be checked based on the dispute type.",
+  },
+  {
+    question: "Will the information shared be kept confidential?",
+    answer:
+      "Yes. Information and documents are handled within professional confidentiality obligations. Information submitted via the website is used only for contact and preliminary assessment purposes.",
+  },
+  {
+    question: "Do you offer online consultations?",
+    answer:
+      "Depending on the matter, an online meeting may be possible. The method is planned together based on the topic, required documents and procedural needs.",
+  },
+  {
+    question: "Do you handle matters outside the city?",
+    answer:
+      "Depending on the type of file and required actions, matters outside the city may be considered. Suitability and method are planned case by case.",
+  },
+  {
+    question: "How can I reach you in urgent situations?",
+    answer:
+      "For urgent situations you may contact via phone or WhatsApp. Sharing key facts briefly helps with an initial assessment.",
+  },
+  {
+    question: "What happens in the first meeting?",
+    answer:
+      "In the first meeting, the chronology, available documents and goals are reviewed, and a general framework of possible steps and procedures is outlined.",
+  },
+];
+
+/** Geriye dönük uyumluluk: mevcut yerlerde TR varsayılan */
+export const FAQ_ITEMS: FaqItem[] = FAQ_ITEMS_TR;
 
 export const COURT_DECISIONS: CourtDecision[] = [
   {
@@ -666,44 +990,56 @@ export const COURT_DECISIONS: CourtDecision[] = [
 export const WHY_CHOOSE_US: WhyChooseUsItem[] = [
   {
     key: "transparent",
-    title: "Şeffaf Süreç Yönetimi",
-    description:
-      "Hukuki süreçlerin her aşamasında ne yapıldığı, hangi adımların atılacağı ve olası sonuçlar açık biçimde paylaşılır. Avukatlık hizmeti alırken belirsizlik yerine net bilgilendirme hedeflenir.",
+    title: { tr: "Düzenli Bilgilendirme", en: "Regular Updates" },
+    description: {
+      tr: "Dava ve başvuru sürecinin her aşamasında; yapılan işlemler, beklenen adımlar ve gerekli belgeler düzenli şekilde paylaşılır.",
+      en: "At each stage of the process, we share progress, next steps and required documents in a clear and timely manner.",
+    },
     icon: LayoutDashboard,
   },
   {
     key: "updates",
-    title: "Düzenli Bilgilendirme",
-    description:
-      "Dosya takibi ve duruşma süreçleri hakkında düzenli geri bildirim verilir. Müvekkilin süreci takip etmesi ve kendini güvende hissetmesi önemsenir.",
+    title: { tr: "Süre ve Evrak Takibi", en: "Deadlines & Documents" },
+    description: {
+      tr: "Süreler, dilekçe ve evrak akışı sistematik biçimde takip edilir; kritik tarihler kaçırılmadan süreç yönetimi sağlanır.",
+      en: "Deadlines and the document flow are tracked systematically to help prevent avoidable delays or missed steps.",
+    },
     icon: Bell,
   },
   {
     key: "personal",
-    title: "Kişiye Özel Hukuki Yaklaşım",
-    description:
-      "Her dosya kendi koşulları içinde değerlendirilir; benzer davalardan farklılaşan yönler dikkate alınır. Kişiye özel strateji ile hukuki danışmanlık sunulur.",
+    title: { tr: "Dosyaya Özel Strateji", en: "Case-Specific Strategy" },
+    description: {
+      tr: "Her dosya kendi koşullarıyla değerlendirilir; hedefler ve riskler netleştirilerek uygun hukuki yol haritası oluşturulur.",
+      en: "Each matter is assessed on its own facts, with a tailored roadmap shaped around objectives, risks and procedural requirements.",
+    },
     icon: UserCheck,
   },
   {
     key: "diligence",
-    title: "Titiz Dosya Takibi",
-    description:
-      "Sürelere uyum, gerekli başvuruların zamanında yapılması ve belgelerin eksiksiz hazırlanması titizlikle takip edilir. Dava takibi ve ön değerlendirme süreçleri düzenli yürütülür.",
+    title: { tr: "Belge ve Delil Düzeni", en: "Evidence & Documentation" },
+    description: {
+      tr: "İddia ve savunmayı destekleyen belge/delillerin düzenlenmesi, dosyaya uygun şekilde sunulması ve takibi önceliklendirilir.",
+      en: "We prioritize organizing and presenting supporting documents and evidence in a structured, case-appropriate way.",
+    },
     icon: FileCheck,
   },
   {
     key: "confidentiality",
-    title: "Güven ve Gizlilik",
-    description:
-      "Paylaşılan bilgi ve belgeler meslek sırrı ve gizlilik ilkeleri çerçevesinde korunur. Müvekkil ile kurulan ilişkide güven esas alınır.",
+    title: { tr: "Gizlilik ve Mesleki Özen", en: "Confidentiality & Care" },
+    description: {
+      tr: "Paylaşılan bilgi ve belgeler meslek sırrı kapsamında değerlendirilir; iletişim ve dosya yönetiminde özenli yaklaşım esas alınır.",
+      en: "Information and documents are handled with professional care and confidentiality throughout communication and case management.",
+    },
     icon: ShieldCheck,
   },
   {
     key: "solution",
-    title: "Çözüm Odaklı Danışmanlık",
-    description:
-      "Uyuşmazlığın çözümü için uygun hukuki yollar değerlendirilir; dava öncesi uzlaşma veya alternatif çözüm seçenekleri de sunulur.",
+    title: { tr: "Alternatif Yol Değerlendirmesi", en: "Options Assessment" },
+    description: {
+      tr: "Dava öncesi başvuru, uzlaşma ve uygun hukuki yollar somut olaya göre değerlendirilir; uygulanabilir seçenekler şeffaf biçimde paylaşılır.",
+      en: "Where appropriate, pre-litigation steps and viable options are assessed and explained transparently based on the facts of the case.",
+    },
     icon: Target,
   },
 ];
