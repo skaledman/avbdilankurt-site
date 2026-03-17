@@ -14,7 +14,14 @@ const HAKKINDA_LINKS = [
 ] as const;
 
 const HIZMETLER_LINKS = [
-  { href: "/hizmetler", key: "nav.servicesAll" },
+  { href: "/hizmetler/aile-hukuku", tr: "Aile Hukuku", en: "Family Law" },
+  { href: "/hizmetler/ceza-hukuku", tr: "Ceza Hukuku", en: "Criminal Law" },
+  { href: "/hizmetler/is-hukuku", tr: "İş Hukuku", en: "Employment Law" },
+  { href: "/hizmetler/gayrimenkul-hukuku", tr: "Gayrimenkul Hukuku", en: "Real Estate Law" },
+  { href: "/hizmetler/ticaret-hukuku", tr: "Ticaret Hukuku", en: "Commercial Law" },
+  { href: "/hizmetler/miras-hukuku", tr: "Miras Hukuku", en: "Inheritance Law" },
+  { href: "/hizmetler/icra-iflas", tr: "İcra ve İflas Hukuku", en: "Enforcement & Bankruptcy" },
+  { href: "/hizmetler/genel-hukuk", tr: "Genel Hukuk Danışmanlığı", en: "General Legal Counsel" },
 ] as const;
 
 export function Navbar() {
@@ -109,9 +116,16 @@ export function Navbar() {
                       href={service.href}
                     className="block px-4 py-2.5 text-[11px] font-medium uppercase tracking-[0.18em] text-[var(--text-muted)] transition-colors hover:bg-white/[0.06] hover:text-[var(--gold)]"
                   >
-                    {t(service.key)}
+                    {language === "tr" ? service.tr : service.en}
                   </Link>
                 ))}
+                <div className="my-1 border-t border-white/[0.06]" />
+                <Link
+                  href="/hizmetler"
+                  className="block px-4 py-2.5 text-[11px] font-medium uppercase tracking-[0.18em] text-[var(--text-muted)] transition-colors hover:bg-white/[0.06] hover:text-[var(--gold)]"
+                >
+                  {language === "tr" ? "Tüm Hizmetler →" : "All Services →"}
+                </Link>
               </div>
             </div>
           </div>
@@ -211,9 +225,17 @@ export function Navbar() {
                       onClick={() => setOpen(false)}
                       className="py-2 pl-3 text-[11px] uppercase tracking-[0.2em] text-[var(--text-muted)] hover:text-[var(--gold)]"
                     >
-                      {t(service.key)}
+                      {language === "tr" ? service.tr : service.en}
                     </Link>
                   ))}
+                  <div className="mt-2 border-t border-white/10" />
+                  <Link
+                    href="/hizmetler"
+                    onClick={() => setOpen(false)}
+                    className="py-2 pl-3 text-[11px] uppercase tracking-[0.2em] text-[var(--text-muted)] hover:text-[var(--gold)]"
+                  >
+                    {language === "tr" ? "Tüm Hizmetler →" : "All Services →"}
+                  </Link>
                 </div>
               )}
             </div>

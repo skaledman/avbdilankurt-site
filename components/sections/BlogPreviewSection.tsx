@@ -37,7 +37,7 @@ export function BlogPreviewSection() {
             <span className="inline-block w-fit rounded-full border border-[var(--gold-dim)] bg-[rgba(201,168,76,0.06)] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.28em] text-[var(--gold)]">
               {post.category}
             </span>
-            <h3 className="mt-4 font-heading text-xl font-semibold leading-tight text-[var(--foreground)] transition-colors group-hover:text-[var(--gold)] sm:text-2xl">
+            <h3 className="mt-4 line-clamp-2 min-h-[3.2em] font-heading text-xl font-semibold leading-tight text-[var(--foreground)] transition-colors group-hover:text-[var(--gold)] sm:text-2xl">
               {post.title}
             </h3>
             <p className="mt-3 line-clamp-3 min-h-[96px] text-base leading-8 text-[var(--text-faint)]">

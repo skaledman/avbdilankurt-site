@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import { useLanguage } from "@/components/language-context";
 import { PROCESS_STEPS } from "@/lib/site-data";
 import { MiniCta } from "@/components/MiniCta";
@@ -22,14 +21,6 @@ export function ReviewsSection() {
           const Icon = item.icon;
           const title = language === "tr" ? item.title.tr : item.title.en;
           const description = language === "tr" ? item.description.tr : item.description.en;
-          const cta =
-            item.key === "initial-review"
-              ? { href: "/iletisim", labelKey: "process.ctaAppointment" }
-              : item.key === "document-review"
-                ? { href: "/iletisim", labelKey: "process.ctaSendFile" }
-                : item.key === "roadmap"
-                  ? { href: "/iletisim", labelKey: "process.ctaRequest" }
-                  : { href: "/iletisim", labelKey: "process.ctaContact" };
 
           return (
             <article key={item.key} className="card-dark flex min-h-[230px] flex-col gap-5 p-6 sm:p-7">
@@ -41,15 +32,6 @@ export function ReviewsSection() {
                   {title}
                 </h3>
                 <p className="text-sm leading-7 text-[var(--text-muted)]">{description}</p>
-              </div>
-              <div className="mt-auto">
-                <Link
-                  href={cta.href}
-                  className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.24em] text-[var(--gold)] transition-colors hover:text-[var(--gold-light)]"
-                >
-                  {t(cta.labelKey)}
-                  <ArrowRight size={14} aria-hidden />
-                </Link>
               </div>
             </article>
           );

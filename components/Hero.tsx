@@ -4,7 +4,7 @@ import { PhoneCall, Mail, ArrowDown } from "lucide-react";
 import { useLanguage } from "@/components/language-context";
 
 export function Hero() {
-  const { t } = useLanguage();
+  const { language, t } = useLanguage();
 
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
@@ -38,8 +38,13 @@ export function Hero() {
       <div className="mx-auto flex w-full max-w-6xl flex-col items-center px-5 pb-18 pt-20 text-center sm:px-8 sm:pt-24 lg:px-10 lg:pt-26">
         {/* Brand (H1) */}
         <h1 className="max-w-4xl font-heading text-[2.125rem] font-bold leading-[1.08] tracking-[0.02em] text-white sm:text-[3rem] lg:text-[4rem]">
-          <span className="bg-gradient-to-r from-[#C8A96A] via-[#E5C07B] to-[#C8A96A] bg-clip-text text-transparent">
-            {t("meta.siteName")}
+          <span className="inline-flex flex-wrap items-baseline justify-center gap-x-3 gap-y-1">
+            <span className="text-[0.62em] font-light tracking-[0.04em] text-slate-200/90 sm:text-[0.6em]">
+              {language === "tr" ? "Av." : "Atty."}
+            </span>
+            <span className="bg-gradient-to-r from-amber-200 via-yellow-50 to-amber-300 bg-clip-text text-transparent">
+              {t("meta.siteName")}
+            </span>
           </span>
         </h1>
 

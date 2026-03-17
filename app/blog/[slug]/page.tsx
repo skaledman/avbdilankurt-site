@@ -168,18 +168,18 @@ export default async function BlogDetailPage({
                 <Link
                   key={post.slug}
                   href={`/blog/${post.slug}`}
-                  className="group flex flex-col rounded-2xl border border-white/[0.06] bg-[var(--bg-card)] p-5 transition-all hover:-translate-y-1 hover:border-[var(--gold-dim)]"
+                  className="group flex min-h-[300px] flex-col rounded-2xl border border-white/[0.06] bg-[var(--bg-card)] p-5 transition-all hover:-translate-y-1 hover:border-[var(--gold-dim)]"
                 >
                   <p className="text-[11px] uppercase tracking-[0.2em] text-[rgba(240,236,228,0.42)]">
                     {post.date}
                   </p>
-                  <h2 className="mt-2 font-heading text-lg font-semibold leading-tight text-[var(--foreground)] transition-colors group-hover:text-[var(--gold)]">
+                  <h2 className="mt-2 line-clamp-2 min-h-[3.2em] font-heading text-lg font-semibold leading-tight text-[var(--foreground)] transition-colors group-hover:text-[var(--gold)]">
                     {post.title}
                   </h2>
-                  <p className="mt-2 line-clamp-2 text-sm leading-6 text-[var(--text-faint)]">
+                  <p className="mt-2 line-clamp-3 min-h-[72px] text-sm leading-6 text-[var(--text-faint)]">
                     {post.summary}
                   </p>
-                  <span className="mt-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--gold)]">
+                  <span className="mt-auto inline-flex items-center gap-2 pt-4 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--gold)]">
                     Oku <ArrowRight size={12} />
                   </span>
                 </Link>

@@ -26,6 +26,13 @@ export function Footer() {
             <p className="max-w-sm text-sm leading-7 text-[var(--text-faint)]">
               {t("footer.aboutText")}
             </p>
+            <div className="space-y-2 text-[10px] leading-relaxed text-[rgba(240,236,228,0.25)]">
+              <div className="flex items-start gap-2">
+                <MapPin size={14} className="mt-0.5 shrink-0 text-[var(--gold)] opacity-70" />
+                <span>{SITE_INFO.address}</span>
+              </div>
+              <p>{t("footer.disclaimer")}</p>
+            </div>
             <div className="flex items-center gap-3">
               <a href={SITE_INFO.instagram} target="_blank" rel="noopener noreferrer" className="footer-social" aria-label="Instagram">
                 <Instagram size={16} />
@@ -76,10 +83,6 @@ export function Footer() {
                 <Mail size={16} className="shrink-0 text-[var(--gold)]" />
                 <span>{SITE_INFO.email}</span>
               </a>
-              <div className="footer-contact-item items-start gap-3">
-                <MapPin size={16} className="mt-0.5 shrink-0 text-[var(--gold)]" />
-                <span>{SITE_INFO.address}</span>
-              </div>
             </div>
           </div>
         </div>
@@ -100,7 +103,6 @@ export function Footer() {
         </div>
         <div className="mt-4 max-w-xl space-y-1 text-[10px] leading-relaxed text-[rgba(240,236,228,0.25)]">
           <p>{t("footer.barMember")}</p>
-          <p>{t("footer.disclaimer")}</p>
         </div>
       </div>
     </footer>

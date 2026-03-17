@@ -4,6 +4,7 @@ import { Mail, MapPin, Phone } from "lucide-react";
 import Link from "next/link";
 import { useState, FormEvent } from "react";
 import { useLanguage } from "@/components/language-context";
+import { StyledSelect } from "@/components/StyledSelect";
 import { SITE_INFO } from "@/lib/site-data";
 
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/xwvrngqa";
@@ -192,18 +193,16 @@ export function ContactSection() {
                 <label className="text-[10px] font-medium uppercase tracking-[0.25em] text-[var(--muted)]">
                   {t("contact.priorityLabel")} *
                 </label>
-                <select
+                <StyledSelect
                   name="priority"
                   required
-                  defaultValue=""
-                  className="h-11 w-full rounded-xl border border-white/[0.1] bg-[#0B1120] px-4 text-base text-white outline-none transition-colors focus:border-[var(--gold)] focus:shadow-[0_0_0_3px_rgba(201,168,76,0.18)]"
-                >
-                  <option value="" disabled>
-                    {t("contact.select")}
-                  </option>
-                  <option value="normal">{t("contact.priorityNormal")}</option>
-                  <option value="urgent">{t("contact.priorityUrgent")}</option>
-                </select>
+                  label={t("contact.priorityLabel")}
+                  placeholder={t("contact.select")}
+                  options={[
+                    { value: "normal", label: t("contact.priorityNormal") },
+                    { value: "urgent", label: t("contact.priorityUrgent") },
+                  ]}
+                />
               </div>
             </div>
 
@@ -212,42 +211,38 @@ export function ContactSection() {
                 <label className="text-[10px] font-medium uppercase tracking-[0.25em] text-[var(--muted)]">
                   {t("contact.topicLabel")} *
                 </label>
-                <select
+                <StyledSelect
                   name="topic"
                   required
-                  defaultValue=""
-                  className="h-11 w-full rounded-xl border border-white/[0.1] bg-[#0B1120] px-4 text-base text-white outline-none transition-colors focus:border-[var(--gold)] focus:shadow-[0_0_0_3px_rgba(201,168,76,0.18)]"
-                >
-                  <option value="" disabled>
-                    {t("contact.select")}
-                  </option>
-                  <option value="family">{t("contact.topicFamily")}</option>
-                  <option value="criminal">{t("contact.topicCriminal")}</option>
-                  <option value="employment">{t("contact.topicEmployment")}</option>
-                  <option value="enforcement">{t("contact.topicEnforcement")}</option>
-                  <option value="inheritance">{t("contact.topicInheritance")}</option>
-                  <option value="realEstate">{t("contact.topicRealEstate")}</option>
-                  <option value="commercial">{t("contact.topicCommercial")}</option>
-                  <option value="other">{t("contact.topicOther")}</option>
-                </select>
+                  label={t("contact.topicLabel")}
+                  placeholder={t("contact.select")}
+                  options={[
+                    { value: "family", label: t("contact.topicFamily") },
+                    { value: "criminal", label: t("contact.topicCriminal") },
+                    { value: "employment", label: t("contact.topicEmployment") },
+                    { value: "enforcement", label: t("contact.topicEnforcement") },
+                    { value: "inheritance", label: t("contact.topicInheritance") },
+                    { value: "realEstate", label: t("contact.topicRealEstate") },
+                    { value: "commercial", label: t("contact.topicCommercial") },
+                    { value: "other", label: t("contact.topicOther") },
+                  ]}
+                />
               </div>
               <div className="flex flex-col gap-1.5">
                 <label className="text-[10px] font-medium uppercase tracking-[0.25em] text-[var(--muted)]">
                   {t("contact.serviceTypeLabel")}
                 </label>
-                <select
+                <StyledSelect
                   name="service_type"
-                  defaultValue=""
-                  className="h-11 w-full rounded-xl border border-white/[0.1] bg-[#0B1120] px-4 text-base text-white outline-none transition-colors focus:border-[var(--gold)] focus:shadow-[0_0_0_3px_rgba(201,168,76,0.18)]"
-                >
-                  <option value="">
-                    {t("contact.selectOptional")}
-                  </option>
-                  <option value="litigation">{t("contact.serviceTypeLitigation")}</option>
-                  <option value="counsel">{t("contact.serviceTypeCounsel")}</option>
-                  <option value="contractReview">{t("contact.serviceTypeContractReview")}</option>
-                  <option value="documentPrep">{t("contact.serviceTypeDocumentPrep")}</option>
-                </select>
+                  label={t("contact.serviceTypeLabel")}
+                  placeholder={t("contact.selectOptional")}
+                  options={[
+                    { value: "litigation", label: t("contact.serviceTypeLitigation") },
+                    { value: "counsel", label: t("contact.serviceTypeCounsel") },
+                    { value: "contractReview", label: t("contact.serviceTypeContractReview") },
+                    { value: "documentPrep", label: t("contact.serviceTypeDocumentPrep") },
+                  ]}
+                />
               </div>
             </div>
 
