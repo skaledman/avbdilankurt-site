@@ -1,10 +1,14 @@
+ "use client";
+
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { BLOG_POSTS } from "@/lib/site-data";
+import { useLanguage } from "@/components/language-context";
 
 const HOMEPAGE_BLOG_LIMIT = 6;
 
 export function BlogPreviewSection() {
+  const { language } = useLanguage();
   const posts = BLOG_POSTS.slice(0, HOMEPAGE_BLOG_LIMIT);
 
   return (
@@ -38,10 +42,10 @@ export function BlogPreviewSection() {
               {post.category}
             </span>
             <h3 className="mt-4 line-clamp-2 min-h-[3.2em] font-heading text-xl font-semibold leading-tight text-[var(--foreground)] transition-colors group-hover:text-[var(--gold)] sm:text-2xl">
-              {post.title}
+              {language === "en" ? post.title.en : post.title.tr}
             </h3>
             <p className="mt-3 line-clamp-3 min-h-[96px] text-base leading-8 text-[var(--text-faint)]">
-              {post.summary}
+              {language === "en" ? post.summary.en : post.summary.tr}
             </p>
             <p className="mt-auto pt-4 text-[11px] uppercase tracking-[0.2em] text-[rgba(240,236,228,0.42)]">
               {post.date}

@@ -99,9 +99,11 @@ export async function generateMetadata({
   }
   const post = getBlogPostBySlug(slug);
   if (!post) return { title: "Yazı Bulunamadı" };
-  const title = `${post.title} | Av. Betül Dilan Kurt`;
+  const baseTitle = post.title.tr;
+  const baseSummary = post.summary.tr;
+  const title = `${baseTitle} | Av. Betül Dilan Kurt`;
   const description =
-    post.summary.length > 155 ? post.summary.slice(0, 152) + "…" : post.summary;
+    baseSummary.length > 155 ? baseSummary.slice(0, 152) + "…" : baseSummary;
   return {
     title,
     description,
@@ -164,7 +166,10 @@ export default async function BlogDetailPage({
             </p>
           ) : (
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {posts.map((post) => (
+              {posts.map((post) => {
+                const title = post.title.tr;
+                const summary = post.summary.tr;
+                return (
                 <Link
                   key={post.slug}
                   href={`/blog/${post.slug}`}
@@ -174,16 +179,16 @@ export default async function BlogDetailPage({
                     {post.date}
                   </p>
                   <h2 className="mt-2 line-clamp-2 min-h-[3.2em] font-heading text-lg font-semibold leading-tight text-[var(--foreground)] transition-colors group-hover:text-[var(--gold)]">
-                    {post.title}
+                    {title}
                   </h2>
                   <p className="mt-2 line-clamp-3 min-h-[72px] text-sm leading-6 text-[var(--text-faint)]">
-                    {post.summary}
+                    {summary}
                   </p>
                   <span className="mt-auto inline-flex items-center gap-2 pt-4 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--gold)]">
                     Oku <ArrowRight size={12} />
                   </span>
                 </Link>
-              ))}
+              )})}
             </div>
           )}
           <p className="mt-10">
@@ -207,7 +212,7 @@ export default async function BlogDetailPage({
 
   return (
     <div>
-      <PageHero eyebrow={post.category} title={post.title} description={post.summary} />
+      <PageHero eyebrow={post.category} title={post.title.tr} description={post.summary.tr} />
 
       <section className="section-inner grid gap-10 lg:grid-cols-[minmax(0,1fr)_280px] lg:items-start">
         <article className="rounded-3xl border border-white/[0.06] bg-[var(--bg-card)] p-6 sm:p-8">
@@ -216,7 +221,7 @@ export default async function BlogDetailPage({
             <ChevronRight size={14} />
             <Link href="/blog" className="transition-colors hover:text-[var(--gold)]">Blog</Link>
             <ChevronRight size={14} />
-            <span className="text-[var(--gold)]">{post.title}</span>
+            <span className="text-[var(--gold)]">{post.title.tr}</span>
           </div>
 
           <div className="mb-8 flex flex-wrap items-center gap-3 text-[11px] uppercase tracking-[0.24em] text-[rgba(240,236,228,0.42)]">
@@ -236,7 +241,7 @@ export default async function BlogDetailPage({
             ))}
           </div>
 
-          <BlogContent blocks={post.contentBlocks} paragraphs={post.content} />
+          <BlogContent blocks={post.contentBlocks} paragraphs={post.content.tr} />
         </article>
 
         <aside className="space-y-6 lg:sticky lg:top-28" aria-label="İlgili içerik">
@@ -274,7 +279,7 @@ export default async function BlogDetailPage({
                         {item.category}
                       </p>
                       <p className="mt-2 text-sm font-semibold leading-6 text-[var(--foreground)]">
-                        {item.title}
+                        {item.title.tr}
                       </p>
                     </Link>
                   ))

@@ -185,7 +185,7 @@ export default async function ServiceDetailPage({
                     href={`/blog/${item.slug}`}
                     className="rounded-xl border border-white/[0.06] bg-black/10 p-3 text-sm font-medium text-[var(--foreground)] transition-colors hover:border-[var(--gold-dim)] hover:text-[var(--gold)]"
                   >
-                    {item.title}
+                    {item.title.tr}
                   </Link>
                 ))}
               </div>

@@ -559,30 +559,56 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: "nafaka-nasil-belirlenir",
-    title: "Nafaka Nasıl Belirlenir?",
+    title: {
+      tr: "Nafaka Nasıl Belirlenir?",
+      en: "How is Alimony Determined?",
+    },
     date: "28 Şubat 2026",
     category: "Aile Hukuku",
-    summary:
-      "İştirak nafakası ve yoksulluk nafakasının belirlenmesinde mahkemelerin dikkate aldığı kriterler ve hesaplama yaklaşımları.",
-    content: [
-      "İştirak nafakası, velayet kendisine verilmeyen ebeveynin çocuğun giderlerine katkı amacıyla ödediği aylık ödemedir. Mahkemeler çocuğun ihtiyaçları, tarafların gelir ve malvarlığı ile yaşam standartlarını dikkate alarak miktarı belirler.",
-      "Yoksulluk nafakası ise boşanma sonrasında ekonomik yönden güçsüz kalan eş lehine talep edilebilir. Süre ve miktar somut olaya göre değerlendirilir; kusur oranı da bazı durumlarda etkili olabilir.",
-      "Nafaka miktarına itiraz, artış veya indirim talepleri belirli koşullarda gündeme gelebilir. Bu süreçlerde hukuki danışmanlık alarak haklarınızı ve yükümlülüklerinizi netleştirmeniz önem taşır.",
-    ],
+    summary: {
+      tr: "İştirak nafakası ve yoksulluk nafakasının belirlenmesinde mahkemelerin dikkate aldığı kriterler ve hesaplama yaklaşımları.",
+      en: "Key criteria and assessment methods courts consider when determining child support and spousal alimony.",
+    },
+    content: {
+      tr: [
+        "İştirak nafakası, velayet kendisine verilmeyen ebeveynin çocuğun giderlerine katkı amacıyla ödediği aylık ödemedir. Mahkemeler çocuğun ihtiyaçları, tarafların gelir ve malvarlığı ile yaşam standartlarını dikkate alarak miktarı belirler.",
+        "Yoksulluk nafakası ise boşanma sonrasında ekonomik yönden güçsüz kalan eş lehine talep edilebilir. Süre ve miktar somut olaya göre değerlendirilir; kusur oranı da bazı durumlarda etkili olabilir.",
+        "Nafaka miktarına itiraz, artış veya indirim talepleri belirli koşullarda gündeme gelebilir. Bu süreçlerde hukuki danışmanlık alarak haklarınızı ve yükümlülüklerinizi netleştirmeniz önem taşır.",
+      ],
+      en: [
+        "Child support is a periodic payment made by the parent who does not have primary custody in order to contribute to the child’s expenses. Courts determine the amount by taking into account the child’s needs, the parties’ income and assets and their standard of living.",
+        "Spousal alimony, on the other hand, may be claimed in favour of the spouse who is economically disadvantaged after divorce. The duration and level of alimony are assessed in light of the concrete circumstances of the case; in some situations, the parties’ degree of fault may also play a role.",
+        "Requests for adjustment or termination of alimony, as well as objections to existing amounts, may arise under certain conditions. In such processes it is important to clarify both rights and obligations with the help of legal counsel.",
+        "The explanations in this article are general and cannot replace an assessment tailored to your case. For a sound evaluation of alimony claims and defence options, professional legal advice should be obtained.",
+      ],
+    },
     tags: ["nafaka", "iştirak nafakası", "yoksulluk nafakası", "aile hukuku", "velayet"],
   },
   {
     slug: "isten-cikarilan-iscinin-haklari",
-    title: "İşten Çıkarılan İşçinin Hakları Nelerdir?",
+    title: {
+      tr: "İşten Çıkarılan İşçinin Hakları Nelerdir?",
+      en: "What Are the Rights of a Dismissed Employee?",
+    },
     date: "20 Şubat 2026",
     category: "İş Hukuku",
-    summary:
-      "İş sözleşmesi feshedilen işçinin kıdem, ihbar tazminatı, alacaklar ve işe iade gibi hakları hakkında özet bilgi.",
-    content: [
-      "İşveren tarafından fesih halinde işçinin hakları, fesih nedenine ve süresine göre değişir. Haklı nedenle fesih yoksa kıdem tazminatı, ihbar tazminatı, kullanılmayan yıllık izin ücreti ve varsa diğer alacaklar talep edilebilir.",
-      "Belirli sayıdaki işçi çalıştıran işyerlerinde feshe itiraz için önce arabulucuya başvuru yapılması gerekebilir. Süreler kaçırılmadan hareket edilmesi, işe iade ve alacak davaları açısından kritiktir.",
-      "Fazla mesai, ulusal bayram ve genel tatil ücretleri gibi alacaklar da ayrıca değerlendirilir. İş hukuku alanında avukatlık hizmeti ve danışmanlık ile haklarınızı netleştirebilirsiniz.",
-    ],
+    summary: {
+      tr: "İş sözleşmesi feshedilen işçinin kıdem, ihbar tazminatı, alacaklar ve işe iade gibi hakları hakkında özet bilgi.",
+      en: "A concise overview of severance and notice pay, labour receivables and reinstatement rights when an employment contract is terminated.",
+    },
+    content: {
+      tr: [
+        "İşveren tarafından fesih halinde işçinin hakları, fesih nedenine ve süresine göre değişir. Haklı nedenle fesih yoksa kıdem tazminatı, ihbar tazminatı, kullanılmayan yıllık izin ücreti ve varsa diğer alacaklar talep edilebilir.",
+        "Belirli sayıdaki işçi çalıştıran işyerlerinde feshe itiraz için önce arabulucuya başvuru yapılması gerekebilir. Süreler kaçırılmadan hareket edilmesi, işe iade ve alacak davaları açısından kritiktir.",
+        "Fazla mesai, ulusal bayram ve genel tatil ücretleri gibi alacaklar da ayrıca değerlendirilir. İş hukuku alanında avukatlık hizmeti ve danışmanlık ile haklarınızı netleştirebilirsiniz.",
+      ],
+      en: [
+        "When an employer terminates an employment contract, the employee’s rights vary depending on the ground and timing of the termination. If there is no legally recognised just cause, claims such as severance pay, notice pay, unused annual leave wages and other outstanding labour receivables may arise.",
+        "In many workplaces, challenging a dismissal first requires an application to mediation within strict statutory time limits. Acting without delay is therefore critical, particularly for reinstatement actions and claims for receivables.",
+        "Items such as overtime, weekend work, national holiday and general holiday wages are often evaluated separately. In practice, payrolls, time sheets and workplace records, together with witness statements, play an important role in proving these claims.",
+        "Because each dismissal has its own factual and documentary background, the scope of rights and the most appropriate course of action should be assessed case by case. The information in this article is general in nature and does not constitute legal advice; employees and employers should seek professional legal support for their specific situation.",
+      ],
+    },
     contentBlocks: [
       { type: "h2", text: "Fesih bildiriminde ilk kontrol edilmesi gerekenler" },
       {
@@ -626,119 +652,220 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: "miras-paylasimi-nasil-yapilir",
-    title: "Miras Paylaşımı Nasıl Yapılır?",
+    title: {
+      tr: "Miras Paylaşımı Nasıl Yapılır?",
+      en: "How is Inheritance Distributed?",
+    },
     date: "14 Şubat 2026",
     category: "Miras Hukuku",
-    summary:
-      "Mirasçılık belgesi, tereke tespiti ve miras paylaşımı süreçlerinin temel adımları hakkında bilgi.",
-    content: [
-      "Miras bırakanın vefatından sonra yasal mirasçılar mirasçılık belgesi alarak yasal haklarını belgeler. Bu belge noter veya sulh hukuk mahkemesinden temin edilebilir.",
-      "Terekenin tespiti, borçların düşülmesi ve mirasçıların pay oranları Medeni Kanun hükümlerine göre belirlenir. Anlaşmalı paylaşım mümkün olduğu gibi, anlaşmazlık halinde ortaklığın giderilmesi davası açılabilir.",
-      "Saklı paylı mirasçılar tenkis davası açabilir; muris muvazaası iddiaları da miras paylaşımı sürecinde gündeme gelebilir. Miras hukuku konusunda hukuki danışmanlık almak sürecin sağlıklı yürütülmesine katkı sağlar.",
-    ],
+    summary: {
+      tr: "Mirasçılık belgesi, tereke tespiti ve miras paylaşımı süreçlerinin temel adımları hakkında bilgi.",
+      en: "Key steps of obtaining an heirship certificate, identifying the estate and distributing inheritance among heirs.",
+    },
+    content: {
+      tr: [
+        "Miras bırakanın vefatından sonra yasal mirasçılar mirasçılık belgesi alarak yasal haklarını belgeler. Bu belge noter veya sulh hukuk mahkemesinden temin edilebilir.",
+        "Terekenin tespiti, borçların düşülmesi ve mirasçıların pay oranları Medeni Kanun hükümlerine göre belirlenir. Anlaşmalı paylaşım mümkün olduğu gibi, anlaşmazlık halinde ortaklığın giderilmesi davası açılabilir.",
+        "Saklı paylı mirasçılar tenkis davası açabilir; muris muvazaası iddiaları da miras paylaşımı sürecinde gündeme gelebilir. Miras hukuku konusunda hukuki danışmanlık almak sürecin sağlıklı yürütülmesine katkı sağlar.",
+      ],
+      en: [
+        "After a person passes away, statutory heirs document their status by obtaining an heirship certificate from a notary public or the civil court of peace. This document is the starting point for asserting inheritance rights.",
+        "The estate is then identified, debts are deducted and the shares of the heirs are calculated in accordance with the Civil Code. In some cases distribution can be carried out amicably; where there is a dispute, actions such as dissolution of co‑ownership may be filed.",
+        "Reserved share heirs may bring reduction actions, and claims of simulated transactions may also arise in the course of inheritance disputes. Because inheritance files frequently involve both legal and family‑related sensitivities, it is advisable to seek legal advice tailored to the specific estate rather than relying solely on general information.",
+      ],
+    },
     tags: ["miras paylaşımı", "mirasçılık belgesi", "tereke", "tenkis", "miras hukuku"],
   },
   {
     slug: "ceza-sorusturmasinda-ilk-asamada-ne-yapilmali",
-    title: "Ceza Soruşturmasında İlk Aşamada Ne Yapılmalı?",
+    title: {
+      tr: "Ceza Soruşturmasında İlk Aşamada Ne Yapılmalı?",
+      en: "What Should Be Done in the First Stage of a Criminal Investigation?",
+    },
     date: "8 Şubat 2026",
     category: "Ceza Hukuku",
-    summary:
-      "Soruşturma evresinde şüpheli veya mağdur sıfatıyla yapılacak başvurular ve avukat desteğinin önemi.",
-    content: [
-      "Ceza soruşturmasında gözaltı, ifade alma veya adli kontrol gibi tedbirler söz konusu olabilir. Bu aşamada susma hakkı, avukat bulundurma hakkı ve ifade vermeden önce hukuki destek almak son derece önemlidir.",
-      "Şüpheli veya sanık sıfatıyla savunma stratejisi, delillerin değerlendirilmesi ve usule ilişkin hakların kullanılması titizlikle planlanmalıdır. Mağdur tarafında ise şikâyet, suç duyurusu ve müdahil olma süreçleri hukuki danışmanlık ile yürütülebilir.",
-      "Soruşturma aşamasında yapılan hatalar kovuşturma ve sonuç üzerinde etkili olabileceğinden, ilk andan itibaren ceza hukuku alanında avukatlık hizmeti almak haklarınızın korunması açısından faydalıdır.",
-    ],
+    summary: {
+      tr: "Soruşturma evresinde şüpheli veya mağdur sıfatıyla yapılacak başvurular ve avukat desteğinin önemi.",
+      en: "Steps to consider as a suspect or victim during the investigation phase and the importance of early legal assistance.",
+    },
+    content: {
+      tr: [
+        "Ceza soruşturmasında gözaltı, ifade alma veya adli kontrol gibi tedbirler söz konusu olabilir. Bu aşamada susma hakkı, avukat bulundurma hakkı ve ifade vermeden önce hukuki destek almak son derece önemlidir.",
+        "Şüpheli veya sanık sıfatıyla savunma stratejisi, delillerin değerlendirilmesi ve usule ilişkin hakların kullanılması titizlikle planlanmalıdır. Mağdur tarafında ise şikâyet, suç duyurusu ve müdahil olma süreçleri hukuki danışmanlık ile yürütülebilir.",
+        "Soruşturma aşamasında yapılan hatalar kovuşturma ve sonuç üzerinde etkili olabileceğinden, ilk andan itibaren ceza hukuku alanında avukatlık hizmeti almak haklarınızın korunması açısından faydalıdır.",
+      ],
+      en: [
+        "During a criminal investigation, measures such as arrest, custody, taking a statement or judicial control may be imposed. At this stage, exercising the right to remain silent, having access to a lawyer and obtaining legal support before making any statement are of critical importance.",
+        "For those under investigation, the defence strategy, the way evidence is assessed and the use of procedural rights should be planned carefully. From the perspective of victims, complaints, criminal reports and applications to join the proceedings as an intervening party are usually handled more effectively with legal guidance.",
+        "Errors made in the investigation phase can significantly affect both the trial and the outcome. Therefore, obtaining assistance from a lawyer experienced in criminal law from the very beginning helps protect rights and manage risks. The explanations in this article are general and cannot replace legal advice tailored to a specific file.",
+      ],
+    },
     tags: ["ceza hukuku", "soruşturma", "gözaltı", "savunma", "avukat"],
   },
   {
     slug: "kira-uyusmazliklarinda-hukuki-yol",
-    title: "Kira Uyuşmazlıklarında Hukuki Yol Nedir?",
+    title: {
+      tr: "Kira Uyuşmazlıklarında Hukuki Yol Nedir?",
+      en: "What is the Legal Path in Rental Disputes?",
+    },
     date: "1 Şubat 2026",
     category: "Gayrimenkul Hukuku",
-    summary:
-      "Kira sözleşmesi, tahliye, kira tespit davası ve kira alacakları konusunda başvurulabilecek hukuki yollar.",
-    content: [
-      "Kira uyuşmazlıklarında tarafların konumu (kiracı veya kiraya veren), sözleşme türü ve uyuşmazlığın niteliği hangi yollara başvurulacağını belirler. Tahliye davası, kira tespit davası veya kira alacağı takibi gündeme gelebilir.",
-      "6098 sayılı Türk Borçlar Kanunu ve ilgili mevzuat kira ilişkisinin kurulması, süresi ve sona ermesi bakımından özel hükümler içerir. Sürelere ve bildirim şartlarına uyulması önem taşır.",
-      "Gayrimenkul hukuku kapsamında kira uyuşmazlıklarında hukuki danışmanlık ve dava takibi için avukatlık hizmeti alarak sürecin doğru yönetilmesini sağlayabilirsiniz.",
-    ],
+    summary: {
+      tr: "Kira sözleşmesi, tahliye, kira tespit davası ve kira alacakları konusunda başvurulabilecek hukuki yollar.",
+      en: "An outline of possible legal routes in disputes over leases, eviction, rent adjustment and rent receivables.",
+    },
+    content: {
+      tr: [
+        "Kira uyuşmazlıklarında tarafların konumu (kiracı veya kiraya veren), sözleşme türü ve uyuşmazlığın niteliği hangi yollara başvurulacağını belirler. Tahliye davası, kira tespit davası veya kira alacağı takibi gündeme gelebilir.",
+        "6098 sayılı Türk Borçlar Kanunu ve ilgili mevzuat kira ilişkisinin kurulması, süresi ve sona ermesi bakımından özel hükümler içerir. Sürelere ve bildirim şartlarına uyulması önem taşır.",
+        "Gayrimenkul hukuku kapsamında kira uyuşmazlıklarında hukuki danışmanlık ve dava takibi için avukatlık hizmeti alarak sürecin doğru yönetilmesini sağlayabilirsiniz.",
+      ],
+      en: [
+        "In rental disputes, the position of the parties (landlord or tenant), the type of lease and the nature of the disagreement determine which legal paths are available. Depending on the circumstances, proceedings such as eviction actions, rent adjustment lawsuits or enforcement for rent receivables may be considered.",
+        "The Turkish Code of Obligations and related legislation contain specific provisions on the establishment, duration and termination of lease relationships. Complying with notice requirements and statutory time limits is essential when taking steps in this field.",
+        "Because rental disputes often intersect with real‑estate and enforcement law, seeking legal advice and representation helps ensure that the process is managed correctly. The information here provides only a general framework; each case should be evaluated based on its own documents and chronology with professional legal support.",
+      ],
+    },
     tags: ["kira", "tahliye", "gayrimenkul hukuku", "kira tespit", "tahliye davası"],
   },
   {
     slug: "velayet-davasi-nasil-acilir",
-    title: "Velayet Davası Nasıl Açılır?",
+    title: {
+      tr: "Velayet Davası Nasıl Açılır?",
+      en: "How to File a Child Custody Case?",
+    },
     date: "10 Mart 2026",
     category: "Aile Hukuku",
-    summary:
-      "Velayet taleplerinde mahkemelerin gözettiği ölçütler ve sürecin nasıl işlediğine ilişkin genel bilgi.",
-    content: [
-      "Velayete ilişkin uyuşmazlıklarda mahkemeler, çocuğun üstün yararını her şeyin önünde tutar. Ebeveynlerin ekonomik durumu, yaşam koşulları, çocukla kurulan ilişki ve günlük bakım kapasitesi bu değerlendirmenin temel unsurlarıdır.",
-      "Velayet davası boşanma davasıyla birlikte ya da ayrı olarak açılabilir. Daha önce verilmiş bir velayet kararının değiştirilmesi de mümkündür; bunun için koşulların esaslı biçimde değişmiş olması aranır.",
-      "Sosyal inceleme raporları, tanık beyanları ve çocuğun yaşına göre kendi görüşü de süreci etkileyebilir. Bu nedenle taleplerin başından itibaren doğru hazırlanması büyük önem taşır.",
-      "Velayet süreçleri hem hukuki hem duygusal açıdan yoğun olabilir. Sürecin sağlıklı yönetilebilmesi için hukuki danışmanlık alınması önerilir.",
-    ],
+    summary: {
+      tr: "Velayet taleplerinde mahkemelerin gözettiği ölçütler ve sürecin nasıl işlediğine ilişkin genel bilgi.",
+      en: "General information on the criteria courts consider in custody disputes and how the process works.",
+    },
+    content: {
+      tr: [
+        "Velayete ilişkin uyuşmazlıklarda mahkemeler, çocuğun üstün yararını her şeyin önünde tutar. Ebeveynlerin ekonomik durumu, yaşam koşulları, çocukla kurulan ilişki ve günlük bakım kapasitesi bu değerlendirmenin temel unsurlarıdır.",
+        "Velayet davası boşanma davasıyla birlikte ya da ayrı olarak açılabilir. Daha önce verilmiş bir velayet kararının değiştirilmesi de mümkündür; bunun için koşulların esaslı biçimde değişmiş olması aranır.",
+        "Sosyal inceleme raporları, tanık beyanları ve çocuğun yaşına göre kendi görüşü de süreci etkileyebilir. Bu nedenle taleplerin başından itibaren doğru hazırlanması büyük önem taşır.",
+        "Velayet süreçleri hem hukuki hem duygusal açıdan yoğun olabilir. Sürecin sağlıklı yönetilebilmesi için hukuki danışmanlık alınması önerilir.",
+      ],
+      en: [
+        "In custody disputes, courts prioritise the best interests of the child above all else. Factors such as the parents’ financial situations, living conditions, relationship with the child and day‑to‑day caregiving capacity are central to this assessment.",
+        "A custody case may be filed together with a divorce action or separately. It is also possible to request a change to an existing custody order, provided that there has been a substantial change in circumstances.",
+        "Social enquiry reports, witness statements and, depending on the child’s age, the child’s own views may influence the outcome. For this reason, it is important to frame requests correctly and collect appropriate evidence from the outset.",
+        "Custody proceedings can be demanding both legally and emotionally. The information in this article is only a general guide; for a route tailored to your family’s situation, professional legal advice should be obtained.",
+      ],
+    },
     tags: ["velayet", "aile hukuku", "boşanma", "çocuk velayeti"],
   },
   {
     slug: "trafik-kazasinda-tazminat-hakki",
-    title: "Trafik Kazasında Tazminat Hakkı",
+    title: {
+      tr: "Trafik Kazasında Tazminat Hakkı",
+      en: "Compensation Rights in Traffic Accidents",
+    },
     date: "3 Mart 2026",
     category: "Genel Hukuk",
-    summary:
-      "Trafik kazası sonrasında maddi ve manevi tazminat taleplerinde dikkat edilmesi gereken temel noktalar.",
-    content: [
-      "Trafik kazasından kaynaklanan tazminat talepleri; kusur oranları, sigorta kapsamı ve zararın niteliğine göre farklı hukuki yollarla takip edilebilir. Zorunlu trafik sigortası (ZMMS) ve ihtiyari kasko poliçelerinin kapsamı, talep sürecini doğrudan etkiler.",
-      "Maddi tazminat; araç hasarı, tedavi giderleri, iş göremezlik ve kazanç kaybını kapsayabilir. Manevi tazminat ise olayın yarattığı elem ve üzüntü gözetilerek mahkemelerce takdir edilir.",
-      "Tazminat taleplerinde zamanaşımı sürelerine dikkat edilmesi gerekir. Kaza tespit tutanağı, sağlık raporları ve sigorta poliçesi gibi belgelerin eksiksiz muhafaza edilmesi sürecin sağlıklı yürütülmesi açısından önemlidir.",
-      "Trafik kazası sonrasında hakların doğru değerlendirilebilmesi için hukuki danışmanlık alınması önerilir.",
-    ],
+    summary: {
+      tr: "Trafik kazası sonrasında maddi ve manevi tazminat taleplerinde dikkat edilmesi gereken temel noktalar.",
+      en: "Key points to consider when pursuing material and moral compensation after a traffic accident.",
+    },
+    content: {
+      tr: [
+        "Trafik kazasından kaynaklanan tazminat talepleri; kusur oranları, sigorta kapsamı ve zararın niteliğine göre farklı hukuki yollarla takip edilebilir. Zorunlu trafik sigortası (ZMMS) ve ihtiyari kasko poliçelerinin kapsamı, talep sürecini doğrudan etkiler.",
+        "Maddi tazminat; araç hasarı, tedavi giderleri, iş göremezlik ve kazanç kaybını kapsayabilir. Manevi tazminat ise olayın yarattığı elem ve üzüntü gözetilerek mahkemelerce takdir edilir.",
+        "Tazminat taleplerinde zamanaşımı sürelerine dikkat edilmesi gerekir. Kaza tespit tutanağı, sağlık raporları ve sigorta poliçesi gibi belgelerin eksiksiz muhafaza edilmesi sürecin sağlıklı yürütülmesi açısından önemlidir.",
+        "Trafik kazası sonrasında hakların doğru değerlendirilebilmesi için hukuki danışmanlık alınması önerilir.",
+      ],
+      en: [
+        "Compensation claims arising from traffic accidents are pursued through different legal avenues depending on fault distribution, insurance coverage and the nature of the damage. The scope of compulsory motor insurance and any additional voluntary policies directly affects the claim process.",
+        "Material compensation may cover vehicle damage, medical expenses, loss of earnings and loss of working capacity. Moral compensation is assessed by the courts in light of the pain and suffering caused by the accident.",
+        "Limitation periods are particularly important in traffic accident cases. Preserving documents such as accident reports, medical records and insurance policies is essential for a sound assessment of the claim.",
+        "Because each accident has its own factual and medical background, the rights and potential claim routes should be evaluated specifically for the file. This article provides general information only; professional legal advice should be sought for concrete cases.",
+      ],
+    },
     tags: ["trafik kazası", "tazminat", "sigorta", "maddi manevi tazminat"],
   },
   {
     slug: "bosanmada-mal-paylasimi",
-    title: "Boşanmada Mal Paylaşımı Nasıl Olur?",
+    title: {
+      tr: "Boşanmada Mal Paylaşımı Nasıl Olur?",
+      en: "How is Property Divided in Divorce?",
+    },
     date: "18 Şubat 2026",
     category: "Aile Hukuku",
-    summary:
-      "Boşanma sürecinde edinilmiş mallara katılma rejimi ve mal paylaşımının nasıl gerçekleştiğine dair genel bilgi.",
-    content: [
-      "Türk Medeni Kanunu'nda yasal mal rejimi olarak edinilmiş mallara katılma rejimi benimsenmiştir. Bu rejim kapsamında evlilik süresince edinilen mallar, kural olarak eşler arasında eşit biçimde paylaşılır.",
-      "Kişisel mallar bu paylaşımın dışında tutulur. Miras yoluyla veya evlilik öncesinde edinilen mallar ile kişisel kullanıma özgü eşyalar kişisel mal sayılır. Hangi malın hangi kategoriye girdiği somut koşullara göre değerlendirilir.",
-      "Taraflar, evlilik öncesinde veya evlilik süresince mal rejimi sözleşmesi yaparak farklı bir rejim seçebilir. Bu sözleşmelerin geçerliliği ve kapsamı hukuki açıdan titizlikle incelenmelidir.",
-      "Mal paylaşımı uyuşmazlıkları çoğunlukla teknik ve belgeye dayalı bir süreç gerektirir. Hak kaybı yaşanmaması için hukuki danışmanlık alınması önerilir.",
-    ],
+    summary: {
+      tr: "Boşanma sürecinde edinilmiş mallara katılma rejimi ve mal paylaşımının nasıl gerçekleştiğine dair genel bilgi.",
+      en: "General information on the participation in acquired property regime and how assets are divided in divorce.",
+    },
+    content: {
+      tr: [
+        "Türk Medeni Kanunu'nda yasal mal rejimi olarak edinilmiş mallara katılma rejimi benimsenmiştir. Bu rejim kapsamında evlilik süresince edinilen mallar, kural olarak eşler arasında eşit biçimde paylaşılır.",
+        "Kişisel mallar bu paylaşımın dışında tutulur. Miras yoluyla veya evlilik öncesinde edinilen mallar ile kişisel kullanıma özgü eşyalar kişisel mal sayılır. Hangi malın hangi kategoriye girdiği somut koşullara göre değerlendirilir.",
+        "Taraflar, evlilik öncesinde veya evlilik süresince mal rejimi sözleşmesi yaparak farklı bir rejim seçebilir. Bu sözleşmelerin geçerliliği ve kapsamı hukuki açıdan titizlikle incelenmelidir.",
+        "Mal paylaşımı uyuşmazlıkları çoğunlukla teknik ve belgeye dayalı bir süreç gerektirir. Hak kaybı yaşanmaması için hukuki danışmanlık alınması önerilir.",
+      ],
+      en: [
+        "Under the Turkish Civil Code, the default marital property regime is participation in acquired property. As a rule, assets acquired during the marriage are shared equally between the spouses within the framework of this regime.",
+        "Personal assets are excluded from this sharing. Property acquired before marriage, assets received by inheritance or donation and items intended for personal use are generally considered personal property, though classification may vary depending on the facts.",
+        "Spouses may choose a different marital property regime by entering into a property agreement before or during the marriage. The validity and scope of such agreements need to be examined carefully from a legal perspective.",
+        "Disputes over property division are often technical and document‑intensive. To avoid loss of rights, it is advisable to seek legal advice based on the specific asset structure and history of the marriage rather than relying solely on general explanations.",
+      ],
+    },
     tags: ["mal paylaşımı", "boşanma", "edinilmiş mal", "aile hukuku"],
   },
   {
     slug: "is-kazasinda-iscinin-haklari",
-    title: "İş Kazasında İşçinin Hakları Nelerdir?",
+    title: {
+      tr: "İş Kazasında İşçinin Hakları Nelerdir?",
+      en: "What Are Workers' Rights in Work Accidents?",
+    },
     date: "25 Şubat 2026",
     category: "İş Hukuku",
-    summary:
-      "İş kazası geçiren işçinin SGK, tazminat ve dava hakları hakkında genel bilgi.",
-    content: [
-      "İş kazası; işyerinde, işin yürütümü sırasında veya işveren tarafından görevlendirilen bir faaliyette meydana gelen ve işçinin bedensel ya da ruhsal zarara uğramasına yol açan olaydır. Kazanın iş kazası sayılabilmesi için yasal koşulların sağlanması ve süresinde SGK'ya bildirilmesi gerekir.",
-      "İş kazası geçiren işçi; geçici iş göremezlik ödeneği, sürekli iş göremezlik geliri ve destekten yoksun kalma tazminatı gibi haklardan yararlanabilir. İşverenin kusuru oranında maddi ve manevi tazminat talep edilmesi de mümkündür.",
-      "İşverenin iş güvenliği tedbirlerini alıp almadığı, kazanın oluşumundaki kusur dağılımı ve SGK'nın yaptığı tespit, tazminat miktarını belirleyen başlıca unsurlardır.",
-      "İş kazası süreçleri hem idari hem yargısal boyut içerdiğinden süreler ve başvuru yolları açısından hukuki danışmanlık alınması önerilir.",
-    ],
+    summary: {
+      tr: "İş kazası geçiren işçinin SGK, tazminat ve dava hakları hakkında genel bilgi.",
+      en: "General information on social security entitlements, compensation and litigation rights of workers who suffer a work accident.",
+    },
+    content: {
+      tr: [
+        "İş kazası; işyerinde, işin yürütümü sırasında veya işveren tarafından görevlendirilen bir faaliyette meydana gelen ve işçinin bedensel ya da ruhsal zarara uğramasına yol açan olaydır. Kazanın iş kazası sayılabilmesi için yasal koşulların sağlanması ve süresinde SGK'ya bildirilmesi gerekir.",
+        "İş kazası geçiren işçi; geçici iş göremezlik ödeneği, sürekli iş göremezlik geliri ve destekten yoksun kalma tazminatı gibi haklardan yararlanabilir. İşverenin kusuru oranında maddi ve manevi tazminat talep edilmesi de mümkündür.",
+        "İşverenin iş güvenliği tedbirlerini alıp almadığı, kazanın oluşumundaki kusur dağılımı ve SGK'nın yaptığı tespit, tazminat miktarını belirleyen başlıca unsurlardır.",
+        "İş kazası süreçleri hem idari hem yargısal boyut içerdiğinden süreler ve başvuru yolları açısından hukuki danışmanlık alınması önerilir.",
+      ],
+      en: [
+        "A work accident is an incident that occurs at the workplace, during the performance of work or in an activity assigned by the employer, causing physical or psychological harm to the employee. For an incident to be treated as an occupational accident, statutory conditions must be met and the Social Security Institution must be notified on time.",
+        "Workers who suffer a work accident may be entitled to benefits such as temporary incapacity allowance, permanent disability pension and compensation for loss of financial support. Depending on the degree of employer fault, additional claims for material and moral damages may also be brought.",
+        "Whether the employer took occupational safety measures, how fault is distributed in the accident and the findings of the Social Security Institution are among the main factors determining the level of compensation.",
+        "Since work‑accident processes involve both administrative and judicial stages with strict time limits, seeking legal advice is important to protect rights. The information here is general and does not replace a file‑specific evaluation.",
+      ],
+    },
     tags: ["iş kazası", "işçi hakları", "SGK", "tazminat", "iş hukuku"],
   },
   {
     slug: "miras-reddi-nasil-yapilir",
-    title: "Miras Reddi Nasıl Yapılır?",
+    title: {
+      tr: "Miras Reddi Nasıl Yapılır?",
+      en: "How to Disclaim an Inheritance?",
+    },
     date: "21 Şubat 2026",
     category: "Miras Hukuku",
-    summary:
-      "Mirasın reddinde yasal süre, başvuru yolu ve borçlu terekelerde dikkat edilmesi gereken hususlar.",
-    content: [
-      "Miras reddi, yasal mirasçının miras bırakanın ölümünü öğrenmesinden itibaren üç aylık süre içinde sulh hukuk mahkemesine yazılı veya sözlü başvurusuyla yapılır. Bu sürenin kaçırılması halinde miras kayıtsız şartsız kabul edilmiş sayılır.",
-      "Terekenin borca batık olduğunun açıkça belli olduğu durumlarda mirasçılar mirası reddedebilir. Borca batıklık şüphesi varsa mahkemeden terekenin tespiti talep edilmesi, karar vermeden önce değerlendirilebilir.",
-      "Mirasın reddedilmesi halinde miras, diğer yasal mirasçılara geçer. Tüm mirasçıların mirası reddetmesi durumunda tereke, mahkeme tarafından iflas hükümlerine göre tasfiye edilir.",
-      "Miras reddi, sonuçları itibariyle kalıcı bir karar olduğundan tereke hakkında yeterli bilgi edinildikten sonra ve gerektiğinde hukuki danışmanlık alınarak değerlendirilmesi önerilir.",
-    ],
+    summary: {
+      tr: "Mirasın reddinde yasal süre, başvuru yolu ve borçlu terekelerde dikkat edilmesi gereken hususlar.",
+      en: "Legal time limits, application route and key issues to consider when disclaiming an inheritance, especially in over‑indebted estates.",
+    },
+    content: {
+      tr: [
+        "Miras reddi, yasal mirasçının miras bırakanın ölümünü öğrenmesinden itibaren üç aylık süre içinde sulh hukuk mahkemesine yazılı veya sözlü başvurusuyla yapılır. Bu sürenin kaçırılması halinde miras kayıtsız şartsız kabul edilmiş sayılır.",
+        "Terekenin borca batık olduğunun açıkça belli olduğu durumlarda mirasçılar mirası reddedebilir. Borca batıklık şüphesi varsa mahkemeden terekenin tespiti talep edilmesi, karar vermeden önce değerlendirilebilir.",
+        "Mirasın reddedilmesi halinde miras, diğer yasal mirasçılara geçer. Tüm mirasçıların mirası reddetmesi durumunda tereke, mahkeme tarafından iflas hükümlerine göre tasfiye edilir.",
+        "Miras reddi, sonuçları itibariyle kalıcı bir karar olduğundan tereke hakkında yeterli bilgi edinildikten sonra ve gerektiğinde hukuki danışmanlık alınarak değerlendirilmesi önerilir.",
+      ],
+      en: [
+        "Disclaiming an inheritance is carried out by the legal heir submitting a written or oral declaration to the civil court of peace within three months from the date they learn of the death of the deceased. If this period is missed, the inheritance is deemed to have been accepted unconditionally.",
+        "Heirs may choose to disclaim the inheritance where it is clearly over‑indebted. If there is uncertainty about the financial situation of the estate, an application may be made to the court for determination of the estate before a decision is taken.",
+        "When an inheritance is disclaimed, the share passes to other legal heirs in accordance with statutory rules. If all heirs disclaim, the estate is liquidated by the court under the provisions on bankruptcy.",
+        "Given that disclaiming an inheritance has permanent consequences, it should only be considered after obtaining sufficient information about the estate and, where necessary, legal advice. This article offers only a general framework and cannot substitute for professional evaluation of a concrete case.",
+      ],
+    },
     tags: ["miras reddi", "tereke", "miras hukuku", "borçlu tereke"],
   },
 ];

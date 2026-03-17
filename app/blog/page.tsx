@@ -67,7 +67,7 @@ export default function BlogPage() {
         description={heroDescription}
       />
 
-      <section className="section-inner">
+      <section className="section-inner pt-8">
         <h2 className="sr-only">{categoriesSrOnly}</h2>
         <div className="mb-12 flex flex-wrap gap-3">
           {BLOG_CATEGORIES.map((c) => (
@@ -86,7 +86,10 @@ export default function BlogPage() {
         className="section-inner grid gap-6 lg:grid-cols-3"
         aria-label={language === "en" ? "All articles" : "Tüm yazılar"}
       >
-        {BLOG_POSTS.map((post) => (
+        {BLOG_POSTS.map((post) => {
+          const title = language === "en" ? post.title.en : post.title.tr;
+          const summary = language === "en" ? post.summary.en : post.summary.tr;
+          return (
           <Link
             key={post.slug}
             href={`/blog/${post.slug}`}
@@ -96,10 +99,10 @@ export default function BlogPage() {
               {translateCategory(post.category)}
             </span>
             <h2 className="mt-4 line-clamp-2 min-h-[3.2em] font-heading text-xl font-semibold leading-tight text-[var(--foreground)] transition-colors group-hover:text-[var(--gold)] sm:text-2xl">
-              {post.title}
+              {title}
             </h2>
             <p className="mt-3 line-clamp-3 min-h-[96px] text-base leading-8 text-[var(--text-faint)]">
-              {post.summary}
+              {summary}
             </p>
             <p className="mt-auto pt-4 text-[11px] uppercase tracking-[0.2em] text-[rgba(240,236,228,0.42)]">
               {formatDate(post.date)}
@@ -109,7 +112,7 @@ export default function BlogPage() {
               <ArrowRight size={14} />
             </span>
           </Link>
-        ))}
+        )})}
       </section>
     </div>
   );
