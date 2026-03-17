@@ -6,7 +6,7 @@ import { useLanguage } from "@/components/language-context";
 import { SERVICES, SITE_INFO } from "@/lib/site-data";
 
 export function Footer() {
-  const { t } = useLanguage();
+  const { language, t } = useLanguage();
   const quickLinks = [
     { href: "/", label: t("common.home") },
     { href: "/hakkimda", label: t("common.about") },
@@ -65,7 +65,7 @@ export function Footer() {
                   href={`/hizmetler/${service.slug}`}
                   className="footer-link text-sm"
                 >
-                  {service.title}
+                  {language === "tr" ? service.title.tr : service.title.en}
                 </Link>
               ))}
             </nav>

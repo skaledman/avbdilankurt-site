@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { PageHero } from "@/components/PageHero";
 import { COURT_DECISIONS } from "@/lib/site-data";
 
@@ -14,7 +15,26 @@ const categories = [
 ];
 
 export default function CourtDecisionsPageClient() {
+  const searchParams = useSearchParams();
+  const router = useRouter();
   const [activeCategory, setActiveCategory] = useState("Tümü");
+
+  const kategori = searchParams.get("kategori");
+  const mappedFromQuery = useMemo(() => {
+    if (!kategori) return null;
+    if (kategori === "yargitay") return { label: "Yargıtay Kararları", category: "Yargıtay" };
+    if (kategori === "bolge-adliye") return { label: "Bölge Adliye Mahkemesi Kararları", category: "Bölge Adliye Mahkemesi" };
+    if (kategori === "danistay") return { label: "Danıştay Kararları", category: "Danıştay" };
+    return null;
+  }, [kategori]);
+
+  useEffect(() => {
+    if (!mappedFromQuery) {
+      setActiveCategory("Tümü");
+      return;
+    }
+    setActiveCategory(mappedFromQuery.category);
+  }, [mappedFromQuery]);
 
   const filteredDecisions = useMemo(() => {
     if (activeCategory === "Tümü") return COURT_DECISIONS;
@@ -31,12 +51,36 @@ export default function CourtDecisionsPageClient() {
 
       <section className="section-inner grid gap-10 lg:grid-cols-[minmax(0,1fr)_300px]">
         <div>
+          {mappedFromQuery ? (
+            <div className="mb-10 flex flex-wrap items-center justify-between gap-4">
+              <span className="inline-flex items-center rounded-full border border-[var(--gold-dim)] bg-[rgba(201,168,76,0.06)] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-[var(--gold)]">
+                {mappedFromQuery.label}
+              </span>
+              <Link
+                href="/yargi-kararlari"
+                className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[var(--text-muted)] transition-colors hover:text-[var(--gold)]"
+              >
+                Tüm Kararları Gör →
+              </Link>
+            </div>
+          ) : null}
+
           <div className="mb-10 flex flex-wrap gap-3">
             {categories.map((category) => (
               <button
                 type="button"
                 key={category}
-                onClick={() => setActiveCategory(category)}
+                onClick={() => {
+                  setActiveCategory(category);
+                  if (category === "Tümü") {
+                    router.replace("/yargi-kararlari");
+                    return;
+                  }
+                  if (category === "Yargıtay") router.replace("/yargi-kararlari?kategori=yargitay");
+                  else if (category === "Bölge Adliye Mahkemesi") router.replace("/yargi-kararlari?kategori=bolge-adliye");
+                  else if (category === "Danıştay") router.replace("/yargi-kararlari?kategori=danistay");
+                  else router.replace("/yargi-kararlari");
+                }}
                 className={`rounded-xl px-5 py-3 text-sm transition-colors ${
                   activeCategory === category
                     ? "bg-[var(--gold)] text-[#0a0a0a]"

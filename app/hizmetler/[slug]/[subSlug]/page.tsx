@@ -30,7 +30,7 @@ export async function generateMetadata({
   const sub = service?.subServices?.find((s) => s.slug === subSlug);
   if (!service || !sub || !sub.hasPage) return { title: "Sayfa Bulunamadı" };
 
-  const title = `${service.title} – ${sub.title} | Av. Betül Dilan Kurt`;
+  const title = `${service.title.tr} – ${sub.title} | Av. Betül Dilan Kurt`;
   const description =
     sub.summary.length > 155 ? sub.summary.slice(0, 152) + "…" : sub.summary;
 
@@ -69,7 +69,7 @@ export default async function ServiceSubPage({
   return (
     <div>
       <PageHero
-        eyebrow={service.title}
+        eyebrow={service.title.tr}
         title={sub.title}
         description={sub.summary}
       />
@@ -89,7 +89,7 @@ export default async function ServiceSubPage({
               href={`/hizmetler/${service.slug}`}
               className="transition-colors hover:text-[var(--gold)]"
             >
-              {service.title}
+              {service.title.tr}
             </Link>
             <ChevronRight size={14} aria-hidden />
             <span className="text-[var(--gold)]">{sub.title}</span>
@@ -128,13 +128,13 @@ export default async function ServiceSubPage({
               İlgili Hizmet
             </h3>
             <p className="mt-2 text-sm text-[var(--text-muted)]">
-              Bu sayfa {service.title} alanı kapsamındadır.
+              Bu sayfa {service.title.tr} alanı kapsamındadır.
             </p>
             <Link
               href={`/hizmetler/${service.slug}`}
               className="mt-4 inline-block text-sm font-semibold text-[var(--gold)] transition-colors hover:text-[var(--gold-light)]"
             >
-              {service.title} sayfasına dön →
+              {service.title.tr} sayfasına dön →
             </Link>
           </div>
 

@@ -7,7 +7,7 @@ import { SERVICES } from "@/lib/site-data";
 import { MiniCta } from "@/components/MiniCta";
 
 export function ServicesSection() {
-  const { t } = useLanguage();
+  const { language, t } = useLanguage();
 
   return (
     <div className="section-inner">
@@ -22,6 +22,8 @@ export function ServicesSection() {
       <div className="grid gap-px bg-white/[0.05] sm:grid-cols-2 lg:grid-cols-4 rounded-2xl overflow-hidden border border-white/[0.05]">
         {SERVICES.map((service) => {
           const Icon = service.icon;
+          const title = language === "tr" ? service.title.tr : service.title.en;
+          const desc = language === "tr" ? service.shortDescription.tr : service.shortDescription.en;
           return (
             <Link
               href={`/hizmetler/${service.slug}`}
@@ -33,11 +35,11 @@ export function ServicesSection() {
                   <Icon size={16} className="text-[var(--gold)]" />
                 </div>
                 <h3 className="text-base font-semibold text-[var(--foreground)]">
-                  {service.title}
+                  {title}
                 </h3>
               </div>
               <p className="text-sm leading-7 text-[var(--text-faint)]">
-                {service.shortDescription}
+                {desc}
               </p>
               <span className="mt-auto inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.24em] text-[var(--gold)]">
                 {t("services.cardCta")} <ArrowRight size={14} />

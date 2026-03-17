@@ -19,9 +19,9 @@ import {
 
 export type ServiceItem = {
   slug: string;
-  title: string;
-  shortDescription: string;
-  heroDescription: string;
+  title: { tr: string; en: string };
+  shortDescription: { tr: string; en: string };
+  heroDescription: { tr: string; en: string };
   detailParagraphs: string[];
   bullets: string[];
   subServices?: {
@@ -113,11 +113,15 @@ export const SITE_INFO = {
 export const SERVICES: ServiceItem[] = [
   {
     slug: "aile-hukuku",
-    title: "Aile Hukuku",
-    shortDescription:
-      "Boşanma, velayet, nafaka ve mal paylaşımı süreçlerinde gizlilik odaklı hukuki destek sunulur.",
-    heroDescription:
-      "Aile ilişkilerinden doğan uyuşmazlıklarda hassasiyet, strateji ve etkili temsil bir arada yürütülür.",
+    title: { tr: "Aile Hukuku", en: "Family Law" },
+    shortDescription: {
+      tr: "Boşanma, velayet, nafaka ve mal paylaşımı süreçlerinde gizlilik odaklı hukuki destek sunulur.",
+      en: "Careful legal support in divorce, custody, alimony and marital property matters.",
+    },
+    heroDescription: {
+      tr: "Aile ilişkilerinden doğan uyuşmazlıklarda hassasiyet, strateji ve etkili temsil bir arada yürütülür.",
+      en: "A balanced approach combining sensitivity, strategy and effective representation in family-related disputes.",
+    },
     detailParagraphs: [
       "Aile hukuku; boşanma davaları, anlaşmalı ve çekişmeli boşanma süreçleri, velayet, iştirak nafakası, yoksulluk nafakası ve maddi-manevi tazminat taleplerini kapsayan geniş bir alandır. Bu süreçlerde yalnızca hukuki hakların korunması değil, tarafların özel hayatlarının ve çocukların üstün yararının gözetilmesi de büyük önem taşır.",
       "Boşanma sürecinin başından itibaren delillerin doğru hazırlanması, taleplerin hukuki zemine oturtulması ve dava stratejisinin sağlıklı kurulması, sonucun niteliğini doğrudan etkiler. Özellikle velayet ve kişisel ilişki kurulmasına dair uyuşmazlıklarda mahkemenin değerlendirdiği unsurlar dikkatle ele alınmalıdır.",
@@ -189,11 +193,15 @@ export const SERVICES: ServiceItem[] = [
   },
   {
     slug: "ceza-hukuku",
-    title: "Ceza Hukuku",
-    shortDescription:
-      "Soruşturma ve kovuşturma aşamalarında etkin savunma ve hızlı hukuki müdahale sağlanır.",
-    heroDescription:
-      "Ceza yargılamasında hak kaybını önlemek için her aşamada dikkatli ve kararlı savunma yürütülür.",
+    title: { tr: "Ceza Hukuku", en: "Criminal Law" },
+    shortDescription: {
+      tr: "Soruşturma ve kovuşturma aşamalarında etkin savunma ve hızlı hukuki müdahale sağlanır.",
+      en: "Timely legal support and effective defense in investigation and prosecution stages.",
+    },
+    heroDescription: {
+      tr: "Ceza yargılamasında hak kaybını önlemek için her aşamada dikkatli ve kararlı savunma yürütülür.",
+      en: "A diligent and decisive defense aimed at protecting rights throughout criminal proceedings.",
+    },
     detailParagraphs: [
       "Ceza hukuku, kişinin özgürlüğünü doğrudan etkileyen sonuçlar doğurabildiği için en dikkatli yürütülmesi gereken alanlardan biridir. Gözaltı, ifade alma, tutuklama, adli kontrol ve dava aşamalarında yapılacak her işlem son derece önemlidir.",
       "Soruşturma evresinde dosyanın içeriğinin incelenmesi, delillerin değerlendirilmesi ve ifade stratejisinin belirlenmesi; ilerleyen süreçte doğabilecek hak kayıplarını önlemede belirleyici rol oynar. Kovuşturma aşamasında ise savunmanın doğru kurulması, tanık beyanlarının ve bilirkişi raporlarının etkili analizi gerekir.",
@@ -241,11 +249,15 @@ export const SERVICES: ServiceItem[] = [
   },
   {
     slug: "is-hukuku",
-    title: "İş Hukuku",
-    shortDescription:
-      "İşçi ve işveren uyuşmazlıklarında tazminat, işe iade ve fesih süreçleri profesyonel şekilde takip edilir.",
-    heroDescription:
-      "İş yaşamından doğan hak kayıplarına karşı dengeli, hızlı ve mevzuata uygun çözümler sunulur.",
+    title: { tr: "İş Hukuku", en: "Labor Law" },
+    shortDescription: {
+      tr: "İşçi ve işveren uyuşmazlıklarında tazminat, işe iade ve fesih süreçleri profesyonel şekilde takip edilir.",
+      en: "Professional handling of termination, reinstatement and compensation disputes for employees and employers.",
+    },
+    heroDescription: {
+      tr: "İş yaşamından doğan hak kayıplarına karşı dengeli, hızlı ve mevzuata uygun çözümler sunulur.",
+      en: "Balanced, timely and legally sound solutions to workplace disputes.",
+    },
     detailParagraphs: [
       "İş hukuku; işçi ile işveren arasındaki ilişkinin kurulmasından sona ermesine kadar pek çok önemli başlığı içerir. Kıdem ve ihbar tazminatı, fazla mesai alacakları, yıllık izin ücretleri, mobbing iddiaları ve işe iade davaları en sık karşılaşılan uyuşmazlıklar arasındadır.",
       "İş sözleşmesinin feshi sırasında haklı nedenin bulunup bulunmadığı, fesih bildirimlerinin usule uygun yapılıp yapılmadığı ve arabuluculuk başvurusunun zamanında gerçekleştirilip gerçekleştirilmediği büyük önem taşır. Eksik ya da gecikmiş işlemler, maddi hak kaybına yol açabilir.",
@@ -285,11 +297,15 @@ export const SERVICES: ServiceItem[] = [
   },
   {
     slug: "gayrimenkul-hukuku",
-    title: "Gayrimenkul Hukuku",
-    shortDescription:
-      "Tapu, kira, ortaklığın giderilmesi ve mülkiyet uyuşmazlıklarında stratejik hukuki çözümler geliştirilir.",
-    heroDescription:
-      "Taşınmazlarla ilgili uyuşmazlıklarda hakların korunması için dikkatli belge ve süreç yönetimi sağlanır.",
+    title: { tr: "Gayrimenkul Hukuku", en: "Real Estate Law" },
+    shortDescription: {
+      tr: "Tapu, kira, ortaklığın giderilmesi ve mülkiyet uyuşmazlıklarında stratejik hukuki çözümler geliştirilir.",
+      en: "Strategic solutions for title, lease, partition and ownership disputes.",
+    },
+    heroDescription: {
+      tr: "Taşınmazlarla ilgili uyuşmazlıklarda hakların korunması için dikkatli belge ve süreç yönetimi sağlanır.",
+      en: "Careful documentation and process management to protect rights in real estate disputes.",
+    },
     detailParagraphs: [
       "Gayrimenkul hukuku; kira ilişkileri, tahliye davaları, tapu iptal ve tescil davaları, ortaklığın giderilmesi, kat mülkiyeti uyuşmazlıkları ve taşınmaz satış sözleşmelerinden doğan sorunları kapsar. Bu alanda atılacak adımların büyük kısmı resmi kayıtlar ve belgeler üzerinden şekillenir.",
       "Kira hukukunda özellikle tahliye şartları, kira tespit davaları ve kira alacakları bakımından kanunun öngördüğü usullere uygun hareket edilmesi gerekir. Tapu uyuşmazlıklarında ise taşınmazın hukuki geçmişi, kayıt zinciri ve tarafların iddiaları ayrıntılı incelenmelidir.",
@@ -301,11 +317,15 @@ export const SERVICES: ServiceItem[] = [
   },
   {
     slug: "ticaret-hukuku",
-    title: "Ticaret Hukuku",
-    shortDescription:
-      "Şirketler ve tacirler için sözleşme, alacak ve kurumsal yapı süreçlerinde hukuki danışmanlık verilir.",
-    heroDescription:
-      "Ticari hayatta riskleri azaltan ve sürdürülebilirliği güçlendiren hukuki çözümler üretilir.",
+    title: { tr: "Ticaret Hukuku", en: "Commercial Law" },
+    shortDescription: {
+      tr: "Şirketler ve tacirler için sözleşme, alacak ve kurumsal yapı süreçlerinde hukuki danışmanlık verilir.",
+      en: "Legal counsel for companies and merchants on contracts, receivables and corporate matters.",
+    },
+    heroDescription: {
+      tr: "Ticari hayatta riskleri azaltan ve sürdürülebilirliği güçlendiren hukuki çözümler üretilir.",
+      en: "Legal solutions designed to reduce risk and strengthen business continuity.",
+    },
     detailParagraphs: [
       "Ticaret hukuku; şirket kuruluşu, pay devri, ortaklık ilişkileri, ticari sözleşmeler, haksız rekabet ve ticari alacakların tahsili gibi birçok başlığı içerir. İş dünyasında alınan kararların hukuki altyapısının sağlam kurulması, uzun vadede büyük avantaj sağlar.",
       "Özellikle sözleşmelerin açık, dengeli ve uygulanabilir şekilde hazırlanması; taraflar arasındaki iş ilişkisinin daha güvenli sürmesini sağlar. Belirsiz ya da eksik hükümler ise ileride ciddi uyuşmazlıklara neden olabilir.",
@@ -317,11 +337,15 @@ export const SERVICES: ServiceItem[] = [
   },
   {
     slug: "miras-hukuku",
-    title: "Miras Hukuku",
-    shortDescription:
-      "Miras paylaşımı, tenkis, vasiyetname ve mirasçılık uyuşmazlıklarında titiz hukuki destek sunulur.",
-    heroDescription:
-      "Miras süreçlerinde aile dengelerini gözeten, hak kaybını önleyen ve planlı bir hukuki yaklaşım benimsenir.",
+    title: { tr: "Miras Hukuku", en: "Inheritance Law" },
+    shortDescription: {
+      tr: "Miras paylaşımı, tenkis, vasiyetname ve mirasçılık uyuşmazlıklarında titiz hukuki destek sunulur.",
+      en: "Diligent support in inheritance disputes, wills, heirship and forced share matters.",
+    },
+    heroDescription: {
+      tr: "Miras süreçlerinde aile dengelerini gözeten, hak kaybını önleyen ve planlı bir hukuki yaklaşım benimsenir.",
+      en: "A structured approach focused on protecting rights while considering family dynamics.",
+    },
     detailParagraphs: [
       "Miras hukuku; mirasın paylaşılması, mirasçılık belgesi, vasiyetnamenin hazırlanması veya iptali, tenkis davaları ve muris muvazaası gibi birçok uyuşmazlığı kapsar. Bu dosyalarda hem hukuki hem de ailevi hassasiyetlerin birlikte değerlendirilmesi gerekir.",
       "Miras bırakanın tasarruflarının yasal sınırlar içinde olup olmadığı, saklı pay sahibi mirasçıların haklarının zedelenip zedelenmediği ve terekenin kapsamı dikkatle incelenmelidir. Özellikle taşınmaz devri veya bağış işlemleri miras uyuşmazlıklarının merkezinde yer alabilir.",
@@ -333,11 +357,15 @@ export const SERVICES: ServiceItem[] = [
   },
   {
     slug: "icra-iflas",
-    title: "İcra ve İflas Hukuku",
-    shortDescription:
-      "Alacakların tahsili, icra takipleri ve borç ilişkilerinde hızlı ve etkin hukuki takip yürütülür.",
-    heroDescription:
-      "İcra ve iflas süreçlerinde zamanında işlem yapılarak alacakların korunması ve hak kaybının önlenmesi hedeflenir.",
+    title: { tr: "İcra ve İflas Hukuku", en: "Enforcement & Bankruptcy" },
+    shortDescription: {
+      tr: "Alacakların tahsili, icra takipleri ve borç ilişkilerinde hızlı ve etkin hukuki takip yürütülür.",
+      en: "Efficient legal follow-up for enforcement proceedings, debt relations and receivables recovery.",
+    },
+    heroDescription: {
+      tr: "İcra ve iflas süreçlerinde zamanında işlem yapılarak alacakların korunması ve hak kaybının önlenmesi hedeflenir.",
+      en: "Timely action to protect receivables and prevent avoidable loss of rights in enforcement and bankruptcy processes.",
+    },
     detailParagraphs: [
       "İcra ve iflas hukuku; para alacaklarının tahsili, ilamlı veya ilamsız icra takipleri, haciz işlemleri, menfi tespit ve istirdat davaları ile iflas süreçlerini kapsar. Bu alanda hız ve usule uygunluk doğrudan sonuç üzerinde etkilidir.",
       "Alacaklının doğru takip yolunu seçmesi, borçlu bakımından ise sürelere uygun itiraz ve başvuruların yapılması gerekir. İcra dosyalarında kaçırılan kısa süreler önemli hak kayıplarına yol açabilir.",
@@ -349,11 +377,15 @@ export const SERVICES: ServiceItem[] = [
   },
   {
     slug: "genel-hukuk",
-    title: "Genel Hukuk Danışmanlığı",
-    shortDescription:
-      "Farklı hukuk alanlarına ilişkin genel uyuşmazlıklarda yol gösterici ve çözüm odaklı danışmanlık sağlanır.",
-    heroDescription:
-      "Her hukuki sorunda ilk adımın doğru atılması için kapsamlı ön değerlendirme ve yönlendirme yapılır.",
+    title: { tr: "Genel Hukuk Danışmanlığı", en: "General Legal Counsel" },
+    shortDescription: {
+      tr: "Farklı hukuk alanlarına ilişkin genel uyuşmazlıklarda yol gösterici ve çözüm odaklı danışmanlık sağlanır.",
+      en: "Guidance and solution-oriented counsel across a wide range of legal matters.",
+    },
+    heroDescription: {
+      tr: "Her hukuki sorunda ilk adımın doğru atılması için kapsamlı ön değerlendirme ve yönlendirme yapılır.",
+      en: "Comprehensive preliminary assessment and direction to take the right first step in any legal issue.",
+    },
     detailParagraphs: [
       "Genel hukuk danışmanlığı, tek bir uzmanlık alanı ile sınırlı kalmayan ve farklı mevzuat başlıklarına temas eden uyuşmazlıklarda ilk değerlendirme yapılmasını sağlar. Bu hizmet, kişilerin veya işletmelerin karşılaştığı hukuki sorunun çerçevesini netleştirmek bakımından önemlidir.",
       "Bir hukuki uyuşmazlığın dava konusu yapılmasından önce başvuru yolları, delil durumu, olası riskler ve alternatif çözüm yöntemleri değerlendirilir. Böylece gereksiz yargılama maliyetlerinin önüne geçilebilir.",
@@ -1195,7 +1227,7 @@ export function getRelatedBlogPosts(category: string, excludeSlug: string, limit
 /** Kategori adına göre ilgili hizmet slug'ı (örn. "Aile Hukuku" -> aile-hukuku) */
 export function getServiceSlugByCategory(category: string): string | null {
   const service = SERVICES.find(
-    (s) => s.title.toLowerCase() === category.toLowerCase()
+    (s) => s.title.tr.toLowerCase() === category.toLowerCase()
   );
   return service ? service.slug : null;
 }

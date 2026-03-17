@@ -23,11 +23,11 @@ export async function generateMetadata({
   const { slug } = await params;
   const service = getServiceBySlug(slug);
   if (!service) return { title: "Hizmet Bulunamadı" };
-  const title = `${service.title} | Av. Betül Dilan Kurt | Adana Avukat`;
+  const title = `${service.title.tr} | Av. Betül Dilan Kurt | Adana Avukat`;
   const description =
-    service.heroDescription.length > 155
-      ? service.heroDescription.slice(0, 152) + "…"
-      : service.heroDescription;
+    service.heroDescription.tr.length > 155
+      ? service.heroDescription.tr.slice(0, 152) + "…"
+      : service.heroDescription.tr;
   return {
     title,
     description,
@@ -57,7 +57,7 @@ export default async function ServiceDetailPage({
 
   if (!service) notFound();
 
-  const relatedPosts = getBlogPostsForService(service.title, 3);
+  const relatedPosts = getBlogPostsForService(service.title.tr, 3);
   const subServices = service.subServices ?? [];
   const subServicesWithPages = subServices.filter((s) => s.hasPage);
 
@@ -65,8 +65,8 @@ export default async function ServiceDetailPage({
     <div>
       <PageHero
         eyebrow="Hizmetlerimiz"
-        title={service.title}
-        description={service.heroDescription}
+        title={service.title.tr}
+        description={service.heroDescription.tr}
       />
 
       <section className="section-inner grid gap-10 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-start">
@@ -80,11 +80,11 @@ export default async function ServiceDetailPage({
               Hizmetler
             </Link>
             <ChevronRight size={14} aria-hidden />
-            <span className="text-[var(--gold)]">{service.title}</span>
+            <span className="text-[var(--gold)]">{service.title.tr}</span>
           </div>
 
           <p className="text-lg leading-8 text-[var(--text-muted)]">
-            {service.shortDescription}
+            {service.shortDescription.tr}
           </p>
 
           <div className="mt-8 space-y-6">
@@ -176,7 +176,7 @@ export default async function ServiceDetailPage({
                 İlgili Yazılar
               </h3>
               <p className="mt-2 text-sm text-[var(--text-muted)]">
-                {service.title} ile ilgili bilgilendirme yazıları.
+                {service.title.tr} ile ilgili bilgilendirme yazıları.
               </p>
               <div className="mt-4 flex flex-col gap-3">
                 {relatedPosts.map((item) => (
@@ -209,7 +209,7 @@ export default async function ServiceDetailPage({
                   href={`/hizmetler/${item.slug}`}
                   className={`flex items-center justify-between py-3 text-base transition-colors hover:text-[var(--gold)] ${item.slug === service.slug ? "text-[var(--gold)]" : "text-[var(--text-muted)]"}`}
                 >
-                  <span>{item.title}</span>
+                  <span>{item.title.tr}</span>
                   <ChevronRight size={16} />
                 </Link>
               ))}

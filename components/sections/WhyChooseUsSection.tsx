@@ -1,8 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { useLanguage } from "@/components/language-context";
 import { WHY_CHOOSE_US } from "@/lib/site-data";
-import { MiniCta } from "@/components/MiniCta";
 
 export function WhyChooseUsSection() {
   const { language, t } = useLanguage();
@@ -41,12 +41,14 @@ export function WhyChooseUsSection() {
         })}
       </div>
 
-      <MiniCta
-        title={t("whyUs.miniCtaTitle")}
-        description={t("whyUs.miniCtaDescription")}
-        primary={{ href: "/iletisim", label: t("whyUs.miniCtaPrimary") }}
-        secondary={{ href: "/hizmetler", label: t("whyUs.miniCtaSecondary") }}
-      />
+      <div className="mt-12 flex justify-center">
+        <Link
+          href="/hizmetler"
+          className="inline-flex items-center gap-2 rounded-full border border-[var(--gold-dim)] bg-[rgba(201,168,76,0.06)] px-6 py-3 text-sm font-semibold text-[var(--gold)] transition-colors hover:border-[var(--gold)] hover:bg-[rgba(201,168,76,0.12)]"
+        >
+          {language === "tr" ? "Hizmetleri İncele →" : "View Services →"}
+        </Link>
+      </div>
     </div>
   );
 }

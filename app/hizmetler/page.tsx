@@ -50,10 +50,10 @@ export default function ServicesPage() {
               </div>
 
               <h2 className="mt-6 font-heading text-3xl font-semibold text-[var(--foreground)] transition-colors group-hover:text-[var(--gold)]">
-                {service.title}
+                {service.title.tr}
               </h2>
               <p className="mt-4 min-h-[96px] text-base leading-8 text-[var(--text-faint)]">
-                {service.shortDescription}
+                {service.shortDescription.tr}
               </p>
 
               <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-[var(--gold)]">

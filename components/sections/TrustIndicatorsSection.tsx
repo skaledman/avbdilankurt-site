@@ -2,7 +2,6 @@
 
 import { useLanguage } from "@/components/language-context";
 import { TRUST_INDICATORS } from "@/lib/site-data";
-import { MiniCta } from "@/components/MiniCta";
 
 export function TrustIndicatorsSection() {
   const { language, t } = useLanguage();
@@ -38,12 +37,6 @@ export function TrustIndicatorsSection() {
           );
         })}
       </div>
-
-      <MiniCta
-        title={t("trust.miniCtaTitle")}
-        description={t("trust.miniCtaDescription")}
-        primary={{ href: "/iletisim", label: t("trust.miniCtaPrimary") }}
-      />
     </div>
   );
 }
