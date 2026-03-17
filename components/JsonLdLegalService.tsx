@@ -2,21 +2,19 @@
 
 import { SITE_INFO } from "@/lib/site-data";
 import { SITE_URL } from "@/lib/site-url";
-import { useLocale, useTranslations } from "next-intl";
+import { useLanguage } from "@/components/language-context";
 
 /**
  * LegalService / Attorney JSON-LD schema for local SEO.
  * https://schema.org/LegalService
  */
 export function JsonLdLegalService() {
-  const locale = useLocale();
-  const t = useTranslations();
-  const localizedUrl = `${SITE_URL.replace(/\/$/, "")}/${locale}`;
+  const { t } = useLanguage();
   const schema = {
     "@context": "https://schema.org",
     "@type": "LegalService",
     name: SITE_INFO.name,
-    url: localizedUrl,
+    url: SITE_URL,
     description: t("seo.legalServiceDescription"),
     telephone: SITE_INFO.phoneHref.replace("tel:", ""),
     email: SITE_INFO.email,

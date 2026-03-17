@@ -2,14 +2,12 @@
 
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
+import { useLanguage } from "@/components/language-context";
 import { PROCESS_STEPS } from "@/lib/site-data";
 import { MiniCta } from "@/components/MiniCta";
 
 export function ReviewsSection() {
-  const t = useTranslations();
-  const locale = useLocale();
-  const withLocale = (href: string) => (href === "/" ? `/${locale}` : `/${locale}${href}`);
+  const { language, t } = useLanguage();
 
   return (
     <div className="section-inner">
@@ -22,8 +20,8 @@ export function ReviewsSection() {
       <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
         {PROCESS_STEPS.map((item) => {
           const Icon = item.icon;
-          const title = locale === "tr" ? item.title.tr : item.title.en;
-          const description = locale === "tr" ? item.description.tr : item.description.en;
+          const title = language === "tr" ? item.title.tr : item.title.en;
+          const description = language === "tr" ? item.description.tr : item.description.en;
           const cta =
             item.key === "initial-review"
               ? { href: "/iletisim", labelKey: "process.ctaAppointment" }
@@ -46,7 +44,7 @@ export function ReviewsSection() {
               </div>
               <div className="mt-auto">
                 <Link
-                  href={withLocale(cta.href)}
+                  href={cta.href}
                   className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.24em] text-[var(--gold)] transition-colors hover:text-[var(--gold-light)]"
                 >
                   {t(cta.labelKey)}
@@ -61,7 +59,7 @@ export function ReviewsSection() {
       <MiniCta
         title={t("process.miniCtaTitle")}
         description={t("process.miniCtaDescription")}
-        primary={{ href: withLocale("/iletisim"), label: t("process.miniCtaPrimary") }}
+        primary={{ href: "/iletisim", label: t("process.miniCtaPrimary") }}
       />
     </div>
   );

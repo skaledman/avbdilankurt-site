@@ -1,6 +1,6 @@
 "use client";
 
-import { useLocale } from "next-intl";
+import { useLanguage } from "@/components/language-context";
 import { Scale, BookOpen, Users } from "lucide-react";
 
 const PILLARS = [
@@ -25,8 +25,8 @@ const PILLARS = [
 ];
 
 export function AboutSection() {
-  const locale = useLocale();
-  const isTr = locale === "tr";
+  const { language } = useLanguage();
+  const isTr = language === "tr";
 
   return (
     <div className="section-inner">

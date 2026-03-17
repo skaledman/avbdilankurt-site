@@ -3,16 +3,13 @@
 import { Mail, MapPin, Phone } from "lucide-react";
 import Link from "next/link";
 import { useState, FormEvent } from "react";
-import { useLocale, useTranslations } from "next-intl";
+import { useLanguage } from "@/components/language-context";
 import { SITE_INFO } from "@/lib/site-data";
 
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/xwvrngqa";
 
 export function ContactSection() {
-  const t = useTranslations();
-  const locale = useLocale();
-  const isTr = locale === "tr";
-  const withLocale = (href: string) => (href === "/" ? `/${locale}` : `/${locale}${href}`);
+  const { t } = useLanguage();
   const [submitting, setSubmitting] = useState(false);
   const [sent, setSent] = useState(false);
   const [error, setError] = useState(false);
@@ -280,7 +277,7 @@ export function ContactSection() {
                 <span>
                   {t("contact.kvkkPrefix")}{" "}
                   <Link
-                    href={withLocale("/kvkk-aydinlatma")}
+                    href="/kvkk-aydinlatma"
                     className="font-medium text-[var(--gold)] underline underline-offset-2 hover:text-[var(--gold-light)]"
                   >
                     {t("contact.kvkkLink")}

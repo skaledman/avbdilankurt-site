@@ -2,14 +2,12 @@
 
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
+import { useLanguage } from "@/components/language-context";
 import { SERVICES } from "@/lib/site-data";
 import { MiniCta } from "@/components/MiniCta";
 
 export function ServicesSection() {
-  const t = useTranslations();
-  const locale = useLocale();
-  const withLocale = (href: string) => (href === "/" ? `/${locale}` : `/${locale}${href}`);
+  const { t } = useLanguage();
 
   return (
     <div className="section-inner">
@@ -26,7 +24,7 @@ export function ServicesSection() {
           const Icon = service.icon;
           return (
             <Link
-              href={withLocale(`/hizmetler/${service.slug}`)}
+              href={`/hizmetler/${service.slug}`}
               key={service.slug}
               className="group flex flex-col gap-4 bg-[var(--bg-main)] p-6 transition-colors hover:bg-[var(--bg-card)]"
             >
@@ -57,7 +55,7 @@ export function ServicesSection() {
       <MiniCta
         title={t("services.miniCtaTitle")}
         description={t("services.miniCtaDescription")}
-        primary={{ href: withLocale("/iletisim"), label: t("services.miniCtaPrimary") }}
+        primary={{ href: "/iletisim", label: t("services.miniCtaPrimary") }}
       />
     </div>
   );

@@ -2,12 +2,12 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { useTranslations } from "next-intl";
+import { useLanguage } from "@/components/language-context";
 
 const STORAGE_KEY = "cookie_consent_accepted";
 
 export function CookieBanner() {
-  const t = useTranslations();
+  const { t } = useLanguage();
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {

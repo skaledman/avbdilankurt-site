@@ -1,13 +1,11 @@
 "use client";
 
-import { useLocale, useTranslations } from "next-intl";
+import { useLanguage } from "@/components/language-context";
 import { WHY_CHOOSE_US } from "@/lib/site-data";
 import { MiniCta } from "@/components/MiniCta";
 
 export function WhyChooseUsSection() {
-  const t = useTranslations();
-  const locale = useLocale();
-  const withLocale = (href: string) => (href === "/" ? `/${locale}` : `/${locale}${href}`);
+  const { language, t } = useLanguage();
 
   return (
     <div className="section-inner">
@@ -20,8 +18,8 @@ export function WhyChooseUsSection() {
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {WHY_CHOOSE_US.map((item) => {
           const Icon = item.icon;
-          const title = locale === "tr" ? item.title.tr : item.title.en;
-          const description = locale === "tr" ? item.description.tr : item.description.en;
+          const title = language === "tr" ? item.title.tr : item.title.en;
+          const description = language === "tr" ? item.description.tr : item.description.en;
           return (
             <div
               key={item.key}
@@ -46,8 +44,8 @@ export function WhyChooseUsSection() {
       <MiniCta
         title={t("whyUs.miniCtaTitle")}
         description={t("whyUs.miniCtaDescription")}
-        primary={{ href: withLocale("/iletisim"), label: t("whyUs.miniCtaPrimary") }}
-        secondary={{ href: withLocale("/hizmetler"), label: t("whyUs.miniCtaSecondary") }}
+        primary={{ href: "/iletisim", label: t("whyUs.miniCtaPrimary") }}
+        secondary={{ href: "/hizmetler", label: t("whyUs.miniCtaSecondary") }}
       />
     </div>
   );

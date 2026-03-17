@@ -5,14 +5,12 @@ import { ChevronRight } from "lucide-react";
 import { FaqAccordion } from "@/components/FaqAccordion";
 import { JsonLdFaq } from "@/components/JsonLdFaq";
 import { PageHero } from "@/components/PageHero";
-import { useLocale, useTranslations } from "next-intl";
+import { useLanguage } from "@/components/language-context";
 import { FAQ_ITEMS_EN, FAQ_ITEMS_TR } from "@/lib/site-data";
 
 export function FaqPageClient() {
-  const t = useTranslations();
-  const locale = useLocale();
-  const items = locale === "tr" ? FAQ_ITEMS_TR : FAQ_ITEMS_EN;
-  const withLocale = (href: string) => (href === "/" ? `/${locale}` : `/${locale}${href}`);
+  const { language, t } = useLanguage();
+  const items = language === "tr" ? FAQ_ITEMS_TR : FAQ_ITEMS_EN;
 
   return (
     <div>
@@ -25,7 +23,7 @@ export function FaqPageClient() {
 
       <section className="section-inner">
         <div className="mb-8 flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.2em] text-[rgba(240,236,228,0.45)]">
-          <Link href={withLocale("/")} className="transition-colors hover:text-[var(--gold)]">
+          <Link href="/" className="transition-colors hover:text-[var(--gold)]">
             {t("common.home")}
           </Link>
           <ChevronRight size={14} aria-hidden />
@@ -45,13 +43,13 @@ export function FaqPageClient() {
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link
-              href={withLocale("/iletisim")}
+              href="/iletisim"
               className="inline-flex rounded-full bg-[var(--gold)] px-5 py-3 text-sm font-semibold text-[#0a0a0a] transition-colors hover:bg-[var(--gold-light)]"
             >
               {t("common.contact")}
             </Link>
             <Link
-              href={withLocale("/hizmetler")}
+              href="/hizmetler"
               className="inline-flex rounded-full border border-white/10 bg-[var(--bg-card)] px-5 py-3 text-sm font-semibold text-[var(--foreground)] transition-colors hover:border-[var(--gold-dim)] hover:text-[var(--gold)]"
             >
               {t("hero.ctaSecondary")}

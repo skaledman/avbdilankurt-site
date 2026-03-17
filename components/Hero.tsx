@@ -1,10 +1,10 @@
 "use client";
 
 import { PhoneCall, Mail, ArrowDown } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useLanguage } from "@/components/language-context";
 
 export function Hero() {
-  const t = useTranslations();
+  const { t } = useLanguage();
 
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { PageHero } from "@/components/PageHero";
-import { useLocale } from "next-intl";
+import { useLanguage } from "@/components/language-context";
 import { SITE_INFO } from "@/lib/site-data";
 
 const CONTENT_TR = {
@@ -70,8 +70,8 @@ const CONTENT_EN = {
 };
 
 export default function KvkkAydinlatmaPage() {
-  const locale = useLocale();
-  const content = locale === "tr" ? CONTENT_TR : CONTENT_EN;
+  const { language } = useLanguage();
+  const content = language === "tr" ? CONTENT_TR : CONTENT_EN;
 
   return (
     <div>
@@ -83,7 +83,7 @@ export default function KvkkAydinlatmaPage() {
 
       <section className="section-inner space-y-6 pb-16">
         <p className="text-sm text-[var(--text-muted)]">
-          {locale === "tr" ? "Veri Sorumlusu" : "Data Controller"}: {SITE_INFO.name} · {locale === "tr" ? "İletişim" : "Contact"}:{" "}
+          {language === "tr" ? "Veri Sorumlusu" : "Data Controller"}: {SITE_INFO.name} · {language === "tr" ? "İletişim" : "Contact"}:{" "}
           <a href={`mailto:${SITE_INFO.email}`} className="text-[var(--gold)] underline underline-offset-2 hover:text-[var(--gold-light)]">
             {SITE_INFO.email}
           </a>
@@ -108,7 +108,7 @@ export default function KvkkAydinlatmaPage() {
             href="/iletisim"
             className="inline-flex rounded-full bg-[var(--gold)] px-5 py-3 text-sm font-semibold text-[#0a0a0a] transition-colors hover:bg-[var(--gold-light)]"
           >
-            {locale === "tr" ? "İletişime Geçin" : "Contact"}
+            {language === "tr" ? "İletişime Geçin" : "Contact"}
           </Link>
         </div>
       </section>

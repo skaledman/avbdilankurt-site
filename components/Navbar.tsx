@@ -2,10 +2,10 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
+import { useLanguage } from "@/components/language-context";
 import { SITE_INFO } from "@/lib/site-data";
 
 const HAKKINDA_LINKS = [
@@ -18,23 +18,14 @@ const HIZMETLER_LINKS = [
 ] as const;
 
 export function Navbar() {
-  const t = useTranslations();
-  const locale = useLocale();
-  const router = useRouter();
+  const { language, toggleLanguage, t } = useLanguage();
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [openHakkinda, setOpenHakkinda] = useState(false);
   const [openHizmetler, setOpenHizmetler] = useState(false);
 
-  const pathnameNoLocale = pathname.replace(/^\/(tr|en)(?=\/|$)/, "") || "/";
   const isActive = (href: string) =>
-    pathnameNoLocale === href || (href !== "/" && pathnameNoLocale.startsWith(href));
-
-  const withLocale = (href: string) => (href === "/" ? `/${locale}` : `/${locale}${href}`);
-  const toggleLocale = () => {
-    const next = locale === "tr" ? "en" : "tr";
-    router.push(withLocale(pathnameNoLocale).replace(`/${locale}`, `/${next}`));
-  };
+    pathname === href || (href !== "/" && pathname.startsWith(href));
 
   const nameUppercase = SITE_INFO.name.toLocaleUpperCase("tr-TR");
 
@@ -43,7 +34,7 @@ export function Navbar() {
       className="fixed inset-x-0 top-0 z-50 border-b border-white/[0.06] bg-[rgba(10,13,24,0.94)] shadow-[0_4px_24px_rgba(0,0,0,0.2)] backdrop-blur-md"
     >
       <nav className="mx-auto grid max-w-[1500px] grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-3 py-2 sm:px-4 lg:grid-cols-[minmax(320px,1.1fr)_1fr_auto] lg:px-6 lg:py-2.5">
-        <Link href={withLocale("/")} className="group flex min-w-0 items-center gap-3 py-1 lg:gap-4">
+        <Link href="/" className="group flex min-w-0 items-center gap-3 py-1 lg:gap-4">
           <Image
             src="/logo.png"
             alt="Av. Betül Dilan Kurt logo"
@@ -69,8 +60,8 @@ export function Navbar() {
         <div className="hidden items-center justify-center gap-0 lg:flex">
           <div className="flex items-center rounded-full border border-white/[0.05] bg-[rgba(255,255,255,0.02)] px-3 py-2 xl:px-4">
           <Link
-            href={withLocale("/")}
-            className={`nav-link ${isActive("/") && pathnameNoLocale === "/" ? "nav-link-active" : ""}`}
+            href="/"
+            className={`nav-link ${isActive("/") && pathname === "/" ? "nav-link-active" : ""}`}
           >
             {t("common.home")}
           </Link>
@@ -90,7 +81,7 @@ export function Navbar() {
                 {HAKKINDA_LINKS.map((item) => (
                   <Link
                     key={item.href}
-                    href={withLocale(item.href)}
+                      href={item.href}
                     className="block px-4 py-2.5 text-[11px] font-medium uppercase tracking-[0.18em] text-[var(--text-muted)] transition-colors hover:bg-white/[0.06] hover:text-[var(--gold)]"
                   >
                     {t(item.key)}
@@ -115,7 +106,7 @@ export function Navbar() {
                 {HIZMETLER_LINKS.map((service) => (
                   <Link
                     key={service.href}
-                    href={withLocale(service.href)}
+                      href={service.href}
                     className="block px-4 py-2.5 text-[11px] font-medium uppercase tracking-[0.18em] text-[var(--text-muted)] transition-colors hover:bg-white/[0.06] hover:text-[var(--gold)]"
                   >
                     {t(service.key)}
@@ -126,31 +117,31 @@ export function Navbar() {
           </div>
 
           <Link
-            href={withLocale("/yargi-kararlari")}
+            href="/yargi-kararlari"
             className={`nav-link ${pathname.startsWith("/yargi-kararlari") ? "nav-link-active" : ""}`}
           >
             {t("common.caseLaw")}
           </Link>
           <Link
-            href={withLocale("/blog")}
+            href="/blog"
             className={`nav-link ${pathname.startsWith("/blog") ? "nav-link-active" : ""}`}
           >
             {t("common.articles")}
           </Link>
           <Link
-            href={withLocale("/iletisim")}
+            href="/iletisim"
             className={`nav-link ${pathname === "/iletisim" ? "nav-link-active" : ""}`}
           >
             {t("common.contact")}
           </Link>
           <button
             type="button"
-            onClick={toggleLocale}
+            onClick={toggleLanguage}
             className="ml-1 rounded-full border border-[var(--gold-dim)] bg-[rgba(255,255,255,0.03)] px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.25em] transition-colors hover:border-[var(--gold)] hover:bg-[rgba(201,168,76,0.06)] xl:ml-2"
           >
-            <span className={locale === "tr" ? "text-[var(--gold)]" : "text-[var(--muted)]"}>{t("common.tr")}</span>
+            <span className={language === "tr" ? "text-[var(--gold)]" : "text-[var(--muted)]"}>{t("common.tr")}</span>
             <span className="text-[var(--muted)]">/</span>
-            <span className={locale === "en" ? "text-[var(--gold)]" : "text-[var(--muted)]"}>{t("common.en")}</span>
+            <span className={language === "en" ? "text-[var(--gold)]" : "text-[var(--muted)]"}>{t("common.en")}</span>
           </button>
           </div>
         </div>
@@ -170,7 +161,7 @@ export function Navbar() {
         <div className="mx-3 mt-2 rounded-[1.5rem] border border-white/[0.06] bg-[rgba(10,13,24,0.96)] px-4 pb-5 pt-3 shadow-[0_18px_40px_rgba(0,0,0,0.26)] lg:hidden sm:mx-4">
           <div className="flex flex-col gap-0.5">
             <Link
-              href={withLocale("/")}
+              href="/"
               onClick={() => setOpen(false)}
               className="nav-mobile-link"
             >
@@ -191,7 +182,7 @@ export function Navbar() {
                   {HAKKINDA_LINKS.map((item) => (
                     <Link
                       key={item.href}
-                      href={withLocale(item.href)}
+                      href={item.href}
                       onClick={() => setOpen(false)}
                       className="py-2 pl-3 text-[11px] uppercase tracking-[0.2em] text-[var(--text-muted)] hover:text-[var(--gold)]"
                     >
@@ -216,7 +207,7 @@ export function Navbar() {
                   {HIZMETLER_LINKS.map((service) => (
                     <Link
                       key={service.href}
-                      href={withLocale(service.href)}
+                      href={service.href}
                       onClick={() => setOpen(false)}
                       className="py-2 pl-3 text-[11px] uppercase tracking-[0.2em] text-[var(--text-muted)] hover:text-[var(--gold)]"
                     >
@@ -227,24 +218,24 @@ export function Navbar() {
               )}
             </div>
 
-            <Link href={withLocale("/yargi-kararlari")} onClick={() => setOpen(false)} className="nav-mobile-link">
+            <Link href="/yargi-kararlari" onClick={() => setOpen(false)} className="nav-mobile-link">
               {t("common.caseLaw")}
             </Link>
-            <Link href={withLocale("/blog")} onClick={() => setOpen(false)} className="nav-mobile-link">
+            <Link href="/blog" onClick={() => setOpen(false)} className="nav-mobile-link">
               {t("common.articles")}
             </Link>
-            <Link href={withLocale("/iletisim")} onClick={() => setOpen(false)} className="nav-mobile-link">
+            <Link href="/iletisim" onClick={() => setOpen(false)} className="nav-mobile-link">
               {t("common.contact")}
             </Link>
 
             <button
               type="button"
-              onClick={toggleLocale}
+              onClick={toggleLanguage}
               className="mt-4 self-start rounded-full border border-[var(--gold-dim)] px-3.5 py-1.5 text-[10px] font-semibold uppercase tracking-[0.25em]"
             >
-              <span className={locale === "tr" ? "text-[var(--gold)]" : "text-[var(--muted)]"}>{t("common.tr")}</span>
+              <span className={language === "tr" ? "text-[var(--gold)]" : "text-[var(--muted)]"}>{t("common.tr")}</span>
               <span className="text-[var(--muted)]">/</span>
-              <span className={locale === "en" ? "text-[var(--gold)]" : "text-[var(--muted)]"}>{t("common.en")}</span>
+              <span className={language === "en" ? "text-[var(--gold)]" : "text-[var(--muted)]"}>{t("common.en")}</span>
             </button>
           </div>
         </div>

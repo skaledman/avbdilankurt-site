@@ -2,14 +2,11 @@
 
 import Link from "next/link";
 import { Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
+import { useLanguage } from "@/components/language-context";
 import { SERVICES, SITE_INFO } from "@/lib/site-data";
 
 export function Footer() {
-  const t = useTranslations();
-  const locale = useLocale();
-
-  const withLocale = (href: string) => (href === "/" ? `/${locale}` : `/${locale}${href}`);
+  const { t } = useLanguage();
   const quickLinks = [
     { href: "/", label: t("common.home") },
     { href: "/hakkimda", label: t("common.about") },
@@ -44,7 +41,7 @@ export function Footer() {
             <h3 className="footer-title text-lg">{t("footer.quickLinks")}</h3>
             <nav className="mt-5 flex flex-col gap-3" aria-label="Sayfa bağlantıları">
               {quickLinks.map((link) => (
-                <Link key={link.href} href={withLocale(link.href)} className="footer-link text-sm">
+                <Link key={link.href} href={link.href} className="footer-link text-sm">
                   {link.label}
                 </Link>
               ))}
@@ -58,7 +55,7 @@ export function Footer() {
               {SERVICES.slice(0, 6).map((service) => (
                 <Link
                   key={service.slug}
-                  href={withLocale(`/hizmetler/${service.slug}`)}
+                  href={`/hizmetler/${service.slug}`}
                   className="footer-link text-sm"
                 >
                   {service.title}
@@ -93,10 +90,10 @@ export function Footer() {
             © {new Date().getFullYear()} {SITE_INFO.name}. {t("footer.rights")}
           </p>
           <div className="flex flex-wrap gap-6 text-xs text-[var(--text-muted)]">
-            <Link href={withLocale("/gizlilik-politikasi")} className="footer-link">
+            <Link href="/gizlilik-politikasi" className="footer-link">
               {t("footer.privacy")}
             </Link>
-            <Link href={withLocale("/cerez-politikasi")} className="footer-link">
+            <Link href="/cerez-politikasi" className="footer-link">
               {t("footer.cookiePolicy")}
             </Link>
           </div>
