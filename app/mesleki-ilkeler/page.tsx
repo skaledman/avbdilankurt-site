@@ -1,22 +1,29 @@
-import type { Metadata } from "next";
+"use client";
+
 import { PageHero } from "@/components/PageHero";
 import { WhyChooseUsSection } from "@/components/sections/WhyChooseUsSection";
-import { absoluteUrl } from "@/lib/site-url";
-
-export const metadata: Metadata = {
-  title: "Mesleki İlkeler | Şeffaflık, Gizlilik ve Süreç Yönetimi",
-  description:
-    "Şeffaf iletişim, düzenli bilgilendirme, gizlilik ve özenli dosya takibi temelinde yürütülen çalışma ilkelerini inceleyin.",
-  alternates: { canonical: absoluteUrl("/mesleki-ilkeler") },
-};
+import { useLanguage } from "@/components/language-context";
 
 export default function ProfessionalPrinciplesPage() {
+  const { language } = useLanguage();
+
+  const eyebrow =
+    language === "en" ? "Professional Principles" : "Mesleki İlkeler";
+  const title =
+    language === "en"
+      ? "Principles I Follow in Managing Legal Processes"
+      : "Hukuki Süreç Yönetiminde Benimsediğim İlkeler";
+  const description =
+    language === "en"
+      ? "On this page you can review the principles guiding my work, based on transparent communication, regular updates, confidentiality and careful case management."
+      : "Şeffaf iletişim, düzenli bilgilendirme, gizlilik ve özenli süreç takibi temelinde yürütülen çalışma anlayışımı bu sayfada toplu olarak inceleyebilirsiniz.";
+
   return (
     <div>
       <PageHero
-        eyebrow="Mesleki İlkeler"
-        title="Hukuki Süreç Yönetiminde Benimsediğim İlkeler"
-        description="Şeffaf iletişim, düzenli bilgilendirme, gizlilik ve özenli süreç takibi temelinde yürütülen çalışma anlayışımı bu sayfada toplu olarak inceleyebilirsiniz."
+        eyebrow={eyebrow}
+        title={title}
+        description={description}
       />
 
       <section className="section-inner pt-16">
