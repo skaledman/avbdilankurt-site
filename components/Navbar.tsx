@@ -11,6 +11,7 @@ import { SITE_INFO } from "@/lib/site-data";
 const HAKKINDA_LINKS = [
   { href: "/hakkimda", key: "nav.aboutProfile" },
   { href: "/hakkimda#calisma", key: "nav.aboutApproach" },
+  { href: "/mesleki-ilkeler", key: "nav.professionalPrinciples" },
 ] as const;
 
 const HIZMETLER_LINKS = [
@@ -30,11 +31,11 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
   const [openHakkinda, setOpenHakkinda] = useState(false);
   const [openHizmetler, setOpenHizmetler] = useState(false);
+  const [openYargi, setOpenYargi] = useState(false);
+  const [openBlog, setOpenBlog] = useState(false);
 
   const isActive = (href: string) =>
     pathname === href || (href !== "/" && pathname.startsWith(href));
-
-  const nameUppercase = SITE_INFO.name.toLocaleUpperCase("tr-TR");
 
   return (
     <header
@@ -52,10 +53,11 @@ export function Navbar() {
             priority
           />
           <div className="hidden min-w-0 flex-col justify-center md:flex">
-            <span
-              className="font-heading text-[1.02rem] font-semibold tracking-[0.08em] text-[var(--foreground)] transition-colors group-hover:text-[var(--gold)] whitespace-nowrap xl:text-[1.18rem]"
-            >
-              {nameUppercase}
+            <span className="font-heading text-[1.02rem] font-semibold tracking-[0.08em] whitespace-nowrap xl:text-[1.18rem]">
+              <span className="mr-1 text-[0.9em] text-[rgba(232,229,221,0.7)]">AV.</span>
+              <span className="bg-gradient-to-r from-amber-200 via-yellow-50 to-amber-300 bg-clip-text text-transparent">
+                {SITE_INFO.name.replace(/^Av\.?\s*/i, "").toLocaleUpperCase("tr-TR")}
+              </span>
             </span>
             <span className="mt-1 text-[9px] uppercase tracking-[0.24em] text-[var(--muted)] whitespace-nowrap">
               {t("common.lawConsultancy")}
@@ -130,18 +132,93 @@ export function Navbar() {
             </div>
           </div>
 
-          <Link
-            href="/yargi-kararlari"
-            className={`nav-link ${pathname.startsWith("/yargi-kararlari") ? "nav-link-active" : ""}`}
-          >
-            {t("common.caseLaw")}
-          </Link>
-          <Link
-            href="/blog"
-            className={`nav-link ${pathname.startsWith("/blog") ? "nav-link-active" : ""}`}
-          >
-            {t("common.articles")}
-          </Link>
+          <div className="relative group/nav">
+            <button
+              type="button"
+              className={`nav-link flex items-center gap-0.5 ${pathname.startsWith("/yargi-kararlari") ? "nav-link-active" : ""}`}
+              aria-expanded="false"
+              aria-haspopup="true"
+            >
+              {t("common.caseLaw")}
+              <ChevronDown size={12} className="transition-transform group-hover/nav:rotate-180" />
+            </button>
+            <div className="invisible absolute left-1/2 top-full z-50 -translate-x-1/2 pt-2 opacity-0 transition-all duration-200 group-hover/nav:visible group-hover/nav:opacity-100">
+              <div className="min-w-[260px] rounded-2xl border border-white/[0.08] bg-[rgba(10,13,24,0.96)] py-2 shadow-[0_18px_40px_rgba(0,0,0,0.34)]">
+                <Link
+                  href="/yargi-kararlari?kategori=yargitay"
+                  className="block px-4 py-2.5 text-[11px] font-medium uppercase tracking-[0.18em] text-[var(--text-muted)] transition-colors hover:bg-white/[0.06] hover:text-[var(--gold)]"
+                >
+                  {language === "tr" ? "Yargıtay Kararları" : "Court of Cassation Decisions"}
+                </Link>
+                <Link
+                  href="/yargi-kararlari?kategori=bolge-adliye"
+                  className="block px-4 py-2.5 text-[11px] font-medium uppercase tracking-[0.18em] text-[var(--text-muted)] transition-colors hover:bg-white/[0.06] hover:text-[var(--gold)]"
+                >
+                  {language === "tr" ? "Bölge Adliye Mahkemesi Kararları" : "Regional Court Decisions"}
+                </Link>
+                <Link
+                  href="/yargi-kararlari?kategori=danistay"
+                  className="block px-4 py-2.5 text-[11px] font-medium uppercase tracking-[0.18em] text-[var(--text-muted)] transition-colors hover:bg-white/[0.06] hover:text-[var(--gold)]"
+                >
+                  {language === "tr" ? "Danıştay Kararları" : "Council of State Decisions"}
+                </Link>
+                <div className="my-1 border-t border-white/[0.06]" />
+                <Link
+                  href="/yargi-kararlari"
+                  className="block px-4 py-2.5 text-[11px] font-medium uppercase tracking-[0.18em] text-[var(--text-muted)] transition-colors hover:bg-white/[0.06] hover:text-[var(--gold)]"
+                >
+                  {language === "tr" ? "Tüm Kararlar →" : "All Decisions →"}
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          <div className="relative group/nav">
+            <button
+              type="button"
+              className={`nav-link flex items-center gap-0.5 ${pathname.startsWith("/blog") ? "nav-link-active" : ""}`}
+              aria-expanded="false"
+              aria-haspopup="true"
+            >
+              {t("common.articles")}
+              <ChevronDown size={12} className="transition-transform group-hover/nav:rotate-180" />
+            </button>
+            <div className="invisible absolute left-1/2 top-full z-50 -translate-x-1/2 pt-2 opacity-0 transition-all duration-200 group-hover/nav:visible group-hover/nav:opacity-100">
+              <div className="min-w-[260px] rounded-2xl border border-white/[0.08] bg-[rgba(10,13,24,0.96)] py-2 shadow-[0_18px_40px_rgba(0,0,0,0.34)]">
+                <Link
+                  href="/blog?kategori=aile-hukuku"
+                  className="block px-4 py-2.5 text-[11px] font-medium uppercase tracking-[0.18em] text-[var(--text-muted)] transition-colors hover:bg-white/[0.06] hover:text-[var(--gold)]"
+                >
+                  {language === "tr" ? "Aile Hukuku Yazıları" : "Family Law Articles"}
+                </Link>
+                <Link
+                  href="/blog?kategori=is-hukuku"
+                  className="block px-4 py-2.5 text-[11px] font-medium uppercase tracking-[0.18em] text-[var(--text-muted)] transition-colors hover:bg-white/[0.06] hover:text-[var(--gold)]"
+                >
+                  {language === "tr" ? "İş Hukuku Yazıları" : "Employment Law Articles"}
+                </Link>
+                <Link
+                  href="/blog?kategori=miras-hukuku"
+                  className="block px-4 py-2.5 text-[11px] font-medium uppercase tracking-[0.18em] text-[var(--text-muted)] transition-colors hover:bg-white/[0.06] hover:text-[var(--gold)]"
+                >
+                  {language === "tr" ? "Miras Hukuku Yazıları" : "Inheritance Law Articles"}
+                </Link>
+                <Link
+                  href="/blog?kategori=genel-hukuk"
+                  className="block px-4 py-2.5 text-[11px] font-medium uppercase tracking-[0.18em] text-[var(--text-muted)] transition-colors hover:bg-white/[0.06] hover:text-[var(--gold)]"
+                >
+                  {language === "tr" ? "Genel Hukuk Yazıları" : "General Law Articles"}
+                </Link>
+                <div className="my-1 border-t border-white/[0.06]" />
+                <Link
+                  href="/blog"
+                  className="block px-4 py-2.5 text-[11px] font-medium uppercase tracking-[0.18em] text-[var(--text-muted)] transition-colors hover:bg-white/[0.06] hover:text-[var(--gold)]"
+                >
+                  {language === "tr" ? "Tüm Yazılar →" : "All Articles →"}
+                </Link>
+              </div>
+            </div>
+          </div>
           <Link
             href="/iletisim"
             className={`nav-link ${pathname === "/iletisim" ? "nav-link-active" : ""}`}
@@ -240,12 +317,100 @@ export function Navbar() {
               )}
             </div>
 
-            <Link href="/yargi-kararlari" onClick={() => setOpen(false)} className="nav-mobile-link">
-              {t("common.caseLaw")}
-            </Link>
-            <Link href="/blog" onClick={() => setOpen(false)} className="nav-mobile-link">
-              {t("common.articles")}
-            </Link>
+            <div>
+              <button
+                type="button"
+                onClick={() => setOpenYargi((p) => !p)}
+                className="nav-mobile-link flex w-full items-center justify-between"
+              >
+                {t("common.caseLaw")}
+                <ChevronDown size={14} className={`transition-transform ${openYargi ? "rotate-180" : ""}`} />
+              </button>
+              {openYargi && (
+                <div className="ml-4 flex flex-col border-l border-white/10 py-2">
+                  <Link
+                    href="/yargi-kararlari?kategori=yargitay"
+                    onClick={() => setOpen(false)}
+                    className="py-2 pl-3 text-[11px] uppercase tracking-[0.2em] text-[var(--text-muted)] hover:text-[var(--gold)]"
+                  >
+                    {language === "tr" ? "Yargıtay Kararları" : "Court of Cassation Decisions"}
+                  </Link>
+                  <Link
+                    href="/yargi-kararlari?kategori=bolge-adliye"
+                    onClick={() => setOpen(false)}
+                    className="py-2 pl-3 text-[11px] uppercase tracking-[0.2em] text-[var(--text-muted)] hover:text-[var(--gold)]"
+                  >
+                    {language === "tr" ? "Bölge Adliye Mahkemesi Kararları" : "Regional Court Decisions"}
+                  </Link>
+                  <Link
+                    href="/yargi-kararlari?kategori=danistay"
+                    onClick={() => setOpen(false)}
+                    className="py-2 pl-3 text-[11px] uppercase tracking-[0.2em] text-[var(--text-muted)] hover:text-[var(--gold)]"
+                  >
+                    {language === "tr" ? "Danıştay Kararları" : "Council of State Decisions"}
+                  </Link>
+                  <div className="mt-2 border-t border-white/10" />
+                  <Link
+                    href="/yargi-kararlari"
+                    onClick={() => setOpen(false)}
+                    className="py-2 pl-3 text-[11px] uppercase tracking-[0.2em] text-[var(--text-muted)] hover:text-[var(--gold)]"
+                  >
+                    {language === "tr" ? "Tüm Kararlar →" : "All Decisions →"}
+                  </Link>
+                </div>
+              )}
+            </div>
+
+            <div>
+              <button
+                type="button"
+                onClick={() => setOpenBlog((p) => !p)}
+                className="nav-mobile-link flex w-full items-center justify-between"
+              >
+                {t("common.articles")}
+                <ChevronDown size={14} className={`transition-transform ${openBlog ? "rotate-180" : ""}`} />
+              </button>
+              {openBlog && (
+                <div className="ml-4 flex flex-col border-l border-white/10 py-2">
+                  <Link
+                    href="/blog?kategori=aile-hukuku"
+                    onClick={() => setOpen(false)}
+                    className="py-2 pl-3 text-[11px] uppercase tracking-[0.2em] text-[var(--text-muted)] hover:text-[var(--gold)]"
+                  >
+                    {language === "tr" ? "Aile Hukuku Yazıları" : "Family Law Articles"}
+                  </Link>
+                  <Link
+                    href="/blog?kategori=is-hukuku"
+                    onClick={() => setOpen(false)}
+                    className="py-2 pl-3 text-[11px] uppercase tracking-[0.2em] text-[var(--text-muted)] hover:text-[var(--gold)]"
+                  >
+                    {language === "tr" ? "İş Hukuku Yazıları" : "Employment Law Articles"}
+                  </Link>
+                  <Link
+                    href="/blog?kategori=miras-hukuku"
+                    onClick={() => setOpen(false)}
+                    className="py-2 pl-3 text-[11px] uppercase tracking-[0.2em] text-[var(--text-muted)] hover:text-[var(--gold)]"
+                  >
+                    {language === "tr" ? "Miras Hukuku Yazıları" : "Inheritance Law Articles"}
+                  </Link>
+                  <Link
+                    href="/blog?kategori=genel-hukuk"
+                    onClick={() => setOpen(false)}
+                    className="py-2 pl-3 text-[11px] uppercase tracking-[0.2em] text-[var(--text-muted)] hover:text-[var(--gold)]"
+                  >
+                    {language === "tr" ? "Genel Hukuk Yazıları" : "General Law Articles"}
+                  </Link>
+                  <div className="mt-2 border-t border-white/10" />
+                  <Link
+                    href="/blog"
+                    onClick={() => setOpen(false)}
+                    className="py-2 pl-3 text-[11px] uppercase tracking-[0.2em] text-[var(--text-muted)] hover:text-[var(--gold)]"
+                  >
+                    {language === "tr" ? "Tüm Yazılar →" : "All Articles →"}
+                  </Link>
+                </div>
+              )}
+            </div>
             <Link href="/iletisim" onClick={() => setOpen(false)} className="nav-mobile-link">
               {t("common.contact")}
             </Link>
