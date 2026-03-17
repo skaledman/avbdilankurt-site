@@ -104,13 +104,6 @@ export function ContactSection() {
             </div>
           </a>
 
-          {/* Legal disclaimer */}
-          <div className="mt-2 rounded-2xl border border-white/[0.04] bg-white/[0.02] p-4">
-            <p className="text-[12px] leading-7 text-[rgba(232,229,221,0.44)]">
-              {t("contact.legalDisclaimer")}
-            </p>
-          </div>
-
           <div className="overflow-hidden rounded-2xl border border-[var(--gold-dim)] bg-[var(--bg-card)] p-2 shadow-[0_8px_24px_rgba(201,168,76,0.12)]">
             <div className="rounded-xl border border-white/[0.06] bg-black/10 p-5">
               <div className="flex items-start justify-between gap-4">
@@ -137,6 +130,13 @@ export function ContactSection() {
                 </a>
               </div>
             </div>
+          </div>
+
+          {/* Legal disclaimer */}
+          <div className="mt-2 rounded-2xl border border-white/[0.04] bg-white/[0.02] p-4">
+            <p className="text-[12px] leading-7 text-[rgba(232,229,221,0.44)]">
+              {t("contact.legalDisclaimer")}
+            </p>
           </div>
         </div>
 

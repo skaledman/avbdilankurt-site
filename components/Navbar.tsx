@@ -55,7 +55,7 @@ export function Navbar() {
           <div className="hidden min-w-0 flex-col justify-center md:flex">
             <span className="font-heading text-[1.02rem] font-semibold tracking-[0.08em] whitespace-nowrap xl:text-[1.18rem]">
               <span className="mr-1 text-[0.9em] text-[rgba(232,229,221,0.7)]">AV.</span>
-              <span className="bg-gradient-to-r from-amber-200 via-yellow-50 to-amber-300 bg-clip-text text-transparent">
+              <span className="text-[var(--foreground)] transition-colors duration-200 group-hover:text-[var(--gold)]">
                 {SITE_INFO.name.replace(/^Av\.?\s*/i, "").toLocaleUpperCase("tr-TR")}
               </span>
             </span>

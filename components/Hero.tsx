@@ -42,7 +42,7 @@ export function Hero() {
             <span className="text-[0.62em] font-light tracking-[0.04em] text-slate-200/90 sm:text-[0.6em]">
               {language === "tr" ? "Av." : "Atty."}
             </span>
-            <span className="bg-gradient-to-r from-amber-200 via-yellow-50 to-amber-300 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#C9A84C] via-[#FFF1CC] to-[#D4B86A] bg-clip-text text-transparent">
               {t("meta.siteName")}
             </span>
           </span>
